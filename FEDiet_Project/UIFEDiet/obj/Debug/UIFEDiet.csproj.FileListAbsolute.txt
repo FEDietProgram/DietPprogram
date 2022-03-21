@@ -1,0 +1,14 @@
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\UIFEDiet.exe.config
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\UIFEDiet.exe
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\UIFEDiet.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.AssemblyReference.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.SuggestedBindingRedirects.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.Form1.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.Properties.Resources.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.GenerateResource.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.CoreCompileInputs.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.exe
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormSignIn.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormSignUp.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormUser.resources
