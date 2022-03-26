@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4e1ccef1-4382-4647-97d1-f62854c5a37c": {
+      "ProjectGuid": "4e1ccef1-4382-4647-97d1-f62854c5a37c",
+      "DisplayName": "UIFEDiet",
+      "ColorIndex": 0
+    },
+    "121af218-0dbc-457b-9237-a06e95129812": {
+      "ProjectGuid": "121af218-0dbc-457b-9237-a06e95129812",
+      "DisplayName": "FEDiet.Model",
+      "ColorIndex": 1
+    },
+    "ee222540-9944-4325-a56a-36579e048daf": {
+      "ProjectGuid": "ee222540-9944-4325-a56a-36579e048daf",
+      "DisplayName": "FEDiet.DAL",
+      "ColorIndex": 2
+    },
+    "e2e0feda-d88d-4c99-bb9c-ac12a64d7b3a": {
+      "ProjectGuid": "e2e0feda-d88d-4c99-bb9c-ac12a64d7b3a",
+      "DisplayName": "FEDiet.BLL",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
