@@ -1,0 +1,14 @@
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.csproj.AssemblyReference.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\FEDiet.DAL.dll.config
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\FEDiet.DAL.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\FEDiet.DAL.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\FEDiet.Model.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\FEDiet.Model.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.csproj.CopyComplete
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.pdb

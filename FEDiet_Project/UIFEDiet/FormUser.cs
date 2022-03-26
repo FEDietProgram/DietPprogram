@@ -17,6 +17,9 @@ namespace UIFEDiet
             InitializeComponent();
         }
 
-      
+        private void FormUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

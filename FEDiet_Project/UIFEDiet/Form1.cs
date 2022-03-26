@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FEDiet.Model.Entities;
 
 namespace UIFEDiet
 {
@@ -15,6 +16,7 @@ namespace UIFEDiet
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }

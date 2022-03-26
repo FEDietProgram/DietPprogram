@@ -47,6 +47,7 @@
             this.btnAddWater = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -54,7 +55,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -130,16 +131,16 @@
             // lblGrass
             // 
             this.lblGrass.AutoSize = true;
-            this.lblGrass.Location = new System.Drawing.Point(159, 305);
+            this.lblGrass.Location = new System.Drawing.Point(169, 305);
             this.lblGrass.Name = "lblGrass";
-            this.lblGrass.Size = new System.Drawing.Size(55, 17);
+            this.lblGrass.Size = new System.Drawing.Size(34, 17);
             this.lblGrass.TabIndex = 8;
-            this.lblGrass.Text = "Grass";
+            this.lblGrass.Text = "Fat";
             // 
             // lblProtein
             // 
             this.lblProtein.AutoSize = true;
-            this.lblProtein.Location = new System.Drawing.Point(250, 305);
+            this.lblProtein.Location = new System.Drawing.Point(248, 305);
             this.lblProtein.Name = "lblProtein";
             this.lblProtein.Size = new System.Drawing.Size(68, 17);
             this.lblProtein.TabIndex = 10;
@@ -148,7 +149,7 @@
             // lblWater
             // 
             this.lblWater.AutoSize = true;
-            this.lblWater.Location = new System.Drawing.Point(343, 305);
+            this.lblWater.Location = new System.Drawing.Point(344, 305);
             this.lblWater.Name = "lblWater";
             this.lblWater.Size = new System.Drawing.Size(58, 17);
             this.lblWater.TabIndex = 11;
@@ -157,7 +158,7 @@
             // lblCarb
             // 
             this.lblCarb.AutoSize = true;
-            this.lblCarb.Location = new System.Drawing.Point(66, 305);
+            this.lblCarb.Location = new System.Drawing.Point(70, 305);
             this.lblCarb.Name = "lblCarb";
             this.lblCarb.Size = new System.Drawing.Size(45, 17);
             this.lblCarb.TabIndex = 9;
@@ -245,6 +246,15 @@
             this.pictureBox6.TabIndex = 24;
             this.pictureBox6.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 17);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Amount of Water:";
+            // 
             // btnExit
             // 
             this.btnExit.BackgroundImage = global::UIFEDiet.Properties.Resources.sign_out_100px;
@@ -319,14 +329,16 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // linkLabel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 17);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Amount of Water:";
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.linkLabel1.Location = new System.Drawing.Point(18, 620);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(114, 17);
+            this.linkLabel1.TabIndex = 27;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "About FADiet";
             // 
             // FormUser
             // 
@@ -334,6 +346,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lnklblUserReports);
@@ -362,6 +375,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUser";
             this.Text = "FormUser";
+            this.Load += new System.EventHandler(this.FormUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -404,5 +418,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

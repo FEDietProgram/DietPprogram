@@ -48,8 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtAd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnKayit = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,6 +55,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnKayit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHedefKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).BeginInit();
@@ -235,30 +235,6 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Name:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UIFEDiet.Properties.Resources.Body_Positive_Female_100px1;
-            this.pictureBox1.Location = new System.Drawing.Point(387, 208);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 86);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnKayit
-            // 
-            this.btnKayit.BackColor = System.Drawing.Color.Transparent;
-            this.btnKayit.BackgroundImage = global::UIFEDiet.Properties.Resources.signup;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnKayit.FlatAppearance.BorderSize = 0;
-            this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKayit.Location = new System.Drawing.Point(153, 555);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(152, 83);
-            this.btnKayit.TabIndex = 25;
-            this.btnKayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnKayit.UseVisualStyleBackColor = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -317,6 +293,30 @@
             this.textBox3.Size = new System.Drawing.Size(250, 24);
             this.textBox3.TabIndex = 49;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UIFEDiet.Properties.Resources.Body_Positive_Female_100px1;
+            this.pictureBox1.Location = new System.Drawing.Point(387, 208);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(87, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackColor = System.Drawing.Color.Transparent;
+            this.btnKayit.BackgroundImage = global::UIFEDiet.Properties.Resources.signup;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnKayit.FlatAppearance.BorderSize = 0;
+            this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKayit.Location = new System.Drawing.Point(153, 555);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(152, 83);
+            this.btnKayit.TabIndex = 25;
+            this.btnKayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnKayit.UseVisualStyleBackColor = false;
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -351,7 +351,7 @@
             this.Controls.Add(this.txtAd);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
             this.Text = "FormSignUp";
             this.groupBox1.ResumeLayout(false);
