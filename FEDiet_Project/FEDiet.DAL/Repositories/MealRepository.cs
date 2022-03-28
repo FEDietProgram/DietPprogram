@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FEDiet.DAL.Repositories
 {
-    internal class MealRepository
+    public class MealRepository
     {
         FEDietDbContext FEDietDbContext;
         public MealRepository()
@@ -16,149 +16,86 @@ namespace FEDiet.DAL.Repositories
             FEDietDbContext = new FEDietDbContext();
         }
 
-        public Meal FillMeal(List<Food> foodlist)
+        public object GetUserMealList(User user)
         {
-            Meal meal = new Meal();
-            meal.Foods = foodlist;
-            return meal;
-        }
-     
-        public decimal TotalMealCal(Meal meal, int quantity)
-        {
-            FoodPortion portion = new FoodPortion();
-            List<Food> foods = new List<Food>();//** 
-            foods = (List<Food>)meal.Foods;
-
-            decimal total = 0;  
-
-            foreach (Food food in foods)
-            {
-                switch (portion)
-                {
-                    case FoodPortion.Single:
-                        total += food.Calorie*1;
-                        break;
-
-                    case FoodPortion.Double:
-                        total += food.Calorie * 2;
-                        break;
-
-                    case FoodPortion.Quarter:
-                        total += food.Calorie * Convert.ToDecimal(0.25);
-                        break;
-
-                    case FoodPortion.Half:
-                        total += food.Calorie * Convert.ToDecimal(0.5);
-                        break;
-                    case FoodPortion.Piece:
-                        total += food.Calorie * 1;
-                        break;
-                }
-                
-            }
-            return total*quantity;   
+            return FEDietDbContext.Users.Where(x=>x.UserID == user.UserID).Select(x=>x.Meals).ToList();
         }
 
-        public decimal TotalMealFat (Meal meal, int quantity)
+        public object GetMealsbyName(User user, string mealname)
         {
-            FoodPortion portion = new FoodPortion();
-            List<Food> foods = new List<Food>();
-            foods = (List<Food>)meal.Foods;
-            decimal total = 0;
-
-            foreach (Food food in foods)
-            {
-                switch (portion)
-                {
-                    case FoodPortion.Single:
-                        total += food.Calorie * food.FatRate * 1;
-                        break;
-
-                    case FoodPortion.Double:
-                        total += food.Calorie * food.FatRate * 2;
-                        break;
-
-                    case FoodPortion.Quarter:
-                        total += food.Calorie * food.FatRate * Convert.ToDecimal(0.25);
-                        break;
-
-                    case FoodPortion.Half:
-                        total += food.Calorie * food.FatRate * Convert.ToDecimal(0.5);
-                        break;
-                    case FoodPortion.Piece:
-                        total += food.Calorie * food.FatRate * 1;
-                        break;
-                }
-            }
-            return total*quantity;
+            return FEDietDbContext.Meals.Where(x => x.MealName == mealname && x.Users.Contains(user)).ToList();
         }
 
-        public decimal TotalMealCarb(Meal meal, int quantity)
+        public object GetMealsbyName(User user, string mealname, DateTime mealtime)
         {
-            FoodPortion portion = new FoodPortion();
-            List<Food> foods = new List<Food>();
-            foods = (List<Food>)meal.Foods;
-            decimal total = 0;
-
-            foreach (Food food in foods)
-            {
-                switch (portion)
-                {
-                    case FoodPortion.Single:
-                        total += food.Calorie * food.CarbRate * 1;
-                        break;
-
-                    case FoodPortion.Double:
-                        total += food.Calorie * food.CarbRate * 2;
-                        break;
-
-                    case FoodPortion.Quarter:
-                        total += food.Calorie * food.CarbRate * Convert.ToDecimal(0.25);
-                        break;
-
-                    case FoodPortion.Half:
-                        total += food.Calorie * food.CarbRate * Convert.ToDecimal(0.5);
-                        break;
-                    case FoodPortion.Piece:
-                        total += food.Calorie * food.CarbRate * 1;
-                        break;
-                }
-            }
-            return total * quantity;
+            return FEDietDbContext.Meals.Where(x => x.MealName == mealname && x.Users.Contains(user) && x.MealTime == mealtime).Select(x=>x.Foods).ToList();
         }
 
-        public decimal TotalMealProtein(Meal meal, int quantity)
+        public Meal GetMealByID(int mealID)
         {
-            FoodPortion portion = new FoodPortion();
-            List<Food> foods = new List<Food>();
-            foods = (List<Food>)meal.Foods;
-            decimal total = 0;
+            return FEDietDbContext.Meals.Where(x => x.MealID == mealID).FirstOrDefault();
+        }
 
-            foreach (Food food in foods)
+        public object GetMealsByDate(DateTime mealtime, User user)
+        {
+            return FEDietDbContext.Meals.Where(x => x.MealTime == mealtime && x.Users.Contains(user)).ToList();
+        }
+
+        public decimal MealCalorie(User user, Meal _meal)
+        {
+            Meal meal = FEDietDbContext.Meals.Where(x => x.MealID == _meal.MealID && x.Users.Contains(user)).FirstOrDefault();
+            if (meal != null)
             {
-                switch (portion)
+                foreach (Food item in meal.Foods)
                 {
-                    case FoodPortion.Single:
-                        total += food.Calorie * food.ProteinRate * 1;
-                        break;
-
-                    case FoodPortion.Double:
-                        total += food.Calorie * food.ProteinRate * 2;
-                        break;
-
-                    case FoodPortion.Quarter:
-                        total += food.Calorie * food.ProteinRate * Convert.ToDecimal(0.25);
-                        break;
-
-                    case FoodPortion.Half:
-                        total += food.Calorie * food.ProteinRate * Convert.ToDecimal(0.5);
-                        break;
-                    case FoodPortion.Piece:
-                        total += food.Calorie * food.ProteinRate * 1;
-                        break;
+                    meal.TotalCalorie += item.Calorie;
                 }
             }
-            return total * quantity;
+            return meal.TotalCalorie;                 
+        }
+
+        public decimal DailyCalori(User user, DateTime time)
+        {
+            var mealList = FEDietDbContext.Meals.Where(x=>x.Users.Contains(user) && x.MealTime.Day == time.Day).ToList();
+            decimal dailyCalorie = 0;
+            if (mealList.Count > 0)
+            {
+                foreach (Meal item in mealList)
+                {
+                    dailyCalorie += item.TotalCalorie;
+                }
+            }
+
+            return dailyCalorie;
+
+        }
+
+        public decimal WeeklyCalori(User user, DateTime time1, DateTime time2)
+        {
+            var mealList = FEDietDbContext.Meals.Where(x => x.Users.Contains(user) && (time1 <= x.MealTime  && x.MealTime <= time2)).ToList();
+            decimal dailyCalorie = 0;
+            if (mealList.Count > 0)
+            {
+                foreach (Meal item in mealList)
+                {
+                    dailyCalorie += item.TotalCalorie;
+                }
+            }
+            return dailyCalorie;
+        }
+
+        public decimal MountlyCalori(User user, DateTime time1)
+        {
+            var mealList = FEDietDbContext.Meals.Where(x => x.Users.Contains(user) && (x.MealTime.Month == time1.Month)).ToList();
+            decimal dailyCalorie = 0;
+            if (mealList.Count > 0)
+            {
+                foreach (Meal item in mealList)
+                {
+                    dailyCalorie += item.TotalCalorie;
+                }
+            }
+            return dailyCalorie;
         }
 
     }

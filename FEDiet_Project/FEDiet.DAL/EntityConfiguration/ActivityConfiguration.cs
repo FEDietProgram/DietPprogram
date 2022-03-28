@@ -13,9 +13,7 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public ActivityConfiguration()
         {
-            HasKey(x=> x.ID);
-            Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Name).IsRequired().HasMaxLength(30);
+            Property(x => x.ActivityName).IsRequired().HasMaxLength(30);
             Property(x => x.ActivityTime).IsRequired();
             Property(x => x.BurnedCaloriePerHour).IsRequired();
 

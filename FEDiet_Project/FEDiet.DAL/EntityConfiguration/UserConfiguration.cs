@@ -13,19 +13,21 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public UserConfiguration()
         { 
-            HasKey(x=>x.ID);
-            Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Name).IsRequired().HasMaxLength(30);
-            Property(x => x.Email.EndsWith("@mail.com")).IsRequired();
-            Property(x=>x.Password).IsRequired().HasMaxLength(15);
+            HasKey(x=>x.UserID);
+            //Property(x => x.FirstName).IsRequired().HasMaxLength(30);
+            //Property(x => x.LastName).IsRequired().HasMaxLength(30);
+            //Property(x => x.Email).IsRequired();
+            //Property(x=>x.Password).IsRequired().HasMaxLength(15);
+            //Property(x=>x.GoalID).IsOptional();
 
             //Navigations
 
             HasMany(x => x.Activities).WithMany(x => x.Users);
-            HasMany(x => x.Foods).WithMany(x => x.Users);
             HasOptional(x=> x.Goal).WithMany(x => x.Users).HasForeignKey(x=>x.GoalID);
             HasMany(x => x.Meals).WithMany(x => x.Users);
             HasMany(x => x.Waters).WithMany(x => x.Users);
+            HasMany(x=> x.SpecialSituations).WithMany(x => x.Users);
+
 
         }
     }

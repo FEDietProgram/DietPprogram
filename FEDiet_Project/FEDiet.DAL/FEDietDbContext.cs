@@ -4,17 +4,19 @@ using FEDiet.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FEDiet.DAL//HasOptional(a => a.Goal).WithMany(b => b.User).HasForeignKey(c => c.GoalID)
+namespace FEDiet.DAL
 {
-    internal class FEDietDbContext:DbContext
+    public class FEDietDbContext:DbContext
     {
-        public FEDietDbContext() : base("Data Source=.;Initial Catalog=FEDietDB;Integrated Security=true;")
+        public FEDietDbContext() : base("Data Source=LAPTOP-CSE2LTTD\\SQLEXPRESS;Initial Catalog=FEDietDB;Integrated Security=true;")
         {
-            Database.SetInitializer(new AdminStrategy());
+           Database.SetInitializer(new AdminStrategy());
+           Database.SetInitializer(new FoodStrategy());
         }
 
         public DbSet<User> Users { get; set; }
@@ -23,15 +25,19 @@ namespace FEDiet.DAL//HasOptional(a => a.Goal).WithMany(b => b.User).HasForeignK
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<Water> Waters { get; set; }
+        public DbSet<SpecialSituation> SpecialSituations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new ActivityConfiguration());
             modelBuilder.Configurations.Add(new FoodConfiguration());
             modelBuilder.Configurations.Add(new GoalConfiguration());
             modelBuilder.Configurations.Add(new MealConfiguration());
             modelBuilder.Configurations.Add(new UserDetailConfiguration());
+            modelBuilder.Configurations.Add(new SpecialStuationConfiguration());
 
         }
 

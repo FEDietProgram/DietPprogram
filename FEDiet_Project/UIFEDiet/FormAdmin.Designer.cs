@@ -51,7 +51,7 @@
             this.cbFoodId = new System.Windows.Forms.ComboBox();
             this.gbActivities = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtActivityName = new System.Windows.Forms.TextBox();
             this.nudBurnedCal = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,6 +87,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAdminExit = new System.Windows.Forms.Button();
+            this.btnFoodPic = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.gbFoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoodPic)).BeginInit();
@@ -125,6 +127,7 @@
             this.fbMeals.TabStop = true;
             this.fbMeals.Text = "Meals";
             this.fbMeals.UseVisualStyleBackColor = true;
+            this.fbMeals.CheckedChanged += new System.EventHandler(this.fbMeals_CheckedChanged);
             // 
             // rbGoals
             // 
@@ -136,6 +139,7 @@
             this.rbGoals.TabStop = true;
             this.rbGoals.Text = "Goals";
             this.rbGoals.UseVisualStyleBackColor = true;
+            this.rbGoals.CheckedChanged += new System.EventHandler(this.rbGoals_CheckedChanged);
             // 
             // rbFoods
             // 
@@ -147,6 +151,7 @@
             this.rbFoods.TabStop = true;
             this.rbFoods.Text = "Foods";
             this.rbFoods.UseVisualStyleBackColor = true;
+            this.rbFoods.CheckedChanged += new System.EventHandler(this.rbFoods_CheckedChanged);
             // 
             // rbActivities
             // 
@@ -158,9 +163,11 @@
             this.rbActivities.TabStop = true;
             this.rbActivities.Text = "Activities";
             this.rbActivities.UseVisualStyleBackColor = true;
+            this.rbActivities.CheckedChanged += new System.EventHandler(this.rbActivities_CheckedChanged);
             // 
             // gbFoods
             // 
+            this.gbFoods.Controls.Add(this.btnFoodPic);
             this.gbFoods.Controls.Add(this.pbFoodPic);
             this.gbFoods.Controls.Add(this.label9);
             this.gbFoods.Controls.Add(this.label8);
@@ -190,6 +197,7 @@
             this.pbFoodPic.Location = new System.Drawing.Point(281, 30);
             this.pbFoodPic.Name = "pbFoodPic";
             this.pbFoodPic.Size = new System.Drawing.Size(153, 133);
+            this.pbFoodPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFoodPic.TabIndex = 15;
             this.pbFoodPic.TabStop = false;
             // 
@@ -309,7 +317,7 @@
             // gbActivities
             // 
             this.gbActivities.Controls.Add(this.label12);
-            this.gbActivities.Controls.Add(this.txtName);
+            this.gbActivities.Controls.Add(this.txtActivityName);
             this.gbActivities.Controls.Add(this.nudBurnedCal);
             this.gbActivities.Controls.Add(this.label11);
             this.gbActivities.Controls.Add(this.label10);
@@ -331,12 +339,12 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Name:";
             // 
-            // txtName
+            // txtActivityName
             // 
-            this.txtName.Location = new System.Drawing.Point(118, 66);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(159, 24);
-            this.txtName.TabIndex = 5;
+            this.txtActivityName.Location = new System.Drawing.Point(118, 66);
+            this.txtActivityName.Name = "txtActivityName";
+            this.txtActivityName.Size = new System.Drawing.Size(159, 24);
+            this.txtActivityName.TabIndex = 5;
             // 
             // nudBurnedCal
             // 
@@ -426,6 +434,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnArrange
             // 
@@ -435,6 +444,7 @@
             this.btnArrange.TabIndex = 9;
             this.btnArrange.Text = "Arrange";
             this.btnArrange.UseVisualStyleBackColor = true;
+            this.btnArrange.Click += new System.EventHandler(this.btnArrange_Click);
             // 
             // btnDelete
             // 
@@ -444,6 +454,7 @@
             this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // gbGoals
             // 
@@ -499,6 +510,7 @@
             this.lbUsers.Name = "lbUsers";
             this.lbUsers.Size = new System.Drawing.Size(181, 228);
             this.lbUsers.TabIndex = 13;
+            this.lbUsers.SelectedIndexChanged += new System.EventHandler(this.lbUsers_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -662,6 +674,7 @@
             this.btnReports.Size = new System.Drawing.Size(82, 46);
             this.btnReports.TabIndex = 15;
             this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnAdminExit
             // 
@@ -674,6 +687,21 @@
             this.btnAdminExit.Size = new System.Drawing.Size(75, 46);
             this.btnAdminExit.TabIndex = 0;
             this.btnAdminExit.UseVisualStyleBackColor = true;
+            this.btnAdminExit.Click += new System.EventHandler(this.btnAdminExit_Click);
+            // 
+            // btnFoodPic
+            // 
+            this.btnFoodPic.Location = new System.Drawing.Point(281, 179);
+            this.btnFoodPic.Name = "btnFoodPic";
+            this.btnFoodPic.Size = new System.Drawing.Size(153, 32);
+            this.btnFoodPic.TabIndex = 16;
+            this.btnFoodPic.Text = "Add Food Picture";
+            this.btnFoodPic.UseVisualStyleBackColor = true;
+            this.btnFoodPic.Click += new System.EventHandler(this.btnFoodPic_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormAdmin
             // 
@@ -696,6 +724,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
+            this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbFoods.ResumeLayout(false);
@@ -753,7 +782,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtActivityName;
         private System.Windows.Forms.NumericUpDown nudBurnedCal;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -780,5 +809,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.PictureBox pbFoodPic;
+        private System.Windows.Forms.Button btnFoodPic;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -13,10 +13,8 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public FoodConfiguration()
         {
-            HasKey(x => x.ID);
-            Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Name).IsRequired().HasMaxLength(50);
+            Property(x => x.FoodName).IsRequired().HasMaxLength(50);
 
             Property(x => x.Neutrition).IsRequired();
 

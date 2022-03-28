@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbThrouhtAim = new System.Windows.Forms.GroupBox();
             this.numHedefKilo = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.cbHedef = new System.Windows.Forms.ComboBox();
@@ -49,31 +49,31 @@
             this.txtAd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.txtPassword2 = new System.Windows.Forms.TextBox();
+            this.lblPasswStrength = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnKayit = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbThrouhtAim.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHedefKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbThrouhtAim
             // 
-            this.groupBox1.Controls.Add(this.numHedefKilo);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(38, 360);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 97);
-            this.groupBox1.TabIndex = 41;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Through the aim";
+            this.gbThrouhtAim.Controls.Add(this.numHedefKilo);
+            this.gbThrouhtAim.Controls.Add(this.label9);
+            this.gbThrouhtAim.Location = new System.Drawing.Point(38, 360);
+            this.gbThrouhtAim.Name = "gbThrouhtAim";
+            this.gbThrouhtAim.Size = new System.Drawing.Size(343, 97);
+            this.gbThrouhtAim.TabIndex = 41;
+            this.gbThrouhtAim.TabStop = false;
+            this.gbThrouhtAim.Text = "Through the aim";
             // 
             // numHedefKilo
             // 
@@ -244,12 +244,13 @@
             this.label10.TabIndex = 43;
             this.label10.Text = "Password:";
             // 
-            // textBox1
+            // txtPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 474);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 24);
-            this.textBox1.TabIndex = 44;
+            this.txtPassword.Location = new System.Drawing.Point(192, 474);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(191, 24);
+            this.txtPassword.TabIndex = 44;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label11
             // 
@@ -260,22 +261,22 @@
             this.label11.TabIndex = 45;
             this.label11.Text = "Repeat Password:";
             // 
-            // textBox2
+            // txtPassword2
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 515);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 24);
-            this.textBox2.TabIndex = 46;
+            this.txtPassword2.Location = new System.Drawing.Point(192, 515);
+            this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.Size = new System.Drawing.Size(191, 24);
+            this.txtPassword2.TabIndex = 46;
             // 
-            // label12
+            // lblPasswStrength
             // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(390, 477);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 17);
-            this.label12.TabIndex = 47;
-            this.label12.Text = "weak";
+            this.lblPasswStrength.AutoSize = true;
+            this.lblPasswStrength.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswStrength.Location = new System.Drawing.Point(390, 477);
+            this.lblPasswStrength.Name = "lblPasswStrength";
+            this.lblPasswStrength.Size = new System.Drawing.Size(52, 17);
+            this.lblPasswStrength.TabIndex = 47;
+            this.lblPasswStrength.Text = "weak";
             // 
             // label13
             // 
@@ -286,12 +287,12 @@
             this.label13.TabIndex = 48;
             this.label13.Text = "E-Mail:";
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 24);
-            this.textBox3.TabIndex = 49;
+            this.txtEmail.Location = new System.Drawing.Point(131, 97);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(250, 24);
+            this.txtEmail.TabIndex = 49;
             // 
             // pictureBox1
             // 
@@ -316,6 +317,7 @@
             this.btnKayit.TabIndex = 25;
             this.btnKayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKayit.UseVisualStyleBackColor = false;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // FormSignUp
             // 
@@ -323,15 +325,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lblPasswStrength);
+            this.Controls.Add(this.txtPassword2);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbThrouhtAim);
             this.Controls.Add(this.cbHedef);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rbErkek);
@@ -354,8 +356,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
             this.Text = "FormSignUp";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.FormSignUp_Load);
+            this.gbThrouhtAim.ResumeLayout(false);
+            this.gbThrouhtAim.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHedefKilo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).EndInit();
@@ -367,7 +370,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbThrouhtAim;
         private System.Windows.Forms.NumericUpDown numHedefKilo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbHedef;
@@ -390,11 +393,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPassword2;
+        private System.Windows.Forms.Label lblPasswStrength;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

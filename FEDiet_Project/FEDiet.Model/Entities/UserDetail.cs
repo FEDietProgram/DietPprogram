@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FEDiet.Model.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,14 @@ namespace FEDiet.Model.Entities
     public class UserDetail
     {
         public int ID { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
+        public decimal Height { get; set; }
+        public decimal Weight { get; set; }
         public DateTime BirthDate { get; set; }
-        public string Gender { get; set; }
+        public bool Gender { get; set; }
         public string Job { get; set; }
         public virtual User User { get; set; }
-
-        //Hedef
-        //Özel durum
-        //Activity
-
+        public decimal GoalCaloriePerDay { get; set; }
+        public AgeGroup AgeGroup { get; set; }  
 
     }
 }

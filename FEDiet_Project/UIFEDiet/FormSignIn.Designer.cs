@@ -35,7 +35,7 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnGiris = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkTerms = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // txtSifre
             // 
             this.txtSifre.Location = new System.Drawing.Point(132, 333);
-            this.txtSifre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSifre.Margin = new System.Windows.Forms.Padding(4);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(247, 24);
             this.txtSifre.TabIndex = 19;
@@ -70,7 +70,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(132, 271);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(247, 24);
             this.txtMail.TabIndex = 16;
@@ -98,16 +98,17 @@
             this.btnGiris.Size = new System.Drawing.Size(138, 114);
             this.btnGiris.TabIndex = 17;
             this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
-            // checkBox1
+            // chkTerms
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(132, 379);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(250, 21);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "I agree to the terms of use";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkTerms.AutoSize = true;
+            this.chkTerms.Location = new System.Drawing.Point(132, 379);
+            this.chkTerms.Name = "chkTerms";
+            this.chkTerms.Size = new System.Drawing.Size(250, 21);
+            this.chkTerms.TabIndex = 22;
+            this.chkTerms.Text = "I agree to the terms of use";
+            this.chkTerms.UseVisualStyleBackColor = true;
             // 
             // FormSignIn
             // 
@@ -115,7 +116,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chkTerms);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSifre);
@@ -123,7 +124,7 @@
             this.Controls.Add(this.btnGiris);
             this.Controls.Add(this.txtMail);
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignIn";
             this.Text = "FormSignIn";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -140,6 +141,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkTerms;
     }
 }

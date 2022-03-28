@@ -13,12 +13,10 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public GoalConfiguration()
         {
-            HasKey(x => x.ID);
-            Property(x => x.ID).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
+            HasKey(x => x.GoalID);
+           
             Property(x => x.Name).IsRequired().HasMaxLength(50);
-
-            Property(x => x.DesiredWeinght).IsRequired();
+            //HasMany(x => x.Users).WithRequired(x => x.Goal).HasForeignKey(x => x.GoalID);
 
         }
     }

@@ -31,7 +31,7 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblUserWeight = new System.Windows.Forms.Label();
             this.lblUserGoal = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.pBSuccessRate = new System.Windows.Forms.ProgressBar();
             this.lblDuserCal = new System.Windows.Forms.Label();
             this.lblDUserConsCal = new System.Windows.Forms.Label();
             this.lblDuserBurnCal = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.btnActivity = new System.Windows.Forms.Button();
             this.dtDay = new System.Windows.Forms.DateTimePicker();
             this.lnklblUserReports = new System.Windows.Forms.LinkLabel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numWater = new System.Windows.Forms.NumericUpDown();
             this.btnAddWater = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -56,7 +56,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWater)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -93,22 +93,22 @@
             this.lblUserGoal.TabIndex = 2;
             this.lblUserGoal.Text = "Your goal is...";
             // 
-            // progressBar1
+            // pBSuccessRate
             // 
-            this.progressBar1.Location = new System.Drawing.Point(222, 76);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(178, 17);
-            this.progressBar1.TabIndex = 3;
-            this.progressBar1.Value = 50;
+            this.pBSuccessRate.Location = new System.Drawing.Point(222, 76);
+            this.pBSuccessRate.Name = "pBSuccessRate";
+            this.pBSuccessRate.Size = new System.Drawing.Size(178, 17);
+            this.pBSuccessRate.TabIndex = 3;
+            this.pBSuccessRate.Value = 50;
             // 
             // lblDuserCal
             // 
             this.lblDuserCal.AutoSize = true;
             this.lblDuserCal.Location = new System.Drawing.Point(207, 194);
             this.lblDuserCal.Name = "lblDuserCal";
-            this.lblDuserCal.Size = new System.Drawing.Size(82, 17);
+            this.lblDuserCal.Size = new System.Drawing.Size(78, 17);
             this.lblDuserCal.TabIndex = 5;
-            this.lblDuserCal.Text = "Dayly cal";
+            this.lblDuserCal.Text = "Daily cal";
             // 
             // lblDUserConsCal
             // 
@@ -174,6 +174,7 @@
             this.btnMeal.TabIndex = 16;
             this.btnMeal.Text = "MEAL";
             this.btnMeal.UseVisualStyleBackColor = true;
+            this.btnMeal.Click += new System.EventHandler(this.btnMeal_Click);
             // 
             // btnActivity
             // 
@@ -185,6 +186,7 @@
             this.btnActivity.TabIndex = 17;
             this.btnActivity.Text = "ACTIVITY";
             this.btnActivity.UseVisualStyleBackColor = true;
+            this.btnActivity.Click += new System.EventHandler(this.btnActivity_Click);
             // 
             // dtDay
             // 
@@ -205,12 +207,12 @@
             this.lnklblUserReports.TabStop = true;
             this.lnklblUserReports.Text = "See my reports";
             // 
-            // numericUpDown1
+            // numWater
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(153, 36);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(67, 24);
-            this.numericUpDown1.TabIndex = 22;
+            this.numWater.Location = new System.Drawing.Point(153, 36);
+            this.numWater.Name = "numWater";
+            this.numWater.Size = new System.Drawing.Size(67, 24);
+            this.numWater.TabIndex = 22;
             // 
             // btnAddWater
             // 
@@ -223,11 +225,12 @@
             this.btnAddWater.TabIndex = 23;
             this.btnAddWater.Text = "Add";
             this.btnAddWater.UseVisualStyleBackColor = true;
+            this.btnAddWater.Click += new System.EventHandler(this.btnAddWater_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureBox6);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.numWater);
             this.groupBox1.Controls.Add(this.btnAddWater);
             this.groupBox1.Location = new System.Drawing.Point(69, 519);
             this.groupBox1.Name = "groupBox1";
@@ -266,6 +269,7 @@
             this.btnExit.Size = new System.Drawing.Size(123, 67);
             this.btnExit.TabIndex = 20;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSettings
             // 
@@ -278,6 +282,7 @@
             this.btnSettings.Size = new System.Drawing.Size(75, 61);
             this.btnSettings.TabIndex = 19;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // pictureBox5
             // 
@@ -339,6 +344,7 @@
             this.linkLabel1.TabIndex = 27;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "About FADiet";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // FormUser
             // 
@@ -367,7 +373,7 @@
             this.Controls.Add(this.lblDUserConsCal);
             this.Controls.Add(this.lblDuserCal);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.pBSuccessRate);
             this.Controls.Add(this.lblUserGoal);
             this.Controls.Add(this.lblUserWeight);
             this.Controls.Add(this.lblUserName);
@@ -376,7 +382,7 @@
             this.Name = "FormUser";
             this.Text = "FormUser";
             this.Load += new System.EventHandler(this.FormUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWater)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -394,7 +400,7 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblUserWeight;
         private System.Windows.Forms.Label lblUserGoal;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar pBSuccessRate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblDuserCal;
         private System.Windows.Forms.Label lblDUserConsCal;
@@ -413,7 +419,7 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.LinkLabel lnklblUserReports;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numWater;
         private System.Windows.Forms.Button btnAddWater;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox6;

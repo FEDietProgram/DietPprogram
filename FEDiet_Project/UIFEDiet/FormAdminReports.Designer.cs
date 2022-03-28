@@ -41,6 +41,7 @@
             this.cbReports.Name = "cbReports";
             this.cbReports.Size = new System.Drawing.Size(332, 24);
             this.cbReports.TabIndex = 0;
+            this.cbReports.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbReports_MouseClick);
             // 
             // label1
             // 
@@ -71,7 +72,8 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "FormAdminReports";
-            this.Text = "FormAdminReports";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.FormAdminReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

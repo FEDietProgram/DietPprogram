@@ -18,3 +18,16 @@ C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.Fo
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormUserDietDetails.resources
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormUserEditActivity.resources
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormUserEditMeal.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\EntityFramework.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\EntityFramework.xml
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormAboutUs.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.CopyComplete
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.BLL.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.DAL.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.Model.dll
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.BLL.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.DAL.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.DAL.dll.config
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\bin\Debug\FEDiet.Model.pdb

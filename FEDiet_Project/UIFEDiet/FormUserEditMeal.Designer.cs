@@ -39,12 +39,14 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.cbPorsion = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvMeals = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbFoods = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMealName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.pbFood = new System.Windows.Forms.PictureBox();
@@ -102,6 +104,7 @@
             this.cbFood.Name = "cbFood";
             this.cbFood.Size = new System.Drawing.Size(200, 24);
             this.cbFood.TabIndex = 10;
+            this.cbFood.SelectedIndexChanged += new System.EventHandler(this.cbFood_SelectedIndexChanged);
             // 
             // btnUpdate
             // 
@@ -114,6 +117,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(63, 53);
             this.btnUpdate.TabIndex = 13;
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -126,6 +130,7 @@
             this.btnAdd.Size = new System.Drawing.Size(90, 77);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -138,6 +143,7 @@
             this.btnDelete.Size = new System.Drawing.Size(48, 51);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // cbPorsion
             // 
@@ -156,21 +162,21 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Porsion:";
             // 
-            // listView1
+            // lvMeals
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvMeals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(17, 70);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(412, 183);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvMeals.GridLines = true;
+            this.lvMeals.HideSelection = false;
+            this.lvMeals.Location = new System.Drawing.Point(17, 70);
+            this.lvMeals.Name = "lvMeals";
+            this.lvMeals.Size = new System.Drawing.Size(412, 183);
+            this.lvMeals.TabIndex = 16;
+            this.lvMeals.UseCompatibleStateImageBehavior = false;
+            this.lvMeals.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -194,9 +200,11 @@
             // 
             // grbFoods
             // 
+            this.grbFoods.Controls.Add(this.label6);
+            this.grbFoods.Controls.Add(this.cbMealName);
             this.grbFoods.Controls.Add(this.label5);
             this.grbFoods.Controls.Add(this.dtpDate);
-            this.grbFoods.Controls.Add(this.listView1);
+            this.grbFoods.Controls.Add(this.lvMeals);
             this.grbFoods.Controls.Add(this.btnDelete);
             this.grbFoods.Controls.Add(this.btnUpdate);
             this.grbFoods.Location = new System.Drawing.Point(12, 334);
@@ -205,6 +213,24 @@
             this.grbFoods.TabIndex = 17;
             this.grbFoods.TabStop = false;
             this.grbFoods.Text = "Foods";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Meal Name:";
+            // 
+            // cbMealName
+            // 
+            this.cbMealName.FormattingEnabled = true;
+            this.cbMealName.Location = new System.Drawing.Point(127, 269);
+            this.cbMealName.Name = "cbMealName";
+            this.cbMealName.Size = new System.Drawing.Size(121, 24);
+            this.cbMealName.TabIndex = 19;
+            this.cbMealName.SelectedIndexChanged += new System.EventHandler(this.cbMealName_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -251,6 +277,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserEditMeal";
             this.Text = "FormUserEditMeal";
+            this.Load += new System.EventHandler(this.FormUserEditMeal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).EndInit();
             this.grbFoods.ResumeLayout(false);
             this.grbFoods.PerformLayout();
@@ -273,7 +300,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cbPorsion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvMeals;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -282,5 +309,7 @@
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.PictureBox pbFood;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbMealName;
     }
 }
