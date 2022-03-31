@@ -20,7 +20,7 @@ namespace FEDiet.DAL.EntityConfiguration
 
             // Navigations
 
-            HasOptional(x => x.User).WithRequired(x => x.UserDetail);
+            HasRequired(x => x.User).WithOptional(x => x.UserDetail);
            
            
         }

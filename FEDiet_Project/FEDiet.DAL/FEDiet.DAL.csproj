@@ -10,11 +10,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FEDiet.DAL</RootNamespace>
     <AssemblyName>FEDiet.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,7 +68,9 @@
     <Compile Include="Repositories\MealRepository.cs" />
     <Compile Include="Repositories\UserDetailRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\WaterRepository.cs" />
     <Compile Include="Strategy\AdminStrategy.cs" />
+    <Compile Include="Strategy\FoodStrategy.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

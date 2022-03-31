@@ -9,12 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>UIFEDiet</RootNamespace>
     <AssemblyName>UIFEDiet</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -270,10 +271,35 @@
       <Project>{e2e0feda-d88d-4c99-bb9c-ac12a64d7b3a}</Project>
       <Name>FEDiet.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FEDiet.DAL\FEDiet.DAL.csproj">
+      <Project>{EE222540-9944-4325-A56A-36579E048DAF}</Project>
+      <Name>FEDiet.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FEDiet.Model\FEDiet.Model.csproj">
       <Project>{121af218-0dbc-457b-9237-a06e95129812}</Project>
       <Name>FEDiet.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitterLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linkedin_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_to_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -62,6 +62,7 @@
             this.btnKayit.TabIndex = 4;
             this.btnKayit.Text = "SIGN UP";
             this.btnKayit.UseVisualStyleBackColor = false;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // btnGiris
             // 
@@ -77,6 +78,7 @@
             this.btnGiris.TabIndex = 3;
             this.btnGiris.Text = "SIGN IN";
             this.btnGiris.UseVisualStyleBackColor = false;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // pictureBox1
             // 

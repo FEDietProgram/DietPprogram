@@ -36,12 +36,12 @@
             this.grbActivities = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvActivity = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
             this.grbActivities.SuspendLayout();
             this.SuspendLayout();
@@ -90,14 +90,15 @@
             this.btnAdd.Size = new System.Drawing.Size(81, 80);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // grbActivities
             // 
             this.grbActivities.Controls.Add(this.label5);
             this.grbActivities.Controls.Add(this.dtpDate);
-            this.grbActivities.Controls.Add(this.listView1);
-            this.grbActivities.Controls.Add(this.button1);
-            this.grbActivities.Controls.Add(this.button2);
+            this.grbActivities.Controls.Add(this.lvActivity);
+            this.grbActivities.Controls.Add(this.btnDelete);
+            this.grbActivities.Controls.Add(this.btnUpdate);
             this.grbActivities.Location = new System.Drawing.Point(17, 307);
             this.grbActivities.Name = "grbActivities";
             this.grbActivities.Size = new System.Drawing.Size(445, 325);
@@ -121,20 +122,20 @@
             this.dtpDate.Size = new System.Drawing.Size(233, 24);
             this.dtpDate.TabIndex = 19;
             // 
-            // listView1
+            // lvActivity
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvActivity.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(17, 86);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(412, 183);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvActivity.GridLines = true;
+            this.lvActivity.HideSelection = false;
+            this.lvActivity.Location = new System.Drawing.Point(17, 86);
+            this.lvActivity.Name = "lvActivity";
+            this.lvActivity.Size = new System.Drawing.Size(412, 183);
+            this.lvActivity.TabIndex = 16;
+            this.lvActivity.UseCompatibleStateImageBehavior = false;
+            this.lvActivity.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -151,29 +152,30 @@
             this.columnHeader3.Text = "Calories Burned";
             this.columnHeader3.Width = 137;
             // 
-            // button1
+            // btnDelete
             // 
-            this.button1.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(360, 273);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 51);
-            this.button1.TabIndex = 11;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDelete.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(360, 273);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(48, 51);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(293, 268);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 53);
-            this.button2.TabIndex = 13;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Location = new System.Drawing.Point(293, 268);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(63, 53);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // FormUserEditActivity
             // 
@@ -191,6 +193,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserEditActivity";
             this.Text = "FormUserEditActivity";
+            this.Load += new System.EventHandler(this.FormUserEditActivity_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).EndInit();
             this.grbActivities.ResumeLayout(false);
             this.grbActivities.PerformLayout();
@@ -207,12 +210,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox grbActivities;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvActivity;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDate;
     }

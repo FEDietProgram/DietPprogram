@@ -27,7 +27,7 @@ namespace FEDiet.Model.Entities
         public ICollection<Meal> Meals { get; set; }
         public virtual UserDetail UserDetail { get; set; }
         public ICollection<Water> Waters{ get; set; }
-        public int GoalID { get; set; }
+        public int? GoalID { get; set; }
         public virtual Goal Goal { get; set; }
         public ICollection<SpecialSituation> SpecialSituations { get; set; }
 

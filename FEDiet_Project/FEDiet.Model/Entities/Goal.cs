@@ -16,7 +16,7 @@ namespace FEDiet.Model.Entities
 
         public int GoalID { get; set; }
         public string Name { get; set; }
-        public int DesiredWeinght { get; set; }
+        public int DesiredWeight { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

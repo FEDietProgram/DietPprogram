@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FEDiet.DAL.Repositories
 {
-    internal class FoodRepository
+    public class FoodRepository
     {
         FEDietDbContext FEDietDbContext;
         public FoodRepository()
@@ -45,6 +45,35 @@ namespace FEDiet.DAL.Repositories
             }
             return foodlist;
         }
+        //id ye göre food getir
+        public Food GetFoodbyId (int id)
+        {
+            return FEDietDbContext.Foods.Find(id);
+        }
+
+
+        public byte[] GetFoodPicByName(int id)
+        {
+            byte[] pic = null;
+            if (id != 0)
+            {
+                pic = FEDietDbContext.Foods.Where(x => x.FoodID == id).Select(x=>x.FoodPictures).FirstOrDefault();
+            }
+
+            return pic;
+        }
+
+        public List<Food> GetAllFoods()
+        {
+            return FEDietDbContext.Foods.ToList();
+        }
+
+
+
+
+
+
+       
      
 
     }

@@ -16,7 +16,7 @@ namespace FEDiet.Model.Entities
         public int FoodID { get; set; }
         public string FoodName { get; set; }
         public decimal Calorie { get; set; }
-        public string Picture { get; set; }      
+        public byte[] FoodPictures { get; set; }    
         public Neutrition Neutrition { get; set; } 
         public ICollection<Meal> Meals { get; set; }
         public decimal CarbRate { get; set; }

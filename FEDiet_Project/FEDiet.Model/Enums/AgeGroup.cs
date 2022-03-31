@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FEDiet.Model.Enums
 {
-    enum AgeGroup
+   public enum AgeGroup
     {
         infant,
         child,

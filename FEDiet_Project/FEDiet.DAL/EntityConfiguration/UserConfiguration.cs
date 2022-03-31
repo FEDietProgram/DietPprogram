@@ -14,11 +14,11 @@ namespace FEDiet.DAL.EntityConfiguration
         public UserConfiguration()
         { 
             HasKey(x=>x.UserID);
-            Property(x => x.FirstName).IsRequired().HasMaxLength(30);
-            Property(x => x.LastName).IsRequired().HasMaxLength(30);
-            Property(x => x.Email).IsRequired();
-            Property(x=>x.Password).IsRequired().HasMaxLength(15);
-            Property(x=>x.GoalID).IsOptional();
+            //Property(x => x.FirstName).IsRequired().HasMaxLength(30);
+            //Property(x => x.LastName).IsRequired().HasMaxLength(30);
+            //Property(x => x.Email).IsRequired();
+            //Property(x=>x.Password).IsRequired().HasMaxLength(15);
+            //Property(x=>x.GoalID).IsOptional();
 
             //Navigations
 

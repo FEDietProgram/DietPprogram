@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FEDiet.DAL.Repositories
 {
-    internal class MealRepository
+    public class MealRepository
     {
         FEDietDbContext FEDietDbContext;
         public MealRepository()
@@ -24,6 +24,11 @@ namespace FEDiet.DAL.Repositories
         public object GetMealsbyName(User user, string mealname)
         {
             return FEDietDbContext.Meals.Where(x => x.MealName == mealname && x.Users.Contains(user)).ToList();
+        }
+
+        public object GetMealsbyName(User user, string mealname, DateTime mealtime)
+        {
+            return FEDietDbContext.Meals.Where(x => x.MealName == mealname && x.Users.Contains(user) && x.MealTime == mealtime).Select(x=>x.Foods).ToList();
         }
 
         public Meal GetMealByID(int mealID)
@@ -46,12 +51,10 @@ namespace FEDiet.DAL.Repositories
                     meal.TotalCalorie += item.Calorie;
                 }
             }
-
-            return meal.TotalCalorie;
-                 
+            return meal.TotalCalorie;                 
         }
 
-        public decimal DailyCalori(User user, Meal _meal, DateTime time)
+        public decimal DailyCalori(User user, DateTime time)
         {
             var mealList = FEDietDbContext.Meals.Where(x=>x.Users.Contains(user) && x.MealTime.Day == time.Day).ToList();
             decimal dailyCalorie = 0;
@@ -67,7 +70,7 @@ namespace FEDiet.DAL.Repositories
 
         }
 
-        public decimal WeeklyCalori(User user, Meal _meal, DateTime time1, DateTime time2)
+        public decimal WeeklyCalori(User user, DateTime time1, DateTime time2)
         {
             var mealList = FEDietDbContext.Meals.Where(x => x.Users.Contains(user) && (time1 <= x.MealTime  && x.MealTime <= time2)).ToList();
             decimal dailyCalorie = 0;
@@ -78,12 +81,10 @@ namespace FEDiet.DAL.Repositories
                     dailyCalorie += item.TotalCalorie;
                 }
             }
-
             return dailyCalorie;
-
         }
 
-        public decimal MountlyCalori(User user, Meal _meal, DateTime time1)
+        public decimal MountlyCalori(User user, DateTime time1)
         {
             var mealList = FEDietDbContext.Meals.Where(x => x.Users.Contains(user) && (x.MealTime.Month == time1.Month)).ToList();
             decimal dailyCalorie = 0;
@@ -94,9 +95,7 @@ namespace FEDiet.DAL.Repositories
                     dailyCalorie += item.TotalCalorie;
                 }
             }
-
             return dailyCalorie;
-
         }
 
     }

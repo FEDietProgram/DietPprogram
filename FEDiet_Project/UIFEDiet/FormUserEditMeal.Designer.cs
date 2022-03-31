@@ -34,22 +34,23 @@
             this.cbActivity = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbFood = new System.Windows.Forms.ComboBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.cbPorsion = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvMeals = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbFoods = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMealName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pbFood = new System.Windows.Forms.PictureBox();
-            this.cbMealName = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).BeginInit();
             this.grbFoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFood)).BeginInit();
@@ -104,42 +105,7 @@
             this.cbFood.Name = "cbFood";
             this.cbFood.Size = new System.Drawing.Size(200, 24);
             this.cbFood.TabIndex = 10;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(293, 254);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(63, 53);
-            this.btnUpdate.TabIndex = 13;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::UIFEDiet.Properties.Resources.add_100px;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(168, 228);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(90, 77);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(360, 259);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(48, 51);
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.cbFood.SelectedIndexChanged += new System.EventHandler(this.cbFood_SelectedIndexChanged);
             // 
             // cbPorsion
             // 
@@ -158,21 +124,21 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Porsion:";
             // 
-            // listView1
+            // lvMeals
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvMeals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(17, 70);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(412, 183);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvMeals.GridLines = true;
+            this.lvMeals.HideSelection = false;
+            this.lvMeals.Location = new System.Drawing.Point(17, 70);
+            this.lvMeals.Name = "lvMeals";
+            this.lvMeals.Size = new System.Drawing.Size(412, 183);
+            this.lvMeals.TabIndex = 16;
+            this.lvMeals.UseCompatibleStateImageBehavior = false;
+            this.lvMeals.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -200,15 +166,33 @@
             this.grbFoods.Controls.Add(this.cbMealName);
             this.grbFoods.Controls.Add(this.label5);
             this.grbFoods.Controls.Add(this.dtpDate);
-            this.grbFoods.Controls.Add(this.listView1);
+            this.grbFoods.Controls.Add(this.lvMeals);
             this.grbFoods.Controls.Add(this.btnDelete);
             this.grbFoods.Controls.Add(this.btnUpdate);
-            this.grbFoods.Location = new System.Drawing.Point(12, 334);
+            this.grbFoods.Location = new System.Drawing.Point(21, 294);
             this.grbFoods.Name = "grbFoods";
-            this.grbFoods.Size = new System.Drawing.Size(445, 315);
+            this.grbFoods.Size = new System.Drawing.Size(445, 311);
             this.grbFoods.TabIndex = 17;
             this.grbFoods.TabStop = false;
             this.grbFoods.Text = "Foods";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 273);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Meal Name:";
+            // 
+            // cbMealName
+            // 
+            this.cbMealName.FormattingEnabled = true;
+            this.cbMealName.Location = new System.Drawing.Point(127, 269);
+            this.cbMealName.Name = "cbMealName";
+            this.cbMealName.Size = new System.Drawing.Size(121, 24);
+            this.cbMealName.TabIndex = 19;
+            this.cbMealName.SelectedIndexChanged += new System.EventHandler(this.cbMealName_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -226,6 +210,19 @@
             this.dtpDate.Size = new System.Drawing.Size(256, 24);
             this.dtpDate.TabIndex = 17;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = global::UIFEDiet.Properties.Resources.back_100px;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(393, 605);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(74, 56);
+            this.btnBack.TabIndex = 19;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // pbFood
             // 
             this.pbFood.Location = new System.Drawing.Point(313, 40);
@@ -234,22 +231,44 @@
             this.pbFood.TabIndex = 18;
             this.pbFood.TabStop = false;
             // 
-            // cbMealName
+            // btnDelete
             // 
-            this.cbMealName.FormattingEnabled = true;
-            this.cbMealName.Location = new System.Drawing.Point(127, 269);
-            this.cbMealName.Name = "cbMealName";
-            this.cbMealName.Size = new System.Drawing.Size(121, 24);
-            this.cbMealName.TabIndex = 19;
+            this.btnDelete.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(360, 257);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(48, 51);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // label6
+            // btnUpdate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 273);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 17);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Meal Name:";
+            this.btnUpdate.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Location = new System.Drawing.Point(293, 254);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(63, 53);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::UIFEDiet.Properties.Resources.add_100px;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Location = new System.Drawing.Point(168, 228);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(90, 77);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // FormUserEditMeal
             // 
@@ -257,6 +276,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pbFood);
             this.Controls.Add(this.grbFoods);
             this.Controls.Add(this.cbPorsion);
@@ -272,6 +292,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserEditMeal";
             this.Text = "FormUserEditMeal";
+            this.Load += new System.EventHandler(this.FormUserEditMeal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).EndInit();
             this.grbFoods.ResumeLayout(false);
             this.grbFoods.PerformLayout();
@@ -294,7 +315,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox cbPorsion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvMeals;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -305,5 +326,6 @@
         private System.Windows.Forms.PictureBox pbFood;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbMealName;
+        private System.Windows.Forms.Button btnBack;
     }
 }

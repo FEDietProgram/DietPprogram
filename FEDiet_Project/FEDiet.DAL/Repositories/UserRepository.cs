@@ -5,19 +5,39 @@ using System.Linq;
 
 namespace FEDiet.DAL.Repositories
 {
-    internal class UserRepository
+    public class UserRepository
     {
         FEDietDbContext FEDietDbContext;
-        MealRepository MealRepository;
+        
         public UserRepository()
         {
-            FEDietDbContext = new FEDietDbContext();
-            MealRepository = new MealRepository();
+            FEDietDbContext = new FEDietDbContext();           
         }
 
         public int UserSignUp(User user)
         {
             FEDietDbContext.Users.Add(user);
+            return FEDietDbContext.SaveChanges();
+        }
+
+        public int UpdateUser(User _user)
+        {
+            User user= FEDietDbContext.Users.Find(_user);
+
+            user.FirstName = _user.FirstName;
+            user.LastName = _user.LastName;
+            user.Email = _user.Email;
+            user.Goal = _user.Goal;
+            user.UserDetail.Job = _user.UserDetail.Job;
+            user.UserDetail.Weight = _user.UserDetail.Weight;   
+            user.UserDetail.Height = _user.UserDetail.Height;
+            user.UserDetail.NeckWidth=user.UserDetail.NeckWidth;
+            user.UserDetail.BirthDate = _user.UserDetail.BirthDate;
+            user.UserDetail.Gender = _user.UserDetail.Gender;  
+            user.UserDetail.HipWidth = _user.UserDetail.HipWidth;
+            user.UserDetail.WaistWidth=user.UserDetail.WaistWidth;
+            user.Password = _user.Password;
+            user.SpecialSituations = _user.SpecialSituations;
             return FEDietDbContext.SaveChanges();
         }
 
@@ -32,7 +52,7 @@ namespace FEDiet.DAL.Repositories
             return null;
         }
 
-        public int AddMealbyUser(User user, Meal meal)
+        public int AddMealbyUser(User user, Meal meal)//food eklenme ??
         {
             User _user = FEDietDbContext.Users.Where(x => x.UserID == user.UserID).FirstOrDefault();
             _user.Meals.Add(meal);
@@ -52,11 +72,9 @@ namespace FEDiet.DAL.Repositories
                 meal.Quantity = _meal.Quantity;
                 meal.FoodPortion = _meal.FoodPortion;
                 meal.TotalCalorie = _meal.TotalCalorie;
-            }
-        
+            }       
 
-            return FEDietDbContext.SaveChanges();
-        
+            return FEDietDbContext.SaveChanges();        
         }
 
         public int DeleteMealbyUser(User _user, Meal _meal)
@@ -67,7 +85,6 @@ namespace FEDiet.DAL.Repositories
             {
                 _user.Meals.Remove(meal);
             }
-
             return FEDietDbContext.SaveChanges();
         }
 
@@ -107,10 +124,10 @@ namespace FEDiet.DAL.Repositories
         }
 
         //seçilen tarihe göre aktivite listele 
-        public List<Activity> ActivityList(DateTime date,User _user,Activity _activity )
+        public List<Activity> ActivityList(DateTime date,User _user )
         {
             _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-          var activityList = _user.Activities.Where(x => x.ActivityID == _activity.ActivityID && x.ActivityDay==date).ToList();
+          var activityList = _user.Activities.Where(x => x.ActivityDay==date).ToList();
             return activityList;
         }
 
@@ -178,7 +195,7 @@ namespace FEDiet.DAL.Repositories
         }
 
         //yağ oranı ortalamadan yüksek olan ve su oranı ortalamadan düşük olan yemekler listesi sorgu; bad idea
-
+        //formuserreports
         public List<Food> BadFoodList(User _user)
         {
             _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
@@ -377,27 +394,36 @@ namespace FEDiet.DAL.Repositories
             return FailDay;
 
         }
-        //public string PasswordStrengthCheck(string password)      
-        //{
-        //    string passwordStrength = "";
-        //    if (!string.IsNullOrEmpty(password) && password.Length>=4)
-        //    {
-        //        if (password.Any(char.IsUpper) || password.Any(char.IsLower) && password.Any(char.IsLetter) && !password.Any(char.IsDigit) && !password.Any(char.IsSymbol))
-        //        {
-        //            passwordStrength = "Weak";
-        //        }
-        //        else if (password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit) && password.Any(char.IsLetter) && password.Length <=6)
-        //        {
-        //            passwordStrength = "Medium";
-        //        }
-        //        else
-        //        {
-        //            passwordStrength = "Strong";
-        //        }
-        //    }
-        //    return passwordStrength;
-        //}
+        public string PasswordStrengthCheck(string password)
+        {
+            string passwordStrength = "";
+            if (!string.IsNullOrEmpty(password) && password.Length >= 4)
+            {
+                if (password.Any(char.IsUpper) || password.Any(char.IsLower) && password.Any(char.IsLetter) && !password.Any(char.IsDigit) && !password.Any(char.IsSymbol))
+                {
+                    passwordStrength = "Weak";
+                }
+                else if (password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit) && password.Any(char.IsLetter) && password.Length <= 6)
+                {
+                    passwordStrength = "Medium";
+                }
+                else
+                {
+                    passwordStrength = "Strong";
+                }
+            }
+            return passwordStrength;
+        }
 
+        public List<User> UserList()
+        {
+            return FEDietDbContext.Users.ToList();
+        }
+
+        public int UserAge(DateTime date)
+        {
+            return DateTime.Now.Year- date.Year;
+        }
 
     }
 }

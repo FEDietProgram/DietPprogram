@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FEDiet.BLL</RootNamespace>
     <AssemblyName>FEDiet.BLL</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,10 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ActivityServices.cs" />
+    <Compile Include="Services\AdminServices.cs" />
+    <Compile Include="Services\FoodServices.cs" />
+    <Compile Include="Services\GoalServices.cs" />
+    <Compile Include="Services\MealServices.cs" />
+    <Compile Include="Services\UserDetailServices.cs" />
+    <Compile Include="Services\UserServices.cs" />
+    <Compile Include="Services\WaterServices.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FEDiet.DAL\FEDiet.DAL.csproj">
       <Project>{ee222540-9944-4325-a56a-36579e048daf}</Project>

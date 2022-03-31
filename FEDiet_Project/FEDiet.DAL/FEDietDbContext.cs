@@ -16,6 +16,7 @@ namespace FEDiet.DAL
         public FEDietDbContext() : base("Data Source=LAPTOP-CSE2LTTD\\SQLEXPRESS;Initial Catalog=FEDietDB;Integrated Security=true;")
         {
            Database.SetInitializer(new AdminStrategy());
+           //Database.SetInitializer(new FoodStrategy());
         }
 
         public DbSet<User> Users { get; set; }
