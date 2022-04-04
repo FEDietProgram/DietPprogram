@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbBetter = new System.Windows.Forms.ListBox();
             this.lbBad = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,36 +43,6 @@
             this.monthCalendar1.Location = new System.Drawing.Point(132, 19);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 193);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(454, 183);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Meal";
-            this.columnHeader1.Width = 89;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Porsion";
-            this.columnHeader2.Width = 92;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Calory";
-            this.columnHeader3.Width = 94;
             // 
             // lbBetter
             // 
@@ -145,12 +111,12 @@
             this.ClientSize = new System.Drawing.Size(484, 661);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.monthCalendar1);
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserDietDetails";
             this.Text = "FormUserDietDetails";
+            this.Load += new System.EventHandler(this.FormUserDietDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,10 +126,6 @@
         #endregion
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ListBox lbBetter;
         private System.Windows.Forms.ListBox lbBad;
         private System.Windows.Forms.Label label1;

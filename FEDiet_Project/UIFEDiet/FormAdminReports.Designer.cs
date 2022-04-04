@@ -31,6 +31,7 @@
             this.cbReports = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,8 +58,21 @@
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Location = new System.Drawing.Point(13, 51);
             this.dgvReport.Name = "dgvReport";
-            this.dgvReport.Size = new System.Drawing.Size(459, 598);
+            this.dgvReport.Size = new System.Drawing.Size(459, 566);
             this.dgvReport.TabIndex = 2;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = global::UIFEDiet.Properties.Resources.back_to_24px;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(414, 626);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(58, 31);
+            this.btnBack.TabIndex = 20;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FormAdminReports
             // 
@@ -66,6 +80,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbReports);
@@ -85,5 +100,6 @@
         private System.Windows.Forms.ComboBox cbReports;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvReport;
+        private System.Windows.Forms.Button btnBack;
     }
 }

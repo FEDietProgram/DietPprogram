@@ -16,11 +16,9 @@ namespace FEDiet.Model.Entities
         }
         public int MealID { get; set; }
         public string MealName { get; set; }
-        public DateTime MealTime { get; set; } = DateTime.Now;
-        public ICollection<User> Users { get; set; }
-        public ICollection<Food> Foods { get; set; }
-        public FoodPortion FoodPortion{ get; set; }
-        public int Quantity { get; set; }
-        public decimal TotalCalorie { get; set; }
+        public double MealCalory { get; set; }
+        public DateTime MealTime { get; set; }
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Food> Foods { get; set; }
     }
 }

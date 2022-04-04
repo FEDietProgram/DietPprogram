@@ -15,7 +15,23 @@ namespace FEDiet.BLL.Services
         {
             foodRepository = new FoodRepository();
         }
+        public bool AddFoodToUser(Food _food)
+        {
+            if (_food == null)
+            {
+                throw new Exception("Food is null");
+            }
+            else
+            {
+                return foodRepository.AddFoodToUser(_food);
 
+            }
+        }
+
+        public List<Food> ListFoodsAcoordingToMeal(DateTime mealtime, Meal meal, User user)
+        {            
+            return foodRepository.ListFoodsAcoordingToMeal(mealtime, meal, user);
+        }
 
         public List<Food> FoodsOfMeal(Meal meal, DateTime mealtime, User user)
         {
@@ -37,19 +53,35 @@ namespace FEDiet.BLL.Services
             return foodRepository.ListFoodsbyUser(user);
         }
 
-        public byte[] FoodPicture(int id)
-        {
-            if (id == 0)
-            {
-                throw new Exception("Yiyecek yok");
-            }
-            return foodRepository.GetFoodPicByName(id);
-        }
-
+       
         public List<Food> GetAllFoods()
         {
             return foodRepository.GetAllFoods();
         }
 
+        public Food GetFoodbyId(int id)
+        {
+            return foodRepository.GetFoodbyId(id);
+        }
+        public string GetFoodPicByID(int id)
+        {
+            return foodRepository.GetFoodPicByID(id);
+        }
+        public bool UpdateFoodForUser(Food _food)
+        { 
+            return foodRepository.UpdateFoodForUser(_food);
+        }
+
+
+
+        public bool RemoveFoodFromUser(User _user, int id)
+        {
+           return foodRepository.RemoveFoodFromUser(_user, id);
+        }
+
+        public bool UpdateFoodOfUser(User _user, int id)
+        {
+            return foodRepository.UpdateFoodOfUser(_user, id);
+        }
     }
 }

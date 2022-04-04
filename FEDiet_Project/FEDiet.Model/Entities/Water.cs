@@ -13,9 +13,9 @@ namespace FEDiet.Model.Entities
             Users = new HashSet<User>();
         }
         public int WaterID { get; set; }
-        public int Cup { get; set; }
-        public DateTime WaterDrinkTime { get; set; } = DateTime.Now;
-        public ICollection<User> Users { get; set; }
+        public double AmountOfWaterConsumed { get; set; }
+        public DateTime WaterConsumedTime { get; set; }
+        public virtual ICollection<User> Users { get; set; }
 
     }
 }

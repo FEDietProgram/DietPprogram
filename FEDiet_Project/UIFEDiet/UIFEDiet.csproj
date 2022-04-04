@@ -291,6 +291,24 @@
   <ItemGroup>
     <None Include="Resources\twitter_100px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_to_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plate_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shallow_pan_of_food_48px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -18,6 +18,45 @@ namespace FEDiet.BLL.Services
             userRepository = new UserRepository();
         }
 
+        public bool Add(Meal meal)
+        {
+            if (meal == null)
+            {
+                throw new Exception("Meal is null");
+            }
+            else
+            {
+                return mealRepository.Add(meal);
+            }
+            
+        }
+
+        public bool AddUserMeal(User _user, Meal _meal)
+        {
+            if (_user == null || _meal == null)
+            {
+                throw new Exception("User or meal is null");
+            }
+            else
+            {
+                return mealRepository.AddUserMeal(_user, _meal);
+            }
+            
+        }
+
+        public bool CreateMeal(Meal _meal, List<Food> foodlist)
+        {
+            if (_meal == null || foodlist == null)
+            {
+                throw new Exception("Meal or food is null");
+            }
+            else
+            {
+               return mealRepository.CreateMeal(_meal, foodlist);
+            }           
+        }
+
+
         public object GetUserMealList(User user)
         {
           return mealRepository.GetUserMealList(user);
@@ -31,67 +70,42 @@ namespace FEDiet.BLL.Services
            return mealRepository.GetMealByID(mealID);
         }
 
-        public object GetMealsByDate(DateTime mealtime, User user)
+        public List<Meal> GetMealsByDate(DateTime mealtime, User user)
         {
             if (mealtime == null)
             { throw new Exception("Öğün tarihini seçiniz"); }
 
-            return mealRepository.GetMealsByDate((DateTime)mealtime, user);
+            return mealRepository.GetMealsByDate(mealtime, user);
         }
 
-        public decimal MealCalorie(User user, Meal meal)
+        public double MealCalorie(Meal _meal)
         {
-            return mealRepository.MealCalorie(user, meal);
+            return mealRepository.MealCalorie(_meal);
         }
 
-        public decimal DailyCalori(User user,  DateTime time)
+        public double UserDailyConsumedCal(User user)
         {
-            return mealRepository.DailyCalori(user,  time);
+            return mealRepository.UserDailyConsumedCal(user);
         }
-
-        public decimal WeeklyCalori(User user, DateTime time1, DateTime time2)
+        public List<Food> FoodsOfMeal(Meal meal)
         {
-            return mealRepository.WeeklyCalori(user,  time1, time2);  
+            return mealRepository.FoodsOfMeal(meal);
         }
 
-        public decimal MountlyCalori(User user, DateTime time1)
-        {
-            return mealRepository.MountlyCalori(user,  time1);    
-        }
-
-        public int AddMealbyUser(User user, Meal meal)
-        {
-            if(meal==null)
-            { throw new Exception("Ekleyeceğiniz yemeğin öğününü seçiniz"); }
-
-            return userRepository.AddMealbyUser(user, meal);
-        }
-        public int UpdateMealbyUser(User user, Meal meal)
-        {
-            if (meal == null)
-            { throw new Exception("Güncelleyeceğiniz yemeğin öğününü seçiniz"); }
-
-            return userRepository.UpdateMealbyUser(user, meal);   
-        }
-        public int DeleteMealbyUser(User user, Meal meal)
-        {
-            if (meal == null)
-            { throw new Exception("Sileceğiniz yemeğin öğününü seçiniz"); }
-
-            return userRepository.DeleteMealbyUser(user, meal);
-        }
-
-        public object GetFoodsByMealName(User user, string mealname, DateTime mealtime)
-        {
-            if (user== null || mealname == null || mealtime == null)
-            {
-                throw new Exception("Kullanıcı, öğün adı ya da öğün tarihinden en az biri belirtilmemiştir.");
-            }
-            return mealRepository.GetMealsbyName(user, mealname, mealtime);
-        }
        
+        public int MealIdByName(string mealname, User user)
+        {
+            return mealRepository.MealIdByName(mealname, user);
+        }
 
+        public bool RemoveMealFromUser(User _user, Meal meal)
+        {
+            return mealRepository.RemoveMealFromUser(_user, meal);
+        }
+        public bool UpdateMealOfUser(User _user, Meal meal)
+        {
 
-
+            return mealRepository.UpdateMealOfUser(_user, meal);
+        }
     }
 }

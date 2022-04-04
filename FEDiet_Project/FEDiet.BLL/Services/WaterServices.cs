@@ -16,14 +16,14 @@ namespace FEDiet.BLL.Services
             waterRepository = new WaterRepository();    
         }
 
-        public int WaterAdd(User user,Water water, int cup)
-        {
-            if (water == null)
-            {
-                throw new Exception("Eklenecek su adedi seçin");              
-            }
-            return waterRepository.UserWaterAdd(user, water, cup);
-        }
+        //public int WaterAdd(User user,Water water, int cup)
+        //{
+        //    //if (water == null)
+        //    //{
+        //    //    throw new Exception("Eklenecek su adedi seçin");              
+        //    //}
+        //    //return waterRepository.UserWaterAdd(user, water, cup);
+        //}
 
     }
 }

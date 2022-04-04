@@ -28,6 +28,7 @@ namespace UIFEDiet
             cbReports.Items.Add("Öğünlere Göre Toplam Kalori");
             cbReports.Items.Add("Kilolarına Göre Kullanıcılar");
             cbReports.Items.Add("Aktivite Sürelerine Göre Kullanıcılar");
+            cbReports.Items.Add("Mesleklere Göre En Çok Tüketilen Yiyecekler");
 
         }
 
@@ -38,10 +39,18 @@ namespace UIFEDiet
                 case "Kalorilerine Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListbyCalorie(); break;
                 case "Tüketilme Sıklığına Göre Yiyecekler": dgvReport.DataSource = adminServices.UserMostConsumedFoods(); break;
                 case "Öğünlere Göre Toplam Kalori": dgvReport.DataSource = adminServices.MealListbyCal(); break;
-                case "Kilolarına Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListbyWeight(); break;
-                case "Aktivite Sürelerine Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListByActivityTime(); break;
+                case "Kilolarına Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListbyWeight(); break;             
+                case "Mesleklere Göre En Çok Tüketilen Yiyecekler":
+                    adminServices.MostConsumedFoodsAccordingToJobs(); break;
 
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            //FormAdmin frm = new FormAdmin();
+            //frm.Show();
+            this.Close();
         }
     }
 }

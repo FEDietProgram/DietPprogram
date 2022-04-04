@@ -12,14 +12,15 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public UserDetailConfiguration()
         {
-            // ID -One to one USER
-            Property(x => x.Height).IsRequired();
-            Property(x => x.Weight).IsRequired();
-            Property(x => x.Gender).IsRequired();
-            Property(x => x.BirthDate).IsRequired();
+            //// ID -One to one USER
+            //Property(x => x.Height).IsRequired();
+            //Property(x => x.Weight).IsRequired();
+            //Property(x => x.Gender).IsRequired();
+            //Property(x => x.BirthDate).IsRequired()
 
             // Navigations
 
+            HasKey(x => x.UserDetailID);
             HasRequired(x => x.User).WithOptional(x => x.UserDetail);
            
            

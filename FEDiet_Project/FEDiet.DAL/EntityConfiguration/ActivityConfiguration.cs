@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 
 namespace FEDiet.DAL.EntityConfiguration
 {
-    internal class ActivityConfiguration:EntityTypeConfiguration<Activity>
+    class ActivityConfiguration:EntityTypeConfiguration<Activity>
     {
         public ActivityConfiguration()
         {
             Property(x => x.ActivityName).IsRequired().HasMaxLength(30);
             Property(x => x.ActivityTime).IsRequired();
-            Property(x => x.BurnedCaloriePerHour).IsRequired();
-
         }
     }
 }

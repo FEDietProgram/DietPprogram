@@ -15,7 +15,7 @@ namespace FEDiet.DAL.EntityConfiguration
         {
             HasKey(x => x.GoalID);
            
-            Property(x => x.Name).IsRequired().HasMaxLength(50);
+          
             //HasMany(x => x.Users).WithRequired(x => x.Goal).HasForeignKey(x => x.GoalID);
 
         }

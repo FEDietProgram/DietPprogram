@@ -23,117 +23,125 @@ namespace FEDiet.BLL.Services
             goalRepository = new GoalRepository();
         }
 
-        public int AddMeal(Meal meal)
-        {
-            if (meal == null)
-            {
-                throw new Exception("Öğün girişi başarısız");
-            }
-            return adminRepository.AddMeal(meal);
-        }
+        //public int AddMeal(Meal meal)
+        //{
+        //    if (meal == null)
+        //    {
+        //        throw new Exception("Öğün girişi başarısız");
+        //    }
+        //    return adminRepository.AddMeal(meal);
+        //}
 
-        public int AddFood(Food food)
+        public bool AddFood(Food food)
         {
             if (food == null)
             {
                 throw new Exception("Yiyecek girişi başarısız");
             }
-            return adminRepository.AddFood(food);
+            else
+            {
+                return adminRepository.AddFood(food);
+            }
         }
 
-        public int DeleteFood(int foodid)
+        public bool DeleteFood(int foodid)
         {
-            if(foodid==0)
+            if (foodid == 0)
             {
                 throw new Exception("Silinecek yiyeceği seçin");
             }
-            return adminRepository.DeleteFood(foodid);  
+            return adminRepository.DeleteFood(foodid);
         }
 
-        public int UpdateFood(Food food)
+        public bool UpdateFood(Food food)
         {
             if (food == null)
             {
                 throw new Exception("Güncellenecek yiyeceği seçin");
             }
-            return adminRepository.UpdateFood(food);    
+            return adminRepository.UpdateFood(food);
         }
 
-        public Food GetFoodbyId(int id)
+        public List<User> UserList()
         {
-            return foodRepository.GetFoodbyId(id);  
+            return adminRepository.UserList();
         }
 
-        public int AddActivity(Activity activity)
-        {
-            if(activity == null)
-            {
-                throw new Exception("Eklenecek aktiviteyi girin");
-            }
-            return adminRepository.AddActivity(activity);
-        }
+        //public Food GetFoodbyId(int id)
+        //{
+        //    return foodRepository.GetFoodbyId(id);  
+        //}
 
-        public int UpdateActivity(Activity activity)
-        {
-            if (activity == null)
-            {
-                throw new Exception("Güncellenecek aktiviteyi girin");
-            }
-            return adminRepository.UpdateActivity(activity);
-        }
-        
-        public int DeleteActivity(Activity activity)
-        {
-            if (activity == null)
-            {
-                throw new Exception("Silinecek aktiviteyi girin");
-            }
-            return adminRepository.DeleteActivity(activity);
-        }
+        //public int AddActivity(Activity activity)
+        //{
+        //    if(activity == null)
+        //    {
+        //        throw new Exception("Eklenecek aktiviteyi girin");
+        //    }
+        //    return adminRepository.AddActivity(activity);
+        //}
 
-        public Activity GetActivityByID(int id)
-        {
-            return activityRepository.GetActivityByID(id);
-        }
+        //public int UpdateActivity(Activity activity)
+        //{
+        //    if (activity == null)
+        //    {
+        //        throw new Exception("Güncellenecek aktiviteyi girin");
+        //    }
+        //    return adminRepository.UpdateActivity(activity);
+        //}
 
-        public int AddGoal(Goal goal)
-        {
-            if(goal == null)
-            {
-                throw new Exception("Hedef girişi yapın");
-            }
-            return adminRepository.AddGoal(goal);
-        }
+        //public int DeleteActivity(Activity activity)
+        //{
+        //    if (activity == null)
+        //    {
+        //        throw new Exception("Silinecek aktiviteyi girin");
+        //    }
+        //    return adminRepository.DeleteActivity(activity);
+        //}
 
-        public int UpdateGoal(int goalid)
-        {
-            if (goalid == 0)
-            {
-                throw new Exception("Güncellenecek hedefi girin");
-            }
-            return adminRepository.UpdateGoal(goalid);
-        }
+        //public Activity GetActivityByID(int id)
+        //{
+        //    return activityRepository.GetActivityByID(id);
+        //}
 
-        public int DeleteGoal(int goalid)
-        {
-            if (goalid == 0)
-            {
-                throw new Exception("Silinecek hedefi girin");
-            }
-            return adminRepository.DeleteGoal(goalid);
-        }
+        //public int AddGoal(Goal goal)
+        //{
+        //    if(goal == null)
+        //    {
+        //        throw new Exception("Hedef girişi yapın");
+        //    }
+        //    return adminRepository.AddGoal(goal);
+        //}
 
-        public Goal GetGoalById(int id)
-        {
-            return goalRepository.GetGoalById(id);
-        }
+        //public int UpdateGoal(int goalid)
+        //{
+        //    if (goalid == 0)
+        //    {
+        //        throw new Exception("Güncellenecek hedefi girin");
+        //    }
+        //    return adminRepository.UpdateGoal(goalid);
+        //}
 
-        public decimal GetSuccessRate(int id)
-        {
-            return goalRepository.GoalSuccessRate(id);
-        }
+        //public int DeleteGoal(int goalid)
+        //{
+        //    if (goalid == 0)
+        //    {
+        //        throw new Exception("Silinecek hedefi girin");
+        //    }
+        //    return adminRepository.DeleteGoal(goalid);
+        //}
 
-        // Admin raporları
+        //public Goal GetGoalById(int id)
+        //{
+        //    return goalRepository.GetGoalById(id);
+        //}
+
+        //public decimal GetSuccessRate(int id)
+        //{
+        //    return goalRepository.GoalSuccessRate(id);
+        //}
+
+        //// Admin raporları
 
         public object UserListbyCalorie() // Kalorilerine Göre Kullanıcılar
         {
@@ -142,28 +150,26 @@ namespace FEDiet.BLL.Services
 
         public object UserMostConsumedFoods()//tüketilme miktarına göre yemek listesi
         {
-            
+
             return adminRepository.UserMostConsumedFoods();
         }
 
         public object MealListbyCal()//öğünlere göre toplam kalori(garip bi rapor silebilirisn istersen)
         {
-           
+
             return adminRepository.MealListbyCal();
         }
 
         public object UserListbyWeight()//?? kilo sırasına göre kullanıcılar
         {
-           
+
             return adminRepository.UserListbyWeight();
         }
 
-        public object UserListByActivityTime() //Aktivite Sürelerine Göre Kullanıcılar
+        public object MostConsumedFoodsAccordingToJobs() //Mesleklere göre en çok tüketilen yiyecekler
         {
-            return adminRepository.UserListByActivityTime();
+            return adminRepository.MostConsumedFoodsAccordingToJobs();
         }
-
-
 
     }
 }

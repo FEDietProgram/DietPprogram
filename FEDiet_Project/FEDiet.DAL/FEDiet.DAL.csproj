@@ -52,13 +52,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityConfiguration\ActivityConfiguration.cs" />
+    <Compile Include="EntityConfiguration\FoodCategoryConfiguration.cs" />
     <Compile Include="EntityConfiguration\FoodConfiguration.cs" />
     <Compile Include="EntityConfiguration\GoalConfiguration.cs" />
     <Compile Include="EntityConfiguration\MealConfiguration.cs" />
-    <Compile Include="EntityConfiguration\SpecialStuationConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserConfiguration.cs" />
     <Compile Include="EntityConfiguration\UserDetailConfiguration.cs" />
+    <Compile Include="EntityConfiguration\WaterConfiguration.cs" />
     <Compile Include="FEDietDbContext.cs" />
+    <Compile Include="Migrations\202204031054565_InitialCreate.cs" />
+    <Compile Include="Migrations\202204031054565_InitialCreate.designer.cs">
+      <DependentUpon>202204031054565_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204031337203_init.cs" />
+    <Compile Include="Migrations\202204031337203_init.designer.cs">
+      <DependentUpon>202204031337203_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204032033145_init2.cs" />
+    <Compile Include="Migrations\202204032033145_init2.designer.cs">
+      <DependentUpon>202204032033145_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
@@ -69,9 +83,7 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\WaterRepository.cs" />
     <Compile Include="Strategy\AdminStrategy.cs" />
-    <Compile Include="Strategy\FoodStrategy.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FEDiet.Model\FEDiet.Model.csproj">
       <Project>{121AF218-0DBC-457B-9237-A06E95129812}</Project>
@@ -81,6 +93,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202204031054565_InitialCreate.resx">
+      <DependentUpon>202204031054565_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204031337203_init.resx">
+      <DependentUpon>202204031337203_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204032033145_init2.resx">
+      <DependentUpon>202204032033145_init2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

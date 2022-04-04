@@ -25,15 +25,15 @@ namespace FEDiet.DAL.Repositories
             return FEDietDbContext.Goals.Find(id);
         }
 
-        public decimal GoalSuccessRate(int userid)
-        {
-            User user=FEDietDbContext.Users.Find(userid);
+        //public decimal GoalSuccessRate(int userid)
+        //{
+        //    //User user=FEDietDbContext.Users.Find(userid);
 
-            decimal weight =(decimal) user.UserDetail.Weight;
-            decimal goalweight = user.Goal.DesiredWeight;
+        //    //decimal weight =(decimal) user.UserDetail.Weight;
+        //    //decimal goalweight = user.Goal.DesiredWeight;
 
-            decimal successweight = 100 * (1 - Math.Abs(weight - goalweight)/100);
-            return successweight;
-        }
+        //    //decimal successweight = 100 * (1 - Math.Abs(weight - goalweight)/100);
+        //    //return successweight;
+        //}
     }
 }

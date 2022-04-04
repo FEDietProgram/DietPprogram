@@ -8,7 +8,7 @@ namespace FEDiet.Model.Enums
 {
   public  enum UserType
     {
-        StandardUser,
-        Admin
+        Admin = 1,
+        StandardUser
     }
 }

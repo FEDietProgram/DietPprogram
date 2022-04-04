@@ -19,49 +19,50 @@ namespace FEDiet.BLL.Services
 
         }
 
-        public int ActivityAdd(User user, Activity activity)
-        {
-            if (activity == null)
-            {
-                throw new Exception("Aktivite bilgilerini girin");
-            }
+        //public int ActivityAdd(User user, Activity activity)
+        //{
+        //    if (activity == null)
+        //    {
+        //        throw new Exception("Aktivite bilgilerini girin");
+        //    }
 
-           return userRepository.AddActivityByUser(user, activity);
-        }
+        //   return userRepository.AddActivityByUser(user, activity);
+        //}
 
-        public int ActivityUpdate(User _user,Activity activity)
-        {
-            if (activity == null)
-            {
-                throw new Exception("Güncellenecek aktivite seçiniz");
-            }
+        //public int ActivityUpdate(User _user,Activity activity)
+        //{
+        //    if (activity == null)
+        //    {
+        //        throw new Exception("Güncellenecek aktivite seçiniz");
+        //    }
 
-            return userRepository.UpdateActivityByUser(_user, activity);
-        }
+        //    return userRepository.UpdateActivityByUser(_user, activity);
+        //}
 
-        public List<Activity> ActivityList(DateTime date,User user)
-        {
-            return userRepository.ActivityList(date,user); 
-        }
+        //public List<Activity> ActivityList(DateTime date,User user)
+        //{
+        //    return userRepository.ActivityList(date,user); 
+        //}
 
-        public Activity GetActivity(int id)
-        {
-            if (id == 0)
-            {
-                throw new Exception("Activite seçilmedi");
-            }
-            return activityRepository.GetActivityByID(id);
-        }
+        //public Activity GetActivity(int id)
+        //{
+        //    if (id == 0)
+        //    {
+        //        throw new Exception("Activite seçilmedi");
+        //    }
+        //    return activityRepository.GetActivityByID(id);
+        //}
 
-        public decimal BurnedCalory(User user, DateTime day)
-        {
-           if(user == null)
-            {
-                throw new Exception("Kullanıcı bulunamadı");
-            }
+        //public decimal BurnedCalory(User user, DateTime day)
+        //{
+        //   if(user == null)
+        //    {
+        //        throw new Exception("Kullanıcı bulunamadı");
+        //    }
 
-           return activityRepository.BurnedCalory(user, day);
-        }
-     
+        //   return activityRepository.BurnedCalory(user, day);
+        //}
+
+
     }
 }

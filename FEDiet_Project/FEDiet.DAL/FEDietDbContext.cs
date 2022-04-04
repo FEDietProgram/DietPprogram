@@ -16,7 +16,7 @@ namespace FEDiet.DAL
         public FEDietDbContext() : base("Data Source=LAPTOP-CSE2LTTD\\SQLEXPRESS;Initial Catalog=FEDietDB;Integrated Security=true;")
         {
            Database.SetInitializer(new AdminStrategy());
-           Database.SetInitializer(new FoodStrategy());
+           //Database.SetInitializer(new FoodStrategy());
         }
 
         public DbSet<User> Users { get; set; }
@@ -26,7 +26,6 @@ namespace FEDiet.DAL
         public DbSet<Meal> Meals { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<Water> Waters { get; set; }
-        public DbSet<SpecialSituation> SpecialSituations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,7 +36,7 @@ namespace FEDiet.DAL
             modelBuilder.Configurations.Add(new GoalConfiguration());
             modelBuilder.Configurations.Add(new MealConfiguration());
             modelBuilder.Configurations.Add(new UserDetailConfiguration());
-            modelBuilder.Configurations.Add(new SpecialStuationConfiguration());
+
 
         }
 

@@ -31,22 +31,22 @@ namespace FEDiet.DAL.Repositories
             return FEDietDbContext.Activities.Where(x => x.ActivityID == id).FirstOrDefault();
         }
 
-        public decimal BurnedCalory(User user, DateTime day)
-        {
-            List<Activity> activityList = user.Activities.ToList();
+        //public decimal BurnedCalory(User user, DateTime day)
+        //{
+        //    List<Activity> activityList = user.Activities.ToList();
 
-            decimal burned = 0;
-            foreach (var item in activityList)
-            {
-                if (item.ActivityDay == day)
-                {
-                    burned += item.ActivityTime * item.BurnedCaloriePerHour;
-                }
-            }
+        //    decimal burned = 0;
+        //    foreach (var item in activityList)
+        //    {
+        //        if (item.ActivityDay == day)
+        //        {
+        //            burned += item.ActivityTime * item.BurnedCaloriePerHour;
+        //        }
+        //    }
 
-            return burned;
+        //    return burned;
 
-        }
+        //}
 
     }
 }

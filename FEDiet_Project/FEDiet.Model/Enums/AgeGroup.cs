@@ -8,10 +8,7 @@ namespace FEDiet.Model.Enums
 {
    public enum AgeGroup
     {
-        infant,
-        child,
-        young,
-        elder,
-        old
+        Child,
+        GrownUp
     }
 }

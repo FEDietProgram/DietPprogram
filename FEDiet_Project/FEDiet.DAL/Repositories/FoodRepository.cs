@@ -16,6 +16,17 @@ namespace FEDiet.DAL.Repositories
             FEDietDbContext = new FEDietDbContext();
         }
 
+        public bool AddFoodToUser(Food _food)
+        {
+            Food food = FEDietDbContext.Foods.Find(_food.FoodID);
+            food.Portion = _food.Portion;
+            food.Quantity = _food.Quantity;
+
+            return FEDietDbContext.SaveChanges() > 0;
+        }
+
+
+     
         public List<Food> ListFoodsAcoordingToMeal(DateTime mealtime, Meal meal, User user)
         {
             List<Food> foodlist = new List<Food>(); 
@@ -50,29 +61,62 @@ namespace FEDiet.DAL.Repositories
         {
             return FEDietDbContext.Foods.Find(id);
         }
-        public byte[] GetFoodPicByName(int id)
-        {
-            byte[] pic = null;
-            if (id != 0)
-            {
-                pic = FEDietDbContext.Foods.Where(x => x.FoodID == id).Select(x=>x.FoodPictures).FirstOrDefault();
-            }
 
-            return pic;
+        public string GetFoodPicByID(int id)
+        {
+            return FEDietDbContext.Foods.Where(x => x.FoodID == id).Select(x => x.FoodPciture).FirstOrDefault();
         }
+  
 
         public List<Food> GetAllFoods()
         {
             return FEDietDbContext.Foods.ToList();
         }
 
+        public bool UpdateFoodForUser(Food _food)
+        {
+            Food food = FEDietDbContext.Foods.Find(_food.FoodID);
+            food.Portion = _food.Portion;
+            food.Quantity = _food.Quantity;
+            return FEDietDbContext.SaveChanges() > 0;
+        }
+
+        public bool RemoveFoodFromUser(User _user,int id)
+        {
+            User user = FEDietDbContext.Users.Find(_user.UserID);
+            Food food = GetFoodbyId(id);
+            foreach (Meal item in user.Meals)
+            {
+                if (item.Foods.Contains(food))
+                {
+                    item.Foods.Remove(food);
+                }
+            }
+
+            return FEDietDbContext.SaveChanges() >0;
+        }
 
 
+        public bool UpdateFoodOfUser(User _user, int id)
+        {
+            User user = FEDietDbContext.Users.Find(_user.UserID);
+            Food food = GetFoodbyId(id);
+            foreach (Meal item in user.Meals)
+            {         
+                if (item.Foods.Contains(food))
+                {
+                    foreach (Food _food in item.Foods)
+                    {
+                        _food.FoodName = food.FoodName;
+                        _food.Portion = food.Portion;
+                        _food.Quantity = _food.Quantity;
+                    } 
+                }
+            }
 
+            return FEDietDbContext.SaveChanges() > 0;
+        }
 
-
-       
-     
 
     }
 }

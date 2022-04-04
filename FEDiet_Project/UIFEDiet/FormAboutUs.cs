@@ -21,5 +21,15 @@ namespace UIFEDiet
         {
             rtxtAboutUs.Text = "Her yaş grubu ve cinsiyet için gerekli sağlık bakanlığı tarafından onaylanmış veriler ile beslenme düzeni hakkında kullanıcıya geri bildirimler yaparak öğünlerinde dikkat etmesi gereken noktaları kullanıcılara bildiriyor. Bunların dışında kullanıcı istediği öğün, gün, hafta veya ay için önceki bilgilerini FEDiet için özel olarak ünlü yazılımcılar Fatma Eraslan ve Esra Yazıcı tarafından oluşturulmuş güvenilir veri tabanı sistemi ve ileri teknoloji programlama araçları sayesinde görüntüleyip gerekli düzenlemeleri yapabiliyor. Kullanıcının beslenme düzeni ile hedefine yaklaşım yüzdesinin düzenli olarak güncellenebilmesi kullanıcının uygulamayı rahatça kullanabilmesini sağlamaktadır.";
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/FEDietProgram/DietPprogram%22");
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.linkedin.com/in/esra-y-66893ab4/");
+        }
     }
 }

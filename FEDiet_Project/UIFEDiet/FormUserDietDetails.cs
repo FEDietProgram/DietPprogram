@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FEDiet.BLL.Services;
+using FEDiet.Model.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,24 @@ namespace UIFEDiet
 {
     public partial class FormUserDietDetails : Form
     {
+        UserServices userServices;
         public FormUserDietDetails()
         {
             InitializeComponent();
+        }
+        User user;
+        public FormUserDietDetails(User _user)
+        {
+            InitializeComponent();
+            userServices = new UserServices();
+        }
+
+        private void FormUserDietDetails_Load(object sender, EventArgs e)
+        {
+            lbBetter.DataSource = userServices.BetterFoodList(user);
+            lbBetter.DisplayMember = "FoodName";
+            lbBad.DataSource=userServices.BadFoodList(user);
+            lbBad.DisplayMember = "FoodName";
         }
     }
 }

@@ -22,11 +22,10 @@ namespace FEDiet.DAL.EntityConfiguration
 
             //Navigations
 
-            HasMany(x => x.Activities).WithMany(x => x.Users);
-            HasOptional(x=> x.Goal).WithMany(x => x.Users).HasForeignKey(x=>x.GoalID);
-            HasMany(x => x.Meals).WithMany(x => x.Users);
-            HasMany(x => x.Waters).WithMany(x => x.Users);
-            HasMany(x=> x.SpecialSituations).WithMany(x => x.Users);
+            HasMany(x => x.Goals).WithMany(y => y.Users);
+            HasMany(x => x.Meals).WithMany(y => y.Users);
+            HasMany(x => x.Waters).WithMany(y => y.Users);
+            HasMany(x => x.Activities).WithMany(y => y.Users);
 
 
         }

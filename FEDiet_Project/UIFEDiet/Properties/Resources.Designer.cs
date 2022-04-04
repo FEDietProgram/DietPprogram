@@ -103,6 +103,36 @@ namespace UIFEDiet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_100px {
+            get {
+                object obj = ResourceManager.GetObject("back_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back_50px {
+            get {
+                object obj = ResourceManager.GetObject("back_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap back_to_24px {
+            get {
+                object obj = ResourceManager.GetObject("back_to_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap beef_64px {
             get {
                 object obj = ResourceManager.GetObject("beef_64px", resourceCulture);
@@ -273,6 +303,16 @@ namespace UIFEDiet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plate_100px {
+            get {
+                object obj = ResourceManager.GetObject("plate_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngwing_com {
             get {
                 object obj = ResourceManager.GetObject("pngwing.com", resourceCulture);
@@ -303,6 +343,26 @@ namespace UIFEDiet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refresh_64px {
+            get {
+                object obj = ResourceManager.GetObject("refresh_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_64px1 {
+            get {
+                object obj = ResourceManager.GetObject("refresh_64px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap report_file_64px {
             get {
                 object obj = ResourceManager.GetObject("report_file_64px", resourceCulture);
@@ -326,6 +386,16 @@ namespace UIFEDiet.Properties {
         internal static System.Drawing.Bitmap settings_100px1 {
             get {
                 object obj = ResourceManager.GetObject("settings_100px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shallow_pan_of_food_48px {
+            get {
+                object obj = ResourceManager.GetObject("shallow_pan_of_food_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

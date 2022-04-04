@@ -12,3 +12,7 @@ C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\bin\Debug\EntityFra
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.csproj.CopyComplete
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.dll
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.pdb
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.Migrations.InitialCreate.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.csproj.GenerateResource.cache
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.Migrations.init.resources
+C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.DAL\obj\Debug\FEDiet.DAL.Migrations.init2.resources

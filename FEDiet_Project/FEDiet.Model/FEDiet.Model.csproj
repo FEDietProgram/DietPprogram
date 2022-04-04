@@ -44,15 +44,17 @@
   <ItemGroup>
     <Compile Include="Entities\Activity.cs" />
     <Compile Include="Entities\Food.cs" />
+    <Compile Include="Entities\FoodCategory.cs" />
     <Compile Include="Entities\Goal.cs" />
     <Compile Include="Entities\Meal.cs" />
-    <Compile Include="Entities\SpecialSituation.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserDetail.cs" />
     <Compile Include="Entities\Water.cs" />
     <Compile Include="Enums\AgeGroup.cs" />
-    <Compile Include="Enums\FoodPortion.cs" />
-    <Compile Include="Enums\Neutrition.cs" />
+    <Compile Include="Enums\BloodGroup.cs" />
+    <Compile Include="Enums\DietType.cs" />
+    <Compile Include="Enums\MealName.cs" />
+    <Compile Include="Enums\Portion.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

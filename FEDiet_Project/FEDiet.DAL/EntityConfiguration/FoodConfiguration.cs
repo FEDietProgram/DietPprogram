@@ -14,15 +14,8 @@ namespace FEDiet.DAL.EntityConfiguration
         public FoodConfiguration()
         {
 
-            Property(x => x.FoodName).IsRequired().HasMaxLength(50);
-
-            Property(x => x.Neutrition).IsRequired();
-
-            Property(x=>x.Calorie).IsRequired();
-
-            //Navigations
-
-            HasMany(x => x.Meals).WithMany(x => x.Foods);
+            HasOptional(x => x.FoodCategory).WithMany(y => y.Foods).HasForeignKey(z => z.FoodCategoryID);
+            HasMany(x => x.Meals).WithMany(y => y.Foods);
         }
     }
 }

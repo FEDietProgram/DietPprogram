@@ -1,5 +1,6 @@
 ﻿using FEDiet.BLL.Services;
 using FEDiet.Model.Entities;
+using FEDiet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,67 +22,72 @@ namespace UIFEDiet
         }
         User user;
         AdminServices adminServices;
-        UserServices userServices;
+        UserDetailServices userDetailServices;
+    
+        FoodServices foodServices;
+        List<User> users;
         public FormAdmin(User _user)
         {
             InitializeComponent();
             adminServices = new AdminServices();
-            userServices = new UserServices();
+            userDetailServices = new UserDetailServices();
+            foodServices = new FoodServices();
+            users=new List<User> ();
             user = _user;
         }
 
+        public void FillCbFoodId()
+        {
+            List<Food> foods = new List<Food>();
+            foods= foodServices.GetAllFoods();
+            cbFoodId.DataSource = foods;
+            cbFoodId.DisplayMember = "FoodID";
+            cbFoodId.ValueMember = "FoodID";
+        }
+
+        public void Clear()
+        {
+            txtFoodName.Text = string.Empty;
+            nudCal.Value = 0;
+            nudFat.Value = 0;
+            nudCarbs.Value = 0;
+            nudProtein.Value = 0;
+            pbFoodPic.Image = null;
+        }
         private void FormAdmin_Load(object sender, EventArgs e)
         {
-            gbFoods.Visible = gbGoals.Visible = gbActivities.Visible = gbMeals.Visible  = false;
-            this.Size = new Size(500, 700);
+            FillCbFoodId();
+            cbFoodId.SelectedIndex = -1;
 
-            List<User> users = userServices.UserList();
-            foreach (User user in users)
-            {
-                lbUsers.DataSource = user;
-                lbUsers.DisplayMember = user.FirstName+" "+user.LastName;
-                lbUsers.ValueMember = user.UserID.ToString();
-            }
-
-        }
-
-        private void fbMeals_CheckedChanged(object sender, EventArgs e)
-        {
-            gbMeals.Location = new Point(x:18, y: 61) ;
-
-            gbFoods.Visible = gbGoals.Visible = gbActivities.Visible = false;
-            gbMeals.Visible = true;
+             users = adminServices.UserList();
+          
+             lbUsers.DataSource = users;
+             lbUsers.DisplayMember ="Name";
+             lbUsers.ValueMember = "UserID";
+            
 
         }
+
+     
 
         private void rbFoods_CheckedChanged(object sender, EventArgs e)
         {
             gbFoods.Location = new Point(x: 18, y: 61);
-            gbMeals.Visible = gbGoals.Visible = gbActivities.Visible = false;
             gbFoods.Visible = true;
         }
 
-        private void rbActivities_CheckedChanged(object sender, EventArgs e)
-        {
-            gbActivities.Location = new Point(x: 18, y: 61);
-            gbMeals.Visible = gbGoals.Visible = gbFoods.Visible = false;
-            gbActivities.Visible = true;
-        }
-
-        private void rbGoals_CheckedChanged(object sender, EventArgs e)
-        {
-            gbGoals.Location = new Point(x: 18, y: 61);
-            gbMeals.Visible = gbFoods.Visible = gbActivities.Visible = false;
-            gbGoals.Visible = true;
-        }
+      
+        
 
         private void btnAdminExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           Form1 frm=new Form1();
+            this.Close();
+            frm.ShowDialog();
         }
         string filepath;
         private void btnFoodPic_Click(object sender, EventArgs e)
-        {            
+        {
 
             openFileDialog1.Title = "Choose food image";
             openFileDialog1.Filter = "image files (*.jpg)|*.jpg|(*.png)|*.png|(*.jpeg)|*.jpeg";
@@ -90,61 +96,52 @@ namespace UIFEDiet
             {
                 pbFoodPic.Image = Image.FromFile(openFileDialog1.FileName);
                 filepath = openFileDialog1.FileName;
-            }                 
-                
+                //pbFoodPic.ImageLocation = openFileDialog1.FileName;
+            }
+
         }
 
-
-        byte[] picArray;
-        public void SaveFoodPicture()
+        private void cbFoodId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            if (cbFoodId.SelectedIndex > 0)
+            {
+                //filePic = foodServices.GetFoodPicByID((int)cbFoodId.SelectedValue);
+                //pbFoodPic.ImageLocation = filePic;
 
-            BinaryReader br = new BinaryReader(fs);
+                Food food = foodServices.GetFoodbyId((int)cbFoodId.SelectedValue);
+                txtFoodName.Text = food.FoodName;
+                nudCal.Value = (decimal)food.CaloryPerOnePortion;
+                nudFat.Value = (decimal)food.FatCaloryPerGram;
+                nudCarbs.Value = (decimal)food.CarbonhydratesCaloryPerGram;
+                nudProtein.Value = (decimal)food.ProteinCaloryPerGram;
+                pbFoodPic.ImageLocation = food.FoodPciture;
+               
 
-            picArray = br.ReadBytes((int)fs.Length);
-
-            br.Close();
-            fs.Close();
-            
+            }
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                if(rbFoods.Checked)
-                {
-                        Food food = new Food();
-                        food.FoodName = txtFoodName.Text;
-                        food.Calorie = nudCal.Value;
-                        food.FatRate = nudFat.Value;
-                        food.CarbRate = nudCarbs.Value;
-                        food.ProteinRate = nudProtein.Value;
-                        food.WaterRate = nudWater.Value;
-                        food.FoodPictures = picArray;
+                if (rbFoods.Checked)
+            {
+                Food food = new Food();
+                food.FoodName = txtFoodName.Text;
+                food.CaloryPerOnePortion = (double)nudCal.Value;
+                food.FatCaloryPerGram = (double)nudFat.Value;
+                food.CarbonhydratesCaloryPerGram = (double)nudCarbs.Value;
+                food.ProteinCaloryPerGram = (double)nudProtein.Value;
+                food.FoodPciture = filepath;           
 
-                        if (adminServices.AddFood(food) > 0)
-                        { MessageBox.Show("Yieyecek eklendi"); }
-                   
-                }
-
-                if(rbActivities.Checked)
-                {
-                    Activity activity = new Activity();
-                    activity.ActivityName = txtActivityName.Text;
-                    activity.BurnedCaloriePerHour=(int)nudBurnedCal.Value;
-                   if(adminServices.AddActivity(activity)>0)
-                    { MessageBox.Show("Aktivite eklendi"); }
-                }
-
-                if(rbGoals.Checked)
-                {
-                    Goal goal = new Goal(); 
-                    goal.Name=txtGoalName.Text;
-                    if(adminServices.AddGoal(goal) > 0)
-                    { MessageBox.Show("Hedef Eklendi"); }
-                }                
+                if (adminServices.AddFood(food))
+                { MessageBox.Show("Yiyecek eklendi"); }
+  
+            }
+                FillCbFoodId();
+                cbFoodId.SelectedIndex = -1;
+                Clear();
             }
             catch (Exception ex)
             {
@@ -156,29 +153,16 @@ namespace UIFEDiet
         {
             try
             {
-                if(rbFoods.Checked)
+                if (rbFoods.Checked)
                 {
                     int id = (int)cbFoodId.SelectedValue;
-                    if (adminServices.DeleteFood(id) > 0)
+                    if (adminServices.DeleteFood(id))
                     { MessageBox.Show("Yiyecek silindi"); }
                 }
 
-                if(rbActivities.Checked)
-                {
-                    int id=(int)cbActId.SelectedValue;
-                    Activity activity= adminServices.GetActivityByID(id);
-                    if(adminServices.DeleteActivity(activity)>0)
-                    { MessageBox.Show("Aktivite silindi"); }
-                }
+                FillCbFoodId();
 
-                if(rbGoals.Checked)
-                {
-                    int id = (int)cbGoalId.SelectedValue;
-                    if(adminServices.DeleteGoal(id)>0)
-                    { MessageBox.Show("Aktivite silindi"); }
-                }
-                
-                
+
             }
             catch (Exception ex)
             {
@@ -190,43 +174,21 @@ namespace UIFEDiet
         {
             try
             {
-                if(rbFoods.Checked)
+                if (rbFoods.Checked)
                 {
                     int id = (int)cbFoodId.SelectedValue;
-                    Food food = adminServices.GetFoodbyId(id);
+                    Food food = foodServices.GetFoodbyId(id);
                     food.FoodName = txtFoodName.Text;
-                    food.Calorie = nudCal.Value;
-                    food.FatRate = nudFat.Value;
-                    food.CarbRate = nudCarbs.Value;
-                    food.ProteinRate = nudProtein.Value;
-                    food.WaterRate = nudWater.Value;
-                    food.FoodPictures = picArray;
+                    food.CaloryPerOnePortion = (double)nudCal.Value;
+                    food.FatCaloryPerGram = (double)nudFat.Value;
+                    food.CarbonhydratesCaloryPerGram = (double)nudCarbs.Value;
+                    food.ProteinCaloryPerGram = (double)nudProtein.Value;
+                    food.FoodPciture = filepath;
 
-                    if (adminServices.UpdateFood(food) > 0)
+                    if (adminServices.UpdateFood(food))
                     { MessageBox.Show("Yiyecek güncellendi"); }
                 }
 
-                if(rbActivities.Checked)
-                {
-                    int id = (int)cbActId.SelectedValue;
-                    Activity activity = adminServices.GetActivityByID(id);
-                    activity.ActivityName = txtActivityName.Text;
-                    activity.BurnedCaloriePerHour=(int)nudBurnedCal.Value;
-                    if(adminServices.UpdateActivity(activity)>0)
-                    { MessageBox.Show("Aktivite güncellendi"); }
-                }
-
-                if(rbGoals.Checked)
-                {
-                    int id = (int)cbActId.SelectedValue;
-                    Goal goal= adminServices.GetGoalById(id);
-                    goal.Name = txtGoalName.Text;
-                    if(adminServices.UpdateGoal(id)>0)
-                    {
-                        MessageBox.Show("Hedef bilgisi güncellendi");
-                    }
-                }
-              
 
             }
             catch (Exception ex)
@@ -235,24 +197,30 @@ namespace UIFEDiet
             }
         }
 
-        private void lbUsers_SelectedIndexChanged(object sender, EventArgs e)
+        public int UserAge(DateTime date)
         {
-            if (user.UserDetail.Gender == true) lblGender.Text = "Female";
-            else lblGender.Text = "Male";
-
-            int age = userServices.UserAge(user.UserDetail.BirthDate);
-            lblAge.Text=age.ToString();
-            lblHeight.Text=user.UserDetail.Height.ToString();
-            lblJob.Text=user.UserDetail.Job;
-            lblWeight.Text=user.UserDetail.Weight.ToString();
-            lblSuccess.Text = adminServices.GetSuccessRate((int)user.UserID).ToString();
-
+            return DateTime.Now.Year - date.Year;
         }
-
+       
         private void btnReports_Click(object sender, EventArgs e)
         {
-            FormAdminReports frmReports = new FormAdminReports();
+            FormAdminReports frmReports = new FormAdminReports();           
             frmReports.ShowDialog();
+        }
+
+        private void lbUsers_MouseClick(object sender, MouseEventArgs e)
+        {
+            int id = (int)lbUsers.SelectedValue;
+            UserDetail userDetail = userDetailServices.GetUserDetailByID(id);
+            
+                lblGender.Text = user.UserDetail.Gender;
+
+                int age = UserAge(userDetail.Birthdate);
+                lblAge.Text = age.ToString();
+                lblHeight.Text = userDetail.Height.ToString();
+                lblJob.Text = userDetail.Job;
+                lblWeight.Text = userDetail.Weight.ToString();
+            
         }
     }
 }

@@ -15,11 +15,11 @@ namespace FEDiet.DAL.Repositories
             fEDietDbContext = new FEDietDbContext();
         }
 
-        public int UserWaterAdd(User user,Water water, int cup)
-        {
-            user.Waters.Add(water);
-            water.Cup += cup;
-            return fEDietDbContext.SaveChanges();
-        }
+        //public int UserWaterAdd(User user,Water water, int cup)
+        //{
+        //    //user.Waters.Add(water);
+        //    //water.Cup += cup;
+        //    //return fEDietDbContext.SaveChanges();
+        //}
     }
 }

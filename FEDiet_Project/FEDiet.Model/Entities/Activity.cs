@@ -14,9 +14,9 @@ namespace FEDiet.Model.Entities
         }
         public int ActivityID { get; set; }
         public string ActivityName { get; set; }
-        public decimal ActivityTime { get; set; }
-        public int BurnedCaloriePerHour { get; set; }
-        public DateTime ActivityDay { get; set; } = DateTime.Now;
+        public DateTime ActivityTime { get; set; }
+        public double ActivityDuration { get; set; }
+        public double BurnedCalory { get; set; }
         public ICollection<User> Users { get; set; }
     }
 }

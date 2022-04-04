@@ -15,13 +15,15 @@ namespace FEDiet.Model.Entities
         }
         public int FoodID { get; set; }
         public string FoodName { get; set; }
-        public decimal Calorie { get; set; }
-        public byte[] FoodPictures { get; set; }    
-        public Neutrition Neutrition { get; set; } 
-        public ICollection<Meal> Meals { get; set; }
-        public decimal CarbRate { get; set; }
-        public decimal FatRate { get; set; }
-        public decimal ProteinRate { get; set; }
-        public decimal WaterRate { get; set; }
+        public string FoodPciture { get; set; }
+        public string Portion { get; set; }
+        public double Quantity { get; set; }
+        public double CaloryPerOnePortion { get; set; }
+        public double FatCaloryPerGram { get; set; }
+        public double ProteinCaloryPerGram { get; set; }
+        public double CarbonhydratesCaloryPerGram { get; set; }
+        public virtual ICollection<Meal> Meals { get; set; }
+        public int? FoodCategoryID { get; set; }
+        public virtual FoodCategory FoodCategory { get; set; }
     }
 }

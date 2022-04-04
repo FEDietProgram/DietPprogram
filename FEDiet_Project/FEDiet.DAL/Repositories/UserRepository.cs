@@ -7,23 +7,39 @@ namespace FEDiet.DAL.Repositories
 {
     public class UserRepository
     {
-        FEDietDbContext FEDietDbContext;
+        FEDietDbContext db;
         
         public UserRepository()
         {
-            FEDietDbContext = new FEDietDbContext();           
+            db = new FEDietDbContext();           
         }
-
-        public int UserSignUp(User user)
+        
+        public bool UserSignUp(User user)
         {
-            FEDietDbContext.Users.Add(user);
-            return FEDietDbContext.SaveChanges();
+            db.Users.Add(user);
+            return db.SaveChanges() > 0;
         }
 
-        //kullanıcı kayıtlı mı kontrol / user dönüyor çünkü bir nedeni admin mi değil mi usertype enum ile kontrol edebilmek için direk texboxdan da kontrol edebilirdik ama bu daha sağlıklı
+        public bool UpdateUser(User user)
+        {
+            User updatedUser = db.Users.Find(user.UserID);
+            updatedUser.Name = user.Name;
+            updatedUser.Surname = user.Surname;
+            updatedUser.Email = user.Email;
+            updatedUser.Password = user.Password;
+            updatedUser.IsActive = user.IsActive;
+            return db.SaveChanges() > 0;
+        }
+        public bool DeleteUser(User user)
+        {
+            User deletedUser = db.Users.Find(user.UserID);
+            deletedUser.IsActive = false;
+            return db.SaveChanges() > 0;
+        }
+
         public User CheckSignIn(string email, string password)
         {
-            User user = FEDietDbContext.Users.Where(x => (x.Email == email) && (x.Password == password)).SingleOrDefault();
+            User user = db.Users.Where(x => (x.Email == email) && (x.Password == password)).SingleOrDefault();
             if (user != null)
             {
                 if (user.Password != null && user.Password == password) return user;
@@ -33,160 +49,117 @@ namespace FEDiet.DAL.Repositories
 
         public int AddMealbyUser(User user, Meal meal)//food eklenme ??
         {
-            User _user = FEDietDbContext.Users.Where(x => x.UserID == user.UserID).FirstOrDefault();
+            User _user = db.Users.Where(x => x.UserID == user.UserID).FirstOrDefault();
             _user.Meals.Add(meal);
-            return FEDietDbContext.SaveChanges();
+            return db.SaveChanges();
         }
 
-        public int UpdateMealbyUser(User _user, Meal _meal)
+        public bool UpdateMealbyUser(User _user, Meal _meal,Food _food)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            User user = db.Users.Find(_user.UserID);
+            Meal meal = db.Meals.Find(_meal.MealID);
+            Food food = db.Foods.Find(_food.FoodID);
 
-            Meal meal = _user.Meals.Where(x => x.MealID == _meal.MealID).FirstOrDefault();
             if (meal != null)
             {
-                meal.Foods = _meal.Foods;
-                meal.MealName = _meal.MealName;
-                meal.MealTime = _meal.MealTime;
-                meal.Quantity = _meal.Quantity;
-                meal.FoodPortion = _meal.FoodPortion;
-                meal.TotalCalorie = _meal.TotalCalorie;
-            }       
+                if (user.Meals.Contains(meal))
+                {
+                    if(meal.Foods.Contains(food))
+                    {
+                        meal.Foods = _meal.Foods;
+                        meal.MealName = _meal.MealName;
+                        meal.MealTime = _meal.MealTime;
+                        food.Quantity = _food.Quantity;
+                        food.Portion = _food.Portion;
+                    }                                   
+                }
+            }           
 
-            return FEDietDbContext.SaveChanges();        
+            return db.SaveChanges()>0;
         }
 
-        public int DeleteMealbyUser(User _user, Meal _meal)
+        public bool DeleteMealbyUser(User _user,Meal _meal,Food _food)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-            Meal meal = _user.Meals.Where(x => x.MealID == _meal.MealID).FirstOrDefault();
+            User user = db.Users.Find(_user.UserID);
+            Meal meal = db.Meals.Find(_meal.MealID);
+            Food food = db.Foods.Find(_food.FoodID);
+
             if (meal != null)
             {
-                _user.Meals.Remove(meal);
+                if(user.Meals.Contains(meal))
+                {
+                    if(meal.Foods.Contains(food))
+                    {
+                       meal.Foods.Remove(food);
+                    }
+                }               
             }
-            return FEDietDbContext.SaveChanges();
+            return db.SaveChanges()>0;
         }
 
-        public int AddActivityByUser(User user, Activity activity)
-        {
-             User _user = FEDietDbContext.Users.Where(x => x.UserID == user.UserID).FirstOrDefault();
-             _user.Activities.Add(activity);
-             return FEDietDbContext.SaveChanges();    
-        }
       
-        public int UpdateActivityByUser(User _user, Activity _activity)
+      
+        public double UserProteinRate(DateTime day, User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-
-            Activity activity = _user.Activities.Where(x => x.ActivityID == _activity.ActivityID).FirstOrDefault();
-            if (activity != null)
-            {
-                activity.ActivityDay = _activity.ActivityDay;
-                activity.ActivityName = _activity.ActivityName;
-                activity.ActivityTime = _activity.ActivityTime;
-            }
-
-            return FEDietDbContext.SaveChanges();
-        }
-
-        public int DeleteActivityByUser(User _user, Activity _activity)
-        {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-            Activity activity = _user.Activities.Where(x => x.ActivityID == _activity.ActivityID).FirstOrDefault();
-            if (activity != null)
-            {
-                _user.Activities.Remove(activity);
-            }
-
-            return FEDietDbContext.SaveChanges();
-
-        }
-
-        //seçilen tarihe göre aktivite listele 
-        public List<Activity> ActivityList(DateTime date,User _user )
-        {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-          var activityList = _user.Activities.Where(x => x.ActivityDay==date).ToList();
-            return activityList;
-        }
-
-        //günlük aldığı mikro besin oranları ayrı ayrı method user da olmayabilir tabi..
-
-        public decimal UserProteinRate(DateTime day, User _user)
-        {
-            decimal proteinrate = 0;
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            double proteinrate = 0;
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var mealList = _user.Meals.Where(x => x.MealTime.Day == day.Day).ToList();
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    proteinrate += food.ProteinRate;
+                    proteinrate += food.ProteinCaloryPerGram;
                 }
             }
             return proteinrate; //böyle mi acaba, diğerlerini yapayım mı ki 
         }
 
 
-        public decimal UserFatRate(DateTime day, User _user)
+        public double UserFatRate(DateTime day, User _user)
         {
-            decimal proteinrate = 0;
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-            var mealList = _user.Meals.Where(x=>x.MealTime.Day==day.Day).ToList();
-            foreach (Meal item in mealList)
-            {
-                foreach (Food food in item.Foods)
-                {
-                    proteinrate += food.FatRate;
-                }
-            }
-            return proteinrate; 
-        }
-
-        public decimal UserCarbRate(DateTime day, User _user)
-        {
-            decimal proteinrate = 0;
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            double proteinrate = 0;
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var mealList = _user.Meals.Where(x => x.MealTime.Day == day.Day).ToList();
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    proteinrate += food.CarbRate;
+                    proteinrate += food.FatCaloryPerGram;
                 }
             }
             return proteinrate;
         }
 
-        public decimal UserWaterRate(DateTime day, User _user)
+        public double UserCarbRate(DateTime day, User _user)
         {
-            decimal proteinrate = 0;
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            double proteinrate = 0;
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var mealList = _user.Meals.Where(x => x.MealTime.Day == day.Day).ToList();
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    proteinrate += food.WaterRate;
+                    proteinrate += food.CarbonhydratesCaloryPerGram;
                 }
             }
             return proteinrate;
         }
+
 
         //yağ oranı ortalamadan yüksek olan ve su oranı ortalamadan düşük olan yemekler listesi sorgu; bad idea
-
+        //formuserreports
         public List<Food> BadFoodList(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var meallist = _user.Meals.ToList();
-            List<Food> badfoodList=null;
+            List<Food> badfoodList = null;
             foreach (Meal item in meallist)
             {
                 foreach (Food food in item.Foods)
                 {
-                    var avgfaterate = FEDietDbContext.Foods.Where(x=>x.FoodID==food.FoodID).Average(x => x.FatRate);
-                    var avgwaterrate = FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID).Average(x => x.WaterRate);
-                    badfoodList= FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID && (x.FatRate>avgfaterate && x.WaterRate<avgwaterrate)).ToList();
+                    var avgfaterate = db.Foods.Where(x => x.FoodID == food.FoodID).Average(x => x.FatCaloryPerGram);
+                
+                    badfoodList = db.Foods.Where(x => x.FoodID == food.FoodID && (x.FatCaloryPerGram > avgfaterate)).ToList();
                 }
             }
             return badfoodList.ToList();
@@ -196,26 +169,26 @@ namespace FEDiet.DAL.Repositories
 
         public List<Food> BetterFoodList(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var meallist = _user.Meals.ToList();
             List<Food> badfoodList = null;
             foreach (Meal item in meallist)
             {
                 foreach (Food food in item.Foods)
                 {
-                    var avgfaterate = FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID).Average(x => x.FatRate);
-                    var avgwaterrate = FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID).Average(x => x.WaterRate);
-                    badfoodList = FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID && (x.FatRate < avgfaterate && x.WaterRate > avgwaterrate)).ToList();
+                    var avgfaterate = db.Foods.Where(x => x.FoodID == food.FoodID).Average(x => x.FatCaloryPerGram);
+                  
+                    badfoodList = db.Foods.Where(x => x.FoodID == food.FoodID && (x.FatCaloryPerGram < avgfaterate)).ToList();
                 }
             }
             return badfoodList.ToList();
         }
 
 
-//favorite food, en çok yediği yemek, desc - top 1, ya da iç içe select daha doğru 
+        //favorite food, en çok yediği yemek, desc - top 1, ya da iç içe select daha doğru 
         public string FavoriteFoodbyUser(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
             var meallist = _user.Meals.ToList();
             string favoriteFood = "";
             foreach (Meal item in meallist)
@@ -223,11 +196,11 @@ namespace FEDiet.DAL.Repositories
                 foreach (Food food in item.Foods)
                 {
 
-                    favoriteFood = FEDietDbContext.Foods.Where(x => x.FoodID == food.FoodID).GroupBy(x => x.FoodName).Select(g => new
+                    favoriteFood = db.Foods.Where(x => x.FoodID == food.FoodID).GroupBy(x => x.FoodName).Select(g => new
                     {
                         FoodName = g.Key,
                         count = g.Count()
-                    }).OrderByDescending(x => x.count).Select(x => x.FoodName).FirstOrDefault();               
+                    }).OrderByDescending(x => x.count).Select(x => x.FoodName).FirstOrDefault();
                 }
             }
 
@@ -236,39 +209,39 @@ namespace FEDiet.DAL.Repositories
 
         public string MaxCaloryOfUser(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
-            decimal maxCalory = 0;
+            double maxCalory = 0;
             string maxCalFoodName = "";
             foreach (Meal item in mealList)
             {
-                foreach(Food food in item.Foods)
+                foreach (Food food in item.Foods)
                 {
-                    if (maxCalory < food.Calorie)
+                    if (maxCalory < food.CaloryPerOnePortion)
                     {
-                        maxCalory = food.Calorie;
+                        maxCalory = food.CaloryPerOnePortion;
                         maxCalFoodName = food.FoodName;
                     }
-                }              
+                }
             }
             return maxCalFoodName;
         }
 
         public string MaxProteinOfUser(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
-            decimal maxProtein = 0;
+            double maxProtein = 0;
             string maxProtFoodName = "";
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    if (maxProtein < food.ProteinRate)
+                    if (maxProtein < food.ProteinCaloryPerGram)
                     {
-                        maxProtein = food.ProteinRate;
+                        maxProtein = food.ProteinCaloryPerGram;
                         maxProtFoodName = food.FoodName;
                     }
                 }
@@ -278,18 +251,18 @@ namespace FEDiet.DAL.Repositories
 
         public string MaxFatOfUser(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
-            decimal maxFat = 0;
+            double maxFat = 0;
             string maxFatFoodName = "";
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    if (maxFat < food.ProteinRate)
+                    if (maxFat < food.FatCaloryPerGram)
                     {
-                        maxFat = food.ProteinRate;
+                        maxFat = food.FatCaloryPerGram;
                         maxFatFoodName = food.FoodName;
                     }
                 }
@@ -299,18 +272,18 @@ namespace FEDiet.DAL.Repositories
 
         public string MaxCarbsOfUser(User _user)
         {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
-            decimal maxCarbs = 0;
+            double maxCarbs = 0;
             string maxCarbsFoodName = "";
             foreach (Meal item in mealList)
             {
                 foreach (Food food in item.Foods)
                 {
-                    if (maxCarbs < food.ProteinRate)
+                    if (maxCarbs < food.CarbonhydratesCaloryPerGram)
                     {
-                        maxCarbs = food.ProteinRate;
+                        maxCarbs = food.CarbonhydratesCaloryPerGram;
                         maxCarbsFoodName = food.FoodName;
                     }
                 }
@@ -318,40 +291,20 @@ namespace FEDiet.DAL.Repositories
             return maxCarbsFoodName;
         }
 
-        public string MaxWaterOfUser(User _user)
-        {
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
-
-            var mealList = _user.Meals.ToList();
-            decimal maxWater = 0;
-            string maxWaterFoodName = "";
-            foreach (Meal item in mealList)
-            {
-                foreach (Food food in item.Foods)
-                {
-                    if (maxWater < food.ProteinRate)
-                    {
-                        maxWater = food.ProteinRate;
-                        maxWaterFoodName = food.FoodName;
-                    }
-                }
-            }
-            return maxWaterFoodName;
-        }
-
+       
         public DateTime UserFailedDay(User _user)
         {
 
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
 
 
-            DateTime FailDay = FEDietDbContext.Meals.Where(x=>x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
-                {
-                    MealTime = g.Key,
-                    summing = g.Sum(x=>x.TotalCalorie)
-                }).OrderByDescending(x => x.summing).Select(x => x.MealTime).FirstOrDefault();    
+            DateTime FailDay = db.Meals.Where(x => x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
+            {
+                MealTime = g.Key,
+                summing = g.Sum(x => x.MealCalory)
+            }).OrderByDescending(x => x.summing).Select(x => x.MealTime).FirstOrDefault();
 
             return FailDay;
         }
@@ -359,15 +312,15 @@ namespace FEDiet.DAL.Repositories
         public DateTime BestDay(User _user)
         {
 
-            _user = FEDietDbContext.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
 
             var mealList = _user.Meals.ToList();
- 
 
-            DateTime FailDay = FEDietDbContext.Meals.Where(x => x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
+
+            DateTime FailDay = db.Meals.Where(x => x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
             {
                 MealTime = g.Key,
-                summing = g.Sum(x => x.TotalCalorie)
+                summing = g.Sum(x => x.MealCalory)
             }).OrderBy(x => x.summing).Select(x => x.MealTime).FirstOrDefault();
 
             return FailDay;
@@ -394,15 +347,13 @@ namespace FEDiet.DAL.Repositories
             return passwordStrength;
         }
 
-        public List<User> UserList()
-        {
-            return FEDietDbContext.Users.ToList();
-        }
-
+      
         public int UserAge(DateTime date)
         {
-            return DateTime.Now.Year- date.Year;
+            return DateTime.Now.Year - date.Year;
         }
+
+        
 
     }
 }

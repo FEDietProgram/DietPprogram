@@ -10,105 +10,133 @@ namespace FEDiet.DAL.Repositories
 {
     public class UserDetailRepository
     {
-        FEDietDbContext fEDietDbContext;
+        FEDietDbContext db;
         public UserDetailRepository()
         {
-            fEDietDbContext = new FEDietDbContext();    
+            db = new FEDietDbContext();    
         }
 
+        public bool AddUserDetail(UserDetail userDetail)
+        {
+            db.UserDetails.Add(userDetail);
+            return db.SaveChanges() > 0;
+        }
+
+        public bool UpdateUserDetail(UserDetail userDetail)
+        {
+            UserDetail updatedUserDetail = db.UserDetails.Find(userDetail.UserDetailID);
+            updatedUserDetail.Weight = userDetail.Weight;
+            updatedUserDetail.Height = userDetail.Height;
+            updatedUserDetail.NeckWidth = userDetail.NeckWidth;
+            updatedUserDetail.WaistWidth = userDetail.WaistWidth;
+            updatedUserDetail.Birthdate = userDetail.Birthdate;
+            updatedUserDetail.Job = userDetail.Job;
+            updatedUserDetail.Gender = userDetail.Gender;
+            updatedUserDetail.AllergenicFoods = userDetail.AllergenicFoods;
+            updatedUserDetail.UserSituation = userDetail.UserSituation;
+
+            return db.SaveChanges() > 0;
+        }
+
+        public bool DeleteUserDetail(UserDetail userDetail)
+        {
+            UserDetail deletedUserDetail = db.UserDetails.Find(userDetail.UserDetailID);
+            db.UserDetails.Remove(deletedUserDetail);
+            return db.SaveChanges() > 0;
+        }
+
+        public UserDetail GetUserDetailByID(int id)
+        {
+            UserDetail userdetail = db.UserDetails.Where(x => x.UserDetailID == id).FirstOrDefault();
+
+            return userdetail;
+        }
 
         public int UserAge(DateTime birth)
         {
             int age;
-            age= DateTime.Now.Year- birth.Year;
+            age = DateTime.Now.Year - birth.Year;
             return age;
         }
 
-
+        //public UserDetail FillUserDetailByUser(User user)
+        //{
+        //    UserDetail userDetail = new UserDetail();
+        //    userDetail = user.UserDetail;
+        //    return userDetail;
+        //}
         public AgeGroup UserAgeGroup(int age)
         {
-            AgeGroup ageGroup;
-            if (age > 0 && age <= 1) ageGroup = AgeGroup.infant;
-            else if (age > 1 && age <= 8) ageGroup = AgeGroup.child;
-            else if (age > 8 && age <= 18) ageGroup = AgeGroup.young;
-            else if (age > 18 && age <= 50) ageGroup = AgeGroup.elder;
-            else ageGroup = AgeGroup.old;
+            AgeGroup ageGroup =0;
+          
+             if (age > 1 && age <= 8) ageGroup = AgeGroup.Child;  
+             else if (age > 8 ) ageGroup = AgeGroup.GrownUp;
             return ageGroup;
         }
 
-                    /*BKİ değerinin normal değerlerin (18.50-24.99
-            kg/m2) altında ya da üzerinde olması sağlık
-            riskinin arttığının göstergesidir.
-               BKİ’nin hesaplanabilmesi için vücut ağırlığı
-            ve boy uzunluğu tekniğine göre ölçülür. Vücut
-            ağırlığının (kg cinsinden) boy uzunluğunun
-            (metre cinsinden) karesine bölünmesiyle
-            hesaplanır [BKİ: Vücut ağırlığı (kg) / boy
-            uzunluğu (m)2].     
-         */
+        //            /*BKİ değerinin normal değerlerin (18.50-24.99
+        //    kg/m2) altında ya da üzerinde olması sağlık
+        //    riskinin arttığının göstergesidir.
+        //       BKİ’nin hesaplanabilmesi için vücut ağırlığı
+        //    ve boy uzunluğu tekniğine göre ölçülür. Vücut
+        //    ağırlığının (kg cinsinden) boy uzunluğunun
+        //    (metre cinsinden) karesine bölünmesiyle
+        //    hesaplanır [BKİ: Vücut ağırlığı (kg) / boy
+        //    uzunluğu (m)2].     
+        // */
 
 
-        public decimal UserPerdayCalorie(UserDetail user)
+        public decimal UserPerdayCalorie(UserDetail _userDetail)
         {
-            decimal cal = 0;
-            decimal index;
+            UserDetail userDetail = db.UserDetails.Find(_userDetail.UserDetailID);
+            string gender = userDetail.Gender.ToString();
 
-
-         
-            if(user.AgeGroup==AgeGroup.infant)
+            if (gender == "Female")
             {
-                if (user.Gender == true)
-                {
-                    //
-                    cal = 111;
-                }
-                else { }
+                return 10 * (decimal)userDetail.Weight + (decimal)(6.25 * userDetail.Height) - 5 * UserAge(userDetail.Birthdate) - 161;
             }
-            else if (user.AgeGroup== AgeGroup.child)
+            else
             {
-                if(user.Gender == true)
-                {
-                    //
-                    cal = 111;
-                }
-                else { }
+                return 10 * (decimal)userDetail.Weight + (decimal)(6.25 * userDetail.Height) - 5 * UserAge(userDetail.Birthdate) + 5;
+
             }
-
-            else if (user.AgeGroup == AgeGroup.young)
-            {
-                if (user.Gender == true)
-                {
-                    //
-                    cal = 111;
-                }
-                else { }
-            }
-
-            else if (user.AgeGroup == AgeGroup.elder)
-            {
-                if (user.Gender == true)
-                {
-                    //
-                    cal = 111;
-                }
-                else { }
-            }
-
-            else if (user.AgeGroup == AgeGroup.old)
-            {
-                if (user.Gender == true)
-                {
-                    //
-                    cal = 111;
-                }
-                else { }
-            }
-
-            return cal;
-
         }
 
-                
+        public double CalculateUserBMI(double mass, double height)
+        {
+            return Convert.ToDouble(mass / (height * height));
+        }
+
+        public double CalculateUserFatRate(UserDetail _userDetail)
+        {
+            UserDetail userDetail=db.UserDetails.Find(_userDetail.UserDetailID);
+            int age = UserAge(userDetail.Birthdate);
+            AgeGroup agegroup = UserAgeGroup(age);
+            if (userDetail.Gender=="Female")
+            {
+                if ( agegroup != AgeGroup.GrownUp)
+                {
+                    return 1.20 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.23 * age - 5.4;
+                }
+                else
+                {
+                    return 1.51 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.70 * age + 1.4;
+                }
+            }
+            else
+            {
+                if (agegroup != AgeGroup.Child)
+                {
+                    return 1.20 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.23 * age - 16.2;
+                }
+                else
+                {
+                    return 1.51 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.70 * age - 2.2;
+                }
+            }
+        }
+
+
 
     }
 }

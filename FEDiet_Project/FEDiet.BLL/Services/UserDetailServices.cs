@@ -1,4 +1,5 @@
 ﻿using FEDiet.DAL.Repositories;
+using FEDiet.Model.Entities;
 using FEDiet.Model.Enums;
 using System;
 using System.Collections.Generic;
@@ -19,43 +20,109 @@ namespace FEDiet.BLL.Services
         }
 
 
-        public bool UserGender(bool gender)
+        public bool AddUserDetail(UserDetail userDetail)
         {
-            bool genderResult = true;
-            if (gender)
+            if (userDetail == null)
             {
-                return genderResult;
-
+                throw new Exception("User Detail is null");
             }
             else
             {
-                genderResult = false;
-                return genderResult;
+                return userDetailRepository.AddUserDetail(userDetail);
             }
         }
 
-        public int UserAge(DateTime birth)
-        {    
-            int ageResult = 0;       
-            if(birth!=null)
-            {
-              ageResult=  userDetailRepository.UserAge(birth);
-            }
-
-            else { throw new Exception("Doğum tarihinizi giriniz"); }
-
-            return ageResult;   
-        }
-
-        public AgeGroup UserAgeGroups(int age)
+        public bool UpdateUserDetail(UserDetail userDetail)
         {
-            AgeGroup ageGroup = new AgeGroup();
-            if (age != null)
+            if (userDetail == null)
             {
-                ageGroup = userDetailRepository.UserAgeGroup(age);
+                throw new Exception("User Detail is null");
             }
-            return ageGroup;
+            else
+            {
+                return userDetailRepository.UpdateUserDetail(userDetail);
+            }
         }
-       
+
+        public bool DeleteUserDetail(UserDetail userDetail)
+        {
+            if (userDetail == null)
+            {
+                throw new Exception("User Detail is null");
+            }
+            else
+            {
+                return userDetailRepository.DeleteUserDetail(userDetail);
+            }
+        }
+
+
+        public UserDetail GetUserDetailByID(int id)
+        {
+            return userDetailRepository.GetUserDetailByID(id);
+        }
+
+        //public UserDetail FillUserDetailByUser(User user)
+        //{
+        //    return userDetailRepository.FillUserDetailByUser(user);
+        //}
+
+        //public bool UserGender(bool gender)
+        //{
+        //    bool genderResult = true;
+        //    if (gender)
+        //    {
+        //        return genderResult;
+
+        //    }
+        //    else
+        //    {
+        //        genderResult = false;
+        //        return genderResult;
+        //    }
+        //}
+
+        //public int UserAge(DateTime birth)
+        //{    
+        //    int ageResult = 0;       
+        //    if(birth!=null)
+        //    {
+        //      ageResult=  userDetailRepository.UserAge(birth);
+        //    }
+
+        //    else { throw new Exception("Doğum tarihinizi giriniz"); }
+
+        //    return ageResult;   
+        //}
+
+        //public AgeGroup UserAgeGroups(int age)
+        //{
+        //    AgeGroup ageGroup = new AgeGroup();
+        //    if (age !=0)
+        //    {
+        //        ageGroup = userDetailRepository.UserAgeGroup(age);
+        //    }
+        //    return ageGroup;
+        //}
+
+
+        public decimal UserPerdayCalorie(UserDetail user)
+        {
+            return userDetailRepository.UserPerdayCalorie(user);
+        }
+
+        public double CalculateUserBMI(double mass, double height)
+        {
+            return userDetailRepository.CalculateUserBMI(mass, height);
+        }
+
+        public double CalculateUserFatRate(UserDetail userDetail)
+        {
+            return userDetailRepository.CalculateUserFatRate(userDetail);
+        }
+
+
+
+
     }
 }
