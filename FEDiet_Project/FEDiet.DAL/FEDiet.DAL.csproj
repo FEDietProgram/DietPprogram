@@ -72,6 +72,18 @@
     <Compile Include="Migrations\202204032033145_init2.designer.cs">
       <DependentUpon>202204032033145_init2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204040950534_init3.cs" />
+    <Compile Include="Migrations\202204040950534_init3.designer.cs">
+      <DependentUpon>202204040950534_init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204041006194_init4.cs" />
+    <Compile Include="Migrations\202204041006194_init4.designer.cs">
+      <DependentUpon>202204041006194_init4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204041019504_init5.cs" />
+    <Compile Include="Migrations\202204041019504_init5.designer.cs">
+      <DependentUpon>202204041019504_init5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
@@ -103,6 +115,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204032033145_init2.resx">
       <DependentUpon>202204032033145_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204040950534_init3.resx">
+      <DependentUpon>202204040950534_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204041006194_init4.resx">
+      <DependentUpon>202204041006194_init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204041019504_init5.resx">
+      <DependentUpon>202204041019504_init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

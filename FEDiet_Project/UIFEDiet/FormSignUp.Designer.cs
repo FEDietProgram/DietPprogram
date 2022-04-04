@@ -50,8 +50,6 @@
             this.lblPasswStrength = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnKayit = new System.Windows.Forms.Button();
             this.nudNeck = new System.Windows.Forms.NumericUpDown();
             this.nudWaist = new System.Windows.Forms.NumericUpDown();
             this.nudHip = new System.Windows.Forms.NumericUpDown();
@@ -60,12 +58,15 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.chkTerms = new System.Windows.Forms.CheckBox();
+            this.btnBackClick = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnKayit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWaist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // rbErkek
@@ -286,31 +287,6 @@
             this.txtEmail.Size = new System.Drawing.Size(296, 24);
             this.txtEmail.TabIndex = 49;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UIFEDiet.Properties.Resources.Body_Positive_Female_100px1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 576);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(72, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnKayit
-            // 
-            this.btnKayit.BackColor = System.Drawing.Color.Transparent;
-            this.btnKayit.BackgroundImage = global::UIFEDiet.Properties.Resources.signup;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnKayit.FlatAppearance.BorderSize = 0;
-            this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKayit.Location = new System.Drawing.Point(142, 523);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(152, 83);
-            this.btnKayit.TabIndex = 25;
-            this.btnKayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnKayit.UseVisualStyleBackColor = false;
-            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
-            // 
             // nudNeck
             // 
             this.nudNeck.Location = new System.Drawing.Point(88, 331);
@@ -418,12 +394,51 @@
             this.chkTerms.Text = "I agree to the terms of use";
             this.chkTerms.UseVisualStyleBackColor = true;
             // 
+            // btnBackClick
+            // 
+            this.btnBackClick.BackgroundImage = global::UIFEDiet.Properties.Resources.back_100px2;
+            this.btnBackClick.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBackClick.FlatAppearance.BorderSize = 0;
+            this.btnBackClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackClick.Location = new System.Drawing.Point(373, 585);
+            this.btnBackClick.Name = "btnBackClick";
+            this.btnBackClick.Size = new System.Drawing.Size(99, 64);
+            this.btnBackClick.TabIndex = 58;
+            this.btnBackClick.UseVisualStyleBackColor = true;
+            this.btnBackClick.Click += new System.EventHandler(this.btnBackClick_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UIFEDiet.Properties.Resources.Body_Positive_Female_100px1;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 576);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackColor = System.Drawing.Color.Transparent;
+            this.btnKayit.BackgroundImage = global::UIFEDiet.Properties.Resources.signup;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnKayit.FlatAppearance.BorderSize = 0;
+            this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKayit.Location = new System.Drawing.Point(142, 523);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(152, 83);
+            this.btnKayit.TabIndex = 25;
+            this.btnKayit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnKayit.UseVisualStyleBackColor = false;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnBackClick);
             this.Controls.Add(this.chkTerms);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -459,14 +474,15 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSignUp";
             this.Load += new System.EventHandler(this.FormSignUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNeck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWaist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,5 +521,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox chkTerms;
+        private System.Windows.Forms.Button btnBackClick;
     }
 }

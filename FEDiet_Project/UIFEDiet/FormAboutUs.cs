@@ -24,7 +24,7 @@ namespace UIFEDiet
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/FEDietProgram/DietPprogram%22");
+            System.Diagnostics.Process.Start("https://github.com/FEDietProgram/DietPprogram");
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

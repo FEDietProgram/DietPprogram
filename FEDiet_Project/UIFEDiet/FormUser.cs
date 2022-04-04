@@ -32,7 +32,7 @@ namespace UIFEDiet
             userServices = new UserServices();
             userDetailServices = new UserDetailServices();
             waterServices = new WaterServices();
-            adminServices = new AdminServices();    
+            adminServices = new AdminServices();
             mealServices = new MealServices();
             activityServices = new ActivityServices();
             _user = user;
@@ -52,16 +52,17 @@ namespace UIFEDiet
             lblDailyCalory.Text = userDetailServices.UserPerdayCalorie(_user.UserDetail).ToString();
             double userCal = ((double)userDetailServices.UserPerdayCalorie(_user.UserDetail) - mealServices.UserDailyConsumedCal(_user));
             lblDuserCal.Text = userCal.ToString();
-            if (userCal<=0)
+            if (userCal <= 0)
             {
                 MessageBox.Show("Günlük almanız gereken kaloriye ulaştınız.", "Hedef Kaloriye Ulaşıldı");
-                lblDuserCal.ForeColor=Color.Red;
+                lblDuserCal.ForeColor = Color.Red;
             }
             lblCarb.Text = userServices.UserCarbRate(dtDay.Value, _user).ToString();
             lblGrass.Text = userServices.UserFatRate(dtDay.Value, _user).ToString();
             lblProtein.Text = userServices.UserProteinRate(dtDay.Value, _user).ToString();
             lblConsumedCalory.Text = mealServices.UserDailyConsumedCal(_user).ToString();
         }
+
 
         public void FillListView()
         {
@@ -71,19 +72,17 @@ namespace UIFEDiet
 
             foreach (Meal meal in mealList)
             {
-                ListViewItem list = new ListViewItem();
-                list.Text = meal.MealName;
-                list.SubItems.Add(meal.MealCalory.ToString());
-                list.SubItems.Add(meal.MealTime.ToString());
-
                 foreach (Food item in mealServices.FoodsOfMeal(meal))
                 {
+                    ListViewItem list = new ListViewItem();
+                    list.Text = meal.MealName;
+                    list.SubItems.Add(meal.MealCalory.ToString());
+                    list.SubItems.Add(meal.MealTime.ToString());
                     list.SubItems.Add(item.FoodName);
                     list.SubItems.Add(item.Portion);
                     list.SubItems.Add(item.Quantity.ToString());
-                }
-
-                lwTodaysMeals.Items.Add(list);
+                    lwTodaysMeals.Items.Add(list);
+                }                
             }
 
         }
@@ -97,15 +96,16 @@ namespace UIFEDiet
 
         private void btnMeal_Click(object sender, EventArgs e)
         {
-            FormUserEditMeal frmMeal=new FormUserEditMeal(_user);            
-            frmMeal.ShowDialog();
+            FormUserEditMeal frmMeal=new FormUserEditMeal(_user);
+            this.Close();
+            frmMeal.Show();
         }
 
         private void btnActivity_Click(object sender, EventArgs e)
         {
             FormUserEditActivity frmActivity = new FormUserEditActivity(_user);
-          
-            frmActivity.ShowDialog();
+            this.Close();
+            frmActivity.Show();
 
         }
 
@@ -118,40 +118,16 @@ namespace UIFEDiet
         private void btnSettings_Click(object sender, EventArgs e)
         {
             FormSignUp frmSignUp = new FormSignUp(_user);
-            frmSignUp.ShowDialog();
+            this.Close();
+            frmSignUp.Show();
         }
 
         private void lnklblUserReports_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormUserReports frmReports = new FormUserReports(_user);
-            frmReports.ShowDialog();    
-        }
-
-       
-        private void pictureBox1_MouseHover(object sender, EventArgs e)
-        {
-            timer1.Enabled = true;
-            timer1.Start();
-            timer1.Interval = 50;
-            lblFalling.Visible = true;
-            lblFalling.Text = "Tıklayın";
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {  
-            do
-            {
-                lblFalling.Top += 50;
-                if (lblFalling.Top == 210)
-                {
-                    timer1.Stop();
-                    timer1.Enabled = false;
-                    break;
-                }
-
-            } while (lblFalling.Top == 210 || timer1.Enabled == false);
-           
-        }
+            this.Close();
+            frmReports.Show();    
+        }                           
 
         private void lblFalling_LocationChanged(object sender, EventArgs e)
         {
@@ -163,10 +139,6 @@ namespace UIFEDiet
             RefreshLabels();
             FillListView();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"Vücut yağ oranınız = {_user.UserDetail.BodyFatRate} \nVücut kütle indeksiniz = {_user.UserDetail.BodyMassIndex}", "Kullanıcı bilgileri", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+                
     }
 }

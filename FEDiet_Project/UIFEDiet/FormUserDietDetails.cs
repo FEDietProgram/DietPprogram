@@ -24,14 +24,18 @@ namespace UIFEDiet
         {
             InitializeComponent();
             userServices = new UserServices();
+            user = _user;
         }
 
         private void FormUserDietDetails_Load(object sender, EventArgs e)
         {
-            lbBetter.DataSource = userServices.BetterFoodList(user);
-            lbBetter.DisplayMember = "FoodName";
-            lbBad.DataSource=userServices.BadFoodList(user);
-            lbBad.DisplayMember = "FoodName";
+            //lbBetter.DataSource = userServices.BetterFoodList(user);
+            //lbBetter.DisplayMember = "FoodName";
+            //lbBad.DataSource=userServices.BadFoodList(user);
+            //lbBad.DisplayMember = "FoodName";
+
+            lblBMI.Text= user.UserDetail.BodyMassIndex.ToString();
+            lblFatrate.Text=user.UserDetail.BodyFatRate.ToString(); 
         }
     }
 }

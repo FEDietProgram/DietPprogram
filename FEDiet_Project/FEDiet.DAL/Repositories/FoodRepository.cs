@@ -97,21 +97,20 @@ namespace FEDiet.DAL.Repositories
         }
 
 
-        public bool UpdateFoodOfUser(User _user, int id)
+        public bool UpdateFoodOfUser(User _user, int id,Food newfood)
         {
             User user = FEDietDbContext.Users.Find(_user.UserID);
             Food food = GetFoodbyId(id);
             foreach (Meal item in user.Meals)
-            {         
-                if (item.Foods.Contains(food))
-                {
-                    foreach (Food _food in item.Foods)
+            {
+                List<Food> foodList = item.Foods.Where(x=>x.FoodID==food.FoodID).ToList();
+              
+                    foreach (Food _food in foodList)
                     {
-                        _food.FoodName = food.FoodName;
-                        _food.Portion = food.Portion;
-                        _food.Quantity = _food.Quantity;
-                    } 
-                }
+                        _food.FoodName = newfood.FoodName;
+                        _food.Portion = newfood.Portion;
+                        _food.Quantity = newfood.Quantity;
+                    }                 
             }
 
             return FEDietDbContext.SaveChanges() > 0;

@@ -79,9 +79,9 @@ namespace FEDiet.BLL.Services
            return foodRepository.RemoveFoodFromUser(_user, id);
         }
 
-        public bool UpdateFoodOfUser(User _user, int id)
+        public bool UpdateFoodOfUser(User _user, int id,Food food)
         {
-            return foodRepository.UpdateFoodOfUser(_user, id);
+            return foodRepository.UpdateFoodOfUser(_user, id,food);
         }
     }
 }

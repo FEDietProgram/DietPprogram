@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="circle_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circle_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,14 +160,17 @@
   <data name="close_window_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_window_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="refresh_64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sign_out_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sign_out_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="butter_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\butter_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="circle_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circle_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="M0NA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M0NA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shallow_pan_of_food_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shallow_pan_of_food_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +187,17 @@
   <data name="plate_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plate_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="201_Elements_of_the_Human_Body.02.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\201_Elements_of_the_Human_Body.02.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="report_file_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\report_file_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="201_Elements_of_the_Human_Body.02.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\201_Elements_of_the_Human_Body.02.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="circle_40px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circle_40px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="linkedin_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\linkedin_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +211,9 @@
   <data name="settings_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="beef_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beef_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="twitter_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\twitter_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,6 +225,9 @@
   </data>
   <data name="Graph_Report_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Graph_Report_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back_100px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_100px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back_to_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back_to_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,13 +241,10 @@
   <data name="Business_Report_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Business_Report_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="M0NA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\M0NA.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="beef_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\beef_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back_100px2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_100px2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

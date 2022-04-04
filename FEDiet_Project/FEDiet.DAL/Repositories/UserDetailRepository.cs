@@ -102,39 +102,7 @@ namespace FEDiet.DAL.Repositories
             }
         }
 
-        public double CalculateUserBMI(double mass, double height)
-        {
-            return Convert.ToDouble(mass / (height * height));
-        }
-
-        public double CalculateUserFatRate(UserDetail _userDetail)
-        {
-            UserDetail userDetail=db.UserDetails.Find(_userDetail.UserDetailID);
-            int age = UserAge(userDetail.Birthdate);
-            AgeGroup agegroup = UserAgeGroup(age);
-            if (userDetail.Gender=="Female")
-            {
-                if ( agegroup != AgeGroup.GrownUp)
-                {
-                    return 1.20 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.23 * age - 5.4;
-                }
-                else
-                {
-                    return 1.51 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.70 * age + 1.4;
-                }
-            }
-            else
-            {
-                if (agegroup != AgeGroup.Child)
-                {
-                    return 1.20 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.23 * age - 16.2;
-                }
-                else
-                {
-                    return 1.51 * (double)CalculateUserBMI(userDetail.Weight,userDetail.Height) + 0.70 * age - 2.2;
-                }
-            }
-        }
+       
 
 
 

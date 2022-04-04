@@ -105,6 +105,7 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAboutUs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAboutUs";
             this.Load += new System.EventHandler(this.FormAboutUs_Load);
             this.groupBox1.ResumeLayout(false);

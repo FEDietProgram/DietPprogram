@@ -111,18 +111,6 @@ namespace FEDiet.BLL.Services
             return userDetailRepository.UserPerdayCalorie(user);
         }
 
-        public double CalculateUserBMI(double mass, double height)
-        {
-            return userDetailRepository.CalculateUserBMI(mass, height);
-        }
-
-        public double CalculateUserFatRate(UserDetail userDetail)
-        {
-            return userDetailRepository.CalculateUserFatRate(userDetail);
-        }
-
-
-
-
+       
     }
 }

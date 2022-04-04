@@ -69,6 +69,18 @@ namespace FEDiet.DAL.Repositories
             return meallist;
         }
 
+         public List<Meal> GetMealsByDate(DateTime mealtime, User _user,string mealName)//gelen mealname e göre
+        {
+            List<Meal> meallist = new List<Meal>();
+            User user = db.Users.Find(_user.UserID);
+            foreach (Meal item in user.Meals)
+            {
+                meallist = db.Meals.Where(x => x.MealTime.Day == mealtime.Day && x.MealName==mealName).ToList();
+            }
+
+            return meallist;
+        }
+
         public double MealCalorie(Meal _meal)
         {
             Meal meal = db.Meals.Find(_meal.MealID);
@@ -126,7 +138,8 @@ namespace FEDiet.DAL.Repositories
         public bool RemoveMealFromUser(User _user, Meal meal)
         {
             User user = db.Users.Find(_user.UserID);
-            foreach (Meal item in user.Meals)
+            List<Meal> meals = user.Meals.ToList();
+            foreach (Meal item in meals)
             {
                 if (item.MealID == meal.MealID)
                 {

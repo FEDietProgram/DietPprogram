@@ -13,10 +13,15 @@ namespace FEDiet.DAL.EntityConfiguration
         public UserDetailConfiguration()
         {
             //// ID -One to one USER
-            //Property(x => x.Height).IsRequired();
-            //Property(x => x.Weight).IsRequired();
-            //Property(x => x.Gender).IsRequired();
-            //Property(x => x.BirthDate).IsRequired()
+            Property(x => x.Height).IsRequired();
+            Property(x => x.Weight).IsRequired();
+            Property(x=>x.NeckWidth).IsRequired();
+            Property(x=>x.WaistWidth).IsRequired();
+            Property(x => x.HipWidth).IsRequired();
+            Property(x => x.Job).HasMaxLength(30);
+            Property(x => x.Gender).IsRequired().HasMaxLength(6);
+            Property(x => x.Birthdate).IsRequired();
+           
 
             // Navigations
 

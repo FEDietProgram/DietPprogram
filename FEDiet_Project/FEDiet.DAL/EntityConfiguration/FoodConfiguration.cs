@@ -13,7 +13,13 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public FoodConfiguration()
         {
-
+            Property(x => x.FoodName).IsRequired().HasMaxLength(30);
+            Property(x => x.CaloryPerOnePortion).IsRequired();
+            Property(x => x.ProteinCaloryPerGram).IsRequired();
+            Property(x => x.FatCaloryPerGram).IsRequired();
+            Property(x => x.CarbonhydratesCaloryPerGram).IsRequired();
+      
+            
             HasOptional(x => x.FoodCategory).WithMany(y => y.Foods).HasForeignKey(z => z.FoodCategoryID);
             HasMany(x => x.Meals).WithMany(y => y.Foods);
         }

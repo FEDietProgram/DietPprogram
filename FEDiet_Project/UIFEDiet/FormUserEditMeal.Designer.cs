@@ -42,18 +42,18 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.grbFoods = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cbMealName = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.lbFoods = new System.Windows.Forms.ListBox();
             this.btnCreateMeal = new System.Windows.Forms.Button();
             this.btnCompleteMeal = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.pbFood = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).BeginInit();
             this.grbFoods.SuspendLayout();
@@ -183,6 +183,19 @@
             this.grbFoods.TabStop = false;
             this.grbFoods.Text = "Foods";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::UIFEDiet.Properties.Resources.refresh_64px;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(255, 257);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 53);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -216,6 +229,32 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(256, 24);
             this.dtpDate.TabIndex = 17;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Location = new System.Drawing.Point(390, 257);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(48, 51);
+            this.btnDelete.TabIndex = 11;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Location = new System.Drawing.Point(320, 257);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(63, 53);
+            this.btnUpdate.TabIndex = 13;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lbFoods
             // 
@@ -274,45 +313,6 @@
             this.pbFood.TabIndex = 18;
             this.pbFood.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::UIFEDiet.Properties.Resources.refresh_64px;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(255, 257);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 53);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = global::UIFEDiet.Properties.Resources.delete2;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(390, 257);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(48, 51);
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackgroundImage = global::UIFEDiet.Properties.Resources.update;
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(320, 257);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(63, 53);
-            this.btnUpdate.TabIndex = 13;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // btnAdd
             // 
             this.btnAdd.BackgroundImage = global::UIFEDiet.Properties.Resources.add_100px;
@@ -350,8 +350,10 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserEditMeal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUserEditMeal";
             this.Load += new System.EventHandler(this.FormUserEditMeal_Load);
+            this.Click += new System.EventHandler(this.FormUserEditMeal_Click);
             ((System.ComponentModel.ISupportInitialize)(this.nudQty)).EndInit();
             this.grbFoods.ResumeLayout(false);
             this.grbFoods.PerformLayout();

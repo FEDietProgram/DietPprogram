@@ -63,8 +63,6 @@
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAdminExit = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblCalorie = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbFoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoodPic)).BeginInit();
@@ -195,6 +193,7 @@
             // 
             // nudCal
             // 
+            this.nudCal.DecimalPlaces = 2;
             this.nudCal.Location = new System.Drawing.Point(113, 96);
             this.nudCal.Maximum = new decimal(new int[] {
             2000,
@@ -207,6 +206,7 @@
             // 
             // nudCarbs
             // 
+            this.nudCarbs.DecimalPlaces = 2;
             this.nudCarbs.Location = new System.Drawing.Point(113, 156);
             this.nudCarbs.Maximum = new decimal(new int[] {
             1000,
@@ -219,6 +219,7 @@
             // 
             // nudFat
             // 
+            this.nudFat.DecimalPlaces = 2;
             this.nudFat.Location = new System.Drawing.Point(113, 126);
             this.nudFat.Maximum = new decimal(new int[] {
             1000,
@@ -231,6 +232,7 @@
             // 
             // nudProtein
             // 
+            this.nudProtein.DecimalPlaces = 2;
             this.nudProtein.Location = new System.Drawing.Point(113, 186);
             this.nudProtein.Maximum = new decimal(new int[] {
             1000,
@@ -301,8 +303,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lblCalorie);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblWeight);
             this.groupBox2.Controls.Add(this.lblJob);
             this.groupBox2.Controls.Add(this.lblHeight);
@@ -440,24 +440,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(208, 200);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Calorie:";
-            // 
-            // lblCalorie
-            // 
-            this.lblCalorie.AutoSize = true;
-            this.lblCalorie.Location = new System.Drawing.Point(312, 200);
-            this.lblCalorie.Name = "lblCalorie";
-            this.lblCalorie.Size = new System.Drawing.Size(13, 17);
-            this.lblCalorie.TabIndex = 28;
-            this.lblCalorie.Text = " ";
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -475,6 +457,7 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdmin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAdmin";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.groupBox1.ResumeLayout(false);
@@ -529,7 +512,5 @@
         private System.Windows.Forms.PictureBox pbFoodPic;
         private System.Windows.Forms.Button btnFoodPic;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label lblCalorie;
-        private System.Windows.Forms.Label label2;
     }
 }

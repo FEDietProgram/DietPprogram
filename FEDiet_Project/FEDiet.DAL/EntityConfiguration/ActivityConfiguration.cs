@@ -13,8 +13,8 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public ActivityConfiguration()
         {
-            Property(x => x.ActivityName).IsRequired().HasMaxLength(30);
-            Property(x => x.ActivityTime).IsRequired();
+            //Property(x => x.ActivityName).IsRequired().HasMaxLength(30);
+            //Property(x => x.ActivityTime).IsRequired();
         }
     }
 }

@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(24, 332);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(262, 274);
+            this.groupBox1.Size = new System.Drawing.Size(432, 258);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "My Statistics";
@@ -96,7 +96,7 @@
             // lblMaxCarbs
             // 
             this.lblMaxCarbs.AutoSize = true;
-            this.lblMaxCarbs.Location = new System.Drawing.Point(169, 202);
+            this.lblMaxCarbs.Location = new System.Drawing.Point(169, 182);
             this.lblMaxCarbs.Name = "lblMaxCarbs";
             this.lblMaxCarbs.Size = new System.Drawing.Size(68, 17);
             this.lblMaxCarbs.TabIndex = 13;
@@ -105,7 +105,7 @@
             // lblMaxFat
             // 
             this.lblMaxFat.AutoSize = true;
-            this.lblMaxFat.Location = new System.Drawing.Point(169, 176);
+            this.lblMaxFat.Location = new System.Drawing.Point(169, 156);
             this.lblMaxFat.Name = "lblMaxFat";
             this.lblMaxFat.Size = new System.Drawing.Size(68, 17);
             this.lblMaxFat.TabIndex = 12;
@@ -114,7 +114,7 @@
             // lblMaxPro
             // 
             this.lblMaxPro.AutoSize = true;
-            this.lblMaxPro.Location = new System.Drawing.Point(169, 149);
+            this.lblMaxPro.Location = new System.Drawing.Point(169, 129);
             this.lblMaxPro.Name = "lblMaxPro";
             this.lblMaxPro.Size = new System.Drawing.Size(68, 17);
             this.lblMaxPro.TabIndex = 11;
@@ -124,7 +124,7 @@
             // 
             this.lblFailedDay.AutoSize = true;
             this.lblFailedDay.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblFailedDay.Location = new System.Drawing.Point(169, 244);
+            this.lblFailedDay.Location = new System.Drawing.Point(169, 216);
             this.lblFailedDay.Name = "lblFailedDay";
             this.lblFailedDay.Size = new System.Drawing.Size(68, 17);
             this.lblFailedDay.TabIndex = 10;
@@ -133,7 +133,7 @@
             // lblMaxCalFood
             // 
             this.lblMaxCalFood.AutoSize = true;
-            this.lblMaxCalFood.Location = new System.Drawing.Point(169, 123);
+            this.lblMaxCalFood.Location = new System.Drawing.Point(169, 103);
             this.lblMaxCalFood.Name = "lblMaxCalFood";
             this.lblMaxCalFood.Size = new System.Drawing.Size(58, 17);
             this.lblMaxCalFood.TabIndex = 8;
@@ -151,7 +151,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 202);
+            this.label7.Location = new System.Drawing.Point(6, 182);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 17);
             this.label7.TabIndex = 6;
@@ -160,7 +160,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 176);
+            this.label6.Location = new System.Drawing.Point(6, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(110, 17);
             this.label6.TabIndex = 5;
@@ -169,7 +169,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 149);
+            this.label5.Location = new System.Drawing.Point(6, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 17);
             this.label5.TabIndex = 4;
@@ -179,7 +179,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label4.Location = new System.Drawing.Point(6, 246);
+            this.label4.Location = new System.Drawing.Point(6, 218);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 17);
             this.label4.TabIndex = 3;
@@ -188,7 +188,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 123);
+            this.label2.Location = new System.Drawing.Point(6, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 17);
             this.label2.TabIndex = 1;
@@ -252,6 +252,7 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserReports";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUserReports";
             this.Load += new System.EventHandler(this.FormUserReports_Load);
             this.groupBox1.ResumeLayout(false);

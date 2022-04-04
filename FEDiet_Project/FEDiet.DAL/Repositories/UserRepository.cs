@@ -295,35 +295,75 @@ namespace FEDiet.DAL.Repositories
         public DateTime UserFailedDay(User _user)
         {
 
-            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+
+            _user = db.Users.Find(_user.UserID);
 
             var mealList = _user.Meals.ToList();
 
-
-            DateTime FailDay = db.Meals.Where(x => x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
+            double cal = 0;
+            List<double> CalList = new List<double>();
+            List<DateTime> mealDaytime = new List<DateTime>();
+            for (int i = 0; i < mealList.Count; i++)
             {
-                MealTime = g.Key,
-                summing = g.Sum(x => x.MealCalory)
-            }).OrderByDescending(x => x.summing).Select(x => x.MealTime).FirstOrDefault();
 
-            return FailDay;
+                for (int j = 0; j < mealList.Count; j++)
+                {
+                    if (i != j && mealList[i].MealTime.Day == mealList[j].MealTime.Day && mealList[i].MealTime.Month == mealList[j].MealTime.Month && mealList[i].MealTime.Year == mealList[j].MealTime.Year)
+                    {
+
+                        cal += mealList[i].MealCalory;
+                    }
+                    else
+                    {
+                        CalList.Add(cal);
+                        mealDaytime.Add(mealList[i].MealTime);
+
+                        cal = 0;
+                    }
+                }
+
+            }
+
+            double maximumCal = CalList.Max();
+            int maxIndex = CalList.IndexOf(maximumCal);
+            return mealDaytime[maxIndex];
         }
 
         public DateTime BestDay(User _user)
         {
 
-            _user = db.Users.Where(x => x.UserID == _user.UserID).FirstOrDefault();
+            _user = db.Users.Find(_user.UserID);
 
             var mealList = _user.Meals.ToList();
 
-
-            DateTime FailDay = db.Meals.Where(x => x.Users.Contains(_user)).GroupBy(x => x.MealTime).Select(g => new
+            double cal = 0;
+            List<double> CalList = new List<double>();
+            List<DateTime> mealDaytime = new List<DateTime>();
+            for (int i = 0; i < mealList.Count; i++)
             {
-                MealTime = g.Key,
-                summing = g.Sum(x => x.MealCalory)
-            }).OrderBy(x => x.summing).Select(x => x.MealTime).FirstOrDefault();
+                
+                for (int j = 0; j < mealList.Count; j++)
+                {
+                    if (i!=j && mealList[i].MealTime.Day == mealList[j].MealTime.Day && mealList[i].MealTime.Month == mealList[j].MealTime.Month && mealList[i].MealTime.Year == mealList[j].MealTime.Year)
+                    {
 
-            return FailDay;
+                        cal += mealList[i].MealCalory;
+                    }
+                    else
+                    {
+                        CalList.Add(cal);
+                        mealDaytime.Add(mealList[i].MealTime);
+
+                        cal = 0;                       
+                    }         
+                }
+                
+            }
+
+            double minimumCal = CalList.Min();
+            int minIndex = CalList.IndexOf(minimumCal);
+            return mealDaytime[minIndex];
+
 
         }
         public string PasswordStrengthCheck(string password)

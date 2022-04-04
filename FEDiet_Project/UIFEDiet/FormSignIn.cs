@@ -27,8 +27,6 @@ namespace UIFEDiet
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-
-
             try
             {
               
@@ -53,11 +51,13 @@ namespace UIFEDiet
                         {
                             case UserType.StandardUser:
                                 FormUser frmUser = new FormUser(user);
-                                frmUser.ShowDialog();
+                            this.Close();
+                                frmUser.Show();
                                 break;
                             case UserType.Admin:
                                 FormAdmin frmAdmin = new FormAdmin(user);
-                                frmAdmin.ShowDialog();
+                            this.Close();
+                                frmAdmin.Show();
                                 break;
                         }
                     }
@@ -68,6 +68,19 @@ namespace UIFEDiet
                 MessageBox.Show(ex.Message);
             }
                  
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 frm = new Form1();
+            frm.Show();
+        }
+
+        private void FormSignIn_Load(object sender, EventArgs e)
+        {
+            txtMail.Text = "esra@fediet.com";
+            txtSifre.Text = "CtPNa5pX";
         }
     }
 }

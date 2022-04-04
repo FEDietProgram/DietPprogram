@@ -19,7 +19,7 @@ namespace FEDiet.DAL.Strategy
                 Name = "Admin",
                 Surname = "Admin",
                 Email = "admin@fediet.com",
-                Password = "12Ad!.",
+                Password = "123Ad!.",
                 UserType = UserType.Admin
             };
 
@@ -30,6 +30,9 @@ namespace FEDiet.DAL.Strategy
                 Birthdate = DateTime.Now.AddYears(-50),
                 Weight = 56,
                 Height = 160,
+                WaistWidth=20,
+                HipWidth=20,
+                NeckWidth=20,
                 Job = "Admin"
             };
 
@@ -77,7 +80,8 @@ namespace FEDiet.DAL.Strategy
                 CaloryPerOnePortion = 190,
                 CarbonhydratesCaloryPerGram = 29.71,
                 ProteinCaloryPerGram = 4.12,
-                FatCaloryPerGram = 3.5
+                FatCaloryPerGram = 3.5,
+                FoodPciture = @"C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\Resources\photo\mantı.jpg"
             };
             context.Foods.Add(food2);
 
@@ -119,7 +123,8 @@ namespace FEDiet.DAL.Strategy
                 CaloryPerOnePortion = 50,
                 CarbonhydratesCaloryPerGram = 0.3,
                 ProteinCaloryPerGram = 6.5,
-                FatCaloryPerGram = 6
+                FatCaloryPerGram = 6,
+                FoodPciture = @"C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\Resources\photo\yumurta.jpg"
             };
             context.Foods.Add(food3);
 
@@ -129,7 +134,8 @@ namespace FEDiet.DAL.Strategy
                 CaloryPerOnePortion = 19,
                 CarbonhydratesCaloryPerGram = 4.94,
                 ProteinCaloryPerGram = 0.7,
-                FatCaloryPerGram = 0.23
+                FatCaloryPerGram = 0.23,
+                FoodPciture = @"C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\UIFEDiet\Resources\photo\erik.jpg"
 
             };
             context.Foods.Add(food4);

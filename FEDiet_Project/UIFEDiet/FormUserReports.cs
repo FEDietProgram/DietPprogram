@@ -30,19 +30,21 @@ namespace UIFEDiet
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();           
+            FormUser fmuser = new FormUser(user);
+            this.Close();
+            fmuser.Show();
         }
 
         private void FormUserReports_Load(object sender, EventArgs e)
         {
             lblBestDay.Text = userServices.BestDay(user).ToString();
             lblFailedDay.Text = userServices.UserFailedDay(user).ToString();
-            lblFavFood.Text = userServices.FavoriteFoodbyUser(user);        
+            lblFavFood.Text = userServices.FavoriteFoodbyUser(user);
             lblMaxCalFood.Text = userServices.MaxCaloryOfUser(user);
             lblMaxCarbs.Text = userServices.MaxCarbsOfUser(user);
             lblMaxFat.Text = userServices.MaxFatOfUser(user);
             lblMaxPro.Text = userServices.MaxProteinOfUser(user);
-        
+
         }
 
         private void rbDayly_CheckedChanged(object sender, EventArgs e)

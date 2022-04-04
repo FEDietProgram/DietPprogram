@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblUserWeight = new System.Windows.Forms.Label();
             this.lblDuserCal = new System.Windows.Forms.Label();
@@ -41,7 +40,6 @@
             this.lnklblUserReports = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblFalling = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lwTodaysMeals = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -184,10 +182,6 @@
             this.lblFalling.Size = new System.Drawing.Size(0, 17);
             this.lblFalling.TabIndex = 28;
             this.lblFalling.LocationChanged += new System.EventHandler(this.lblFalling_LocationChanged);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lwTodaysMeals
             // 
@@ -355,8 +349,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseHover += new System.EventHandler(this.pictureBox1_MouseHover);
             // 
             // FormUser
             // 
@@ -392,6 +384,7 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUser";
             this.Load += new System.EventHandler(this.FormUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -423,7 +416,6 @@
         private System.Windows.Forms.LinkLabel lnklblUserReports;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label lblFalling;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListView lwTodaysMeals;
         private System.Windows.Forms.Label lblConsumedCalory;
         private System.Windows.Forms.Label label2;

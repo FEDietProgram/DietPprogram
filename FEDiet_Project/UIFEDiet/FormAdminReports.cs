@@ -26,31 +26,30 @@ namespace UIFEDiet
             cbReports.Items.Add("Kalorilerine Göre Kullanıcılar");
             cbReports.Items.Add("Tüketilme Sıklığına Göre Yiyecekler");
             cbReports.Items.Add("Öğünlere Göre Toplam Kalori");
-            cbReports.Items.Add("Kilolarına Göre Kullanıcılar");
-            cbReports.Items.Add("Aktivite Sürelerine Göre Kullanıcılar");
+            cbReports.Items.Add("Kilolarına Göre Kullanıcılar");       
             cbReports.Items.Add("Mesleklere Göre En Çok Tüketilen Yiyecekler");
 
         }
 
         private void cbReports_MouseClick(object sender, MouseEventArgs e)
         {
-            switch (cbReports.Items.ToString())
+            switch (cbReports.SelectedIndex)
             {
-                case "Kalorilerine Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListbyCalorie(); break;
-                case "Tüketilme Sıklığına Göre Yiyecekler": dgvReport.DataSource = adminServices.UserMostConsumedFoods(); break;
-                case "Öğünlere Göre Toplam Kalori": dgvReport.DataSource = adminServices.MealListbyCal(); break;
-                case "Kilolarına Göre Kullanıcılar": dgvReport.DataSource = adminServices.UserListbyWeight(); break;             
-                case "Mesleklere Göre En Çok Tüketilen Yiyecekler":
-                    adminServices.MostConsumedFoodsAccordingToJobs(); break;
+                case 0: dgvReport.DataSource = adminServices.UserListbyCalorie(); break;
+                case 1: dgvReport.DataSource = adminServices.UserMostConsumedFoods(); break;
+                case 2: dgvReport.DataSource = adminServices.MealListbyCal(); break;
+                case 3: dgvReport.DataSource = adminServices.UserListbyWeight(); break;
+                case 4: dgvReport.DataSource = adminServices.MostConsumedFoodsAccordingToJobs(); break;
 
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //FormAdmin frm = new FormAdmin();
-            //frm.Show();
+            FormAdmin frm = new FormAdmin();
             this.Close();
+            frm.Show();
+            
         }
     }
 }

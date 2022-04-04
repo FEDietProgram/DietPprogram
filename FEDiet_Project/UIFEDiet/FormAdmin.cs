@@ -19,6 +19,9 @@ namespace UIFEDiet
         public FormAdmin()
         {
             InitializeComponent();
+            adminServices = new AdminServices();
+            userDetailServices = new UserDetailServices();
+            foodServices = new FoodServices();
         }
         User user;
         AdminServices adminServices;
@@ -127,18 +130,22 @@ namespace UIFEDiet
             {
                 if (rbFoods.Checked)
             {
-                Food food = new Food();
-                food.FoodName = txtFoodName.Text;
-                food.CaloryPerOnePortion = (double)nudCal.Value;
-                food.FatCaloryPerGram = (double)nudFat.Value;
-                food.CarbonhydratesCaloryPerGram = (double)nudCarbs.Value;
-                food.ProteinCaloryPerGram = (double)nudProtein.Value;
-                food.FoodPciture = filepath;           
+                    if (!string.IsNullOrEmpty(txtFoodName.Text) && nudCal.Value != 0 || nudCarbs.Value != 0 || nudFat.Value != 0 || nudProtein.Value != 0)
+                    {
+                        Food food = new Food();
+                        food.FoodName = txtFoodName.Text;
+                        food.CaloryPerOnePortion = (double)nudCal.Value;
+                        food.FatCaloryPerGram = (double)nudFat.Value;
+                        food.CarbonhydratesCaloryPerGram = (double)nudCarbs.Value;
+                        food.ProteinCaloryPerGram = (double)nudProtein.Value;
+                        food.FoodPciture = filepath;
 
-                if (adminServices.AddFood(food))
-                { MessageBox.Show("Yiyecek eklendi"); }
-  
-            }
+                        if (adminServices.AddFood(food))
+                        { MessageBox.Show("Yiyecek eklendi"); }
+                    }
+                    else MessageBox.Show("Gerekli bilgileri giriniz");
+
+                }
                 FillCbFoodId();
                 cbFoodId.SelectedIndex = -1;
                 Clear();
@@ -161,7 +168,8 @@ namespace UIFEDiet
                 }
 
                 FillCbFoodId();
-
+                cbFoodId.SelectedIndex = -1;
+                Clear();
 
             }
             catch (Exception ex)
@@ -188,7 +196,9 @@ namespace UIFEDiet
                     if (adminServices.UpdateFood(food))
                     { MessageBox.Show("Yiyecek güncellendi"); }
                 }
-
+                FillCbFoodId();
+                cbFoodId.SelectedIndex = -1;
+                Clear();
 
             }
             catch (Exception ex)
@@ -204,8 +214,9 @@ namespace UIFEDiet
        
         private void btnReports_Click(object sender, EventArgs e)
         {
-            FormAdminReports frmReports = new FormAdminReports();           
-            frmReports.ShowDialog();
+            FormAdminReports frmReports = new FormAdminReports();
+            this.Close();
+            frmReports.Show();
         }
 
         private void lbUsers_MouseClick(object sender, MouseEventArgs e)
@@ -220,6 +231,7 @@ namespace UIFEDiet
                 lblHeight.Text = userDetail.Height.ToString();
                 lblJob.Text = userDetail.Job;
                 lblWeight.Text = userDetail.Weight.ToString();
+           
             
         }
     }

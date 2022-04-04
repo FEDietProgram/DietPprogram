@@ -87,6 +87,7 @@
             this.Font = new System.Drawing.Font("Verdana Pro Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "FormAdminReports";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormAdminReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();

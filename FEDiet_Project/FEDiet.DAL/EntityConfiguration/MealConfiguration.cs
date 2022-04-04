@@ -13,8 +13,9 @@ namespace FEDiet.DAL.EntityConfiguration
     {
         public MealConfiguration()
         {
-           // Property(x => x.MealName).IsRequired().HasMaxLength(50);
+            Property(x => x.MealName).IsRequired().HasMaxLength(30);
             Property(x => x.MealTime).IsRequired();
+       
         }
     }
 }

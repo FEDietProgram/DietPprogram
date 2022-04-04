@@ -3,3 +3,8 @@ C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.Model\bin\Debug\FEDiet.
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.csproj.CoreCompileInputs.cache
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.dll
 C:\Users\Esra\Desktop\BilgeAdam_C#\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.pdb
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\FEDiet.Model\bin\Debug\FEDiet.Model.dll
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\FEDiet.Model\bin\Debug\FEDiet.Model.pdb
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.csproj.CoreCompileInputs.cache
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.dll
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\FEDiet.Model\obj\Debug\FEDiet.Model.pdb

@@ -36,7 +36,7 @@ namespace UIFEDiet
 
         UserServices userServices;
         UserDetailServices userDetailServices;
-        GoalServices goalServices;
+     
         private void FormSignUp_Load(object sender, EventArgs e)
         {
 
@@ -66,110 +66,149 @@ namespace UIFEDiet
         {
             try
             {
-
-                //if (chkTerms.Checked)
-                //{
-                if(state == false)
+                if (string.IsNullOrEmpty(txtAd.Text) || string.IsNullOrEmpty(txtSoyad.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtPassword2.Text))
                 {
-                    if (string.IsNullOrEmpty(txtAd.Text) || string.IsNullOrEmpty(txtSoyad.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtPassword2.Text))
+                    MessageBox.Show("Lütfen gerekli bilgileri giriniz.");
+                    return;
+                }
+                int age = DateTime.Now.Year - dtDogumTarih.Value.Year;
+                if (age >= 13)
+                {
+                    //if (chkTerms.Checked)
+                    //{
+                    if (state == false)
                     {
-                        MessageBox.Show("Lütfen gerekli bilgileri giriniz.");
-                        return;
-                    }
-                    if (!rbErkek.Checked || !rbKadin.Checked)
-                    {
-                        MessageBox.Show("Lütfen cinsiyetinizi giriniz.");
-                    }
 
-                    User user = new User();
-                    user.Name = txtAd.Text;
-                    user.Surname = txtSoyad.Text;
-
-                    if (txtEmail.Text.EndsWith("@fediet.com"))
-                    {
-                        user.Email = txtEmail.Text;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mail adresiniz fediet.com ile bitmeli");
-                    }
-                    user.UserType = UserType.StandardUser;
-
-                    user.Password = txtPassword.Text;
-
-                    if (txtPassword.Text == txtPassword2.Text && lblPasswStrength.Text != "weak")
-                    {
-                        if (userServices.AddUserAccount(user))
+                        if (!rbErkek.Checked || !rbKadin.Checked)
                         {
-                            MessageBox.Show("Kullanıcı Eklendi");
+                            MessageBox.Show("Lütfen cinsiyetinizi giriniz.");
+                        }
+
+                        User user = new User();
+                        user.Name = txtAd.Text;
+                        user.Surname = txtSoyad.Text;
+
+                        if (txtEmail.Text.EndsWith("@fediet.com"))
+                        {
+                            user.Email = txtEmail.Text;
                         }
                         else
                         {
-                            MessageBox.Show("Kullanıcı eklenemdi");
+                            MessageBox.Show("Mail adresiniz fediet.com ile bitmeli");
                         }
+                        user.UserType = UserType.StandardUser;
 
+                        user.Password = txtPassword.Text;
+
+                        if (txtPassword.Text == txtPassword2.Text && lblPasswStrength.Text != "weak")
+                        {
+                            if (userServices.AddUserAccount(user))
+                            {
+                                MessageBox.Show("Kullanıcı Eklendi");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Kullanıcı eklenemdi");
+                            }
+
+                        }
+                        else MessageBox.Show("Girilen şifreler eşleşmiyor ya da zayıf");
+
+                        UserDetail userDetail = new UserDetail();
+                        userDetail.UserDetailID = user.UserID;
+
+                        if (rbKadin.Checked)
+                        {
+                            userDetail.Gender = "Female";
+                        }
+                        else if (rbErkek.Checked)
+                        {
+                            userDetail.Gender = "Male";
+                        }
+                        userDetail.Job = txtMeslek.Text;
+                        userDetail.Birthdate = dtDogumTarih.Value;
+                        userDetail.Height = (double)numBoy.Value;
+                        userDetail.Weight = (double)numKilo.Value;
+                        userDetail.NeckWidth = (double)nudNeck.Value;
+                        userDetail.WaistWidth = (double)nudWaist.Value;
+                        userDetail.HipWidth = (double)nudHip.Value;
+                        string gender="";
+                        if (rbErkek.Checked) gender = "Male";
+                        else if (rbKadin.Checked) gender = "Female";
+                        userDetail.BodyFatRate =CalculateUserFatRate(numKilo.Value, numBoy.Value,gender,dtDogumTarih.Value);
+                        userDetail.BodyMassIndex = CalculateUserBMI(numKilo.Value,numBoy.Value);
+
+                        if (userDetailServices.AddUserDetail(userDetail))
+                        {
+                            MessageBox.Show("Kullanıcı bilgileri eklendi");
+                        }
                     }
-                    else MessageBox.Show("Girilen şifreler eşleşmiyor ya da zayıf");
 
-                    UserDetail userDetail = new UserDetail();
-                    userDetail.UserDetailID = user.UserID;
+                    //  }
+                    // else MessageBox.Show("Lütfen kullanıcı sözleşmesini okuduktan sonra onaylayınız");
+                    else if (state == true)
+                    {
+                        user.Name = txtAd.Text;
+                        user.Surname = txtSoyad.Text;
+                        user.Email = txtEmail.Text;
+                        user.UserDetail.Birthdate = dtDogumTarih.Value;
+                        user.UserDetail.Job = txtMeslek.Text;
+                        user.UserDetail.Height = (double)numBoy.Value;
+                        user.UserDetail.Weight = (double)numKilo.Value;
+                        user.UserDetail.NeckWidth = (double)nudNeck.Value;
+                        user.UserDetail.WaistWidth = (double)nudWaist.Value;
+                        user.UserDetail.HipWidth = (double)nudHip.Value;
+                        user.UserDetail.UserDetailID = user.UserID;
 
-                    if (rbKadin.Checked)
-                    {
-                        userDetail.Gender = "Female";
-                    }
-                    else if (rbErkek.Checked)
-                    {
-                        userDetail.Gender = "Male";
-                    }
-                    userDetail.Job = txtMeslek.Text;
-                    userDetail.Birthdate = dtDogumTarih.Value;
-                    userDetail.Height = (double)numBoy.Value;
-                    userDetail.Weight = (double)numKilo.Value;
-                    userDetail.NeckWidth = (double)nudNeck.Value;
-                    userDetail.WaistWidth = (double)nudWaist.Value;
-                    userDetail.HipWidth = (double)nudHip.Value;
-                    userDetail.BodyFatRate = userDetailServices.CalculateUserFatRate(userDetail);
-                    userDetail.BodyMassIndex = userDetailServices.CalculateUserBMI(userDetail.Weight, userDetail.Height);
-
-                    if (userDetailServices.AddUserDetail(userDetail))
-                    {
-                        MessageBox.Show("Kullanıcı bilgileri eklendi");
+                        if (userServices.UpdateUser(user)) MessageBox.Show("Kullanıcı güncellendi");
+                        if (userDetailServices.UpdateUserDetail(user.UserDetail))
+                        {
+                            MessageBox.Show("Kullanıcı bilgileri güncellendi");
+                        }
                     }
                 }
-                    
-              //  }
-               // else MessageBox.Show("Lütfen kullanıcı sözleşmesini okuduktan sonra onaylayınız");
-                else  if (state == true)
-                {
-                    user.Name = txtAd.Text;
-                    user.Surname = txtSoyad.Text;
-                    user.Email = txtEmail.Text;
-                    user.UserDetail.Birthdate = dtDogumTarih.Value;
-                    user.UserDetail.Job = txtMeslek.Text;   
-                    user.UserDetail.Height = (double)numBoy.Value;
-                    user.UserDetail.Weight = (double)numKilo.Value;
-                    user.UserDetail.NeckWidth = (double)nudNeck.Value;
-                    user.UserDetail.WaistWidth= (double)nudWaist.Value;
-                    user.UserDetail.HipWidth= (double)nudHip.Value;
-                    user.UserDetail.UserDetailID = user.UserID;
-             
-                    if(userServices.UpdateUser(user)) MessageBox.Show("Kullanıcı güncellendi");
-                    if (userDetailServices.UpdateUserDetail(user.UserDetail))
-                    {
-                        MessageBox.Show("Kullanıcı bilgileri güncellendi");
-                    }
-                }
+                else MessageBox.Show("13 yaşından küçükler sisteme kayıt olamaz");
+
 
 
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);    
+                MessageBox.Show(ex.Message);
             }
-            
+        }
 
+        public double CalculateUserBMI(decimal mass, decimal height)
+        {
+            return Convert.ToDouble(mass / (height * height));
+        }
+
+        public double CalculateUserFatRate(decimal weight,decimal height,string gender,DateTime birth)
+        {
+            int age = DateTime.Now.Year - birth.Year;   
+            if (gender == "Female")
+            {
+                if (age<13)
+                {
+                    return 1.20 * (double)CalculateUserBMI(weight,height) + 0.23 * age - 5.4;
+                }
+                else
+                {
+                    return 1.51 * (double)CalculateUserBMI(weight, height) + 0.70 * age + 1.4;
+                }
+            }
+            else
+            {
+                if (age>13)
+                {
+                    return 1.20 * (double)CalculateUserBMI(weight, height) + 0.23 * age - 16.2;
+                }
+                else
+                {
+                    return 1.51 * (double)CalculateUserBMI(weight, height) + 0.70 * age - 2.2;
+                }
+            }
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
@@ -180,18 +219,27 @@ namespace UIFEDiet
 
         public string PasswordStrength(string password)
         {
+            string strength = "";
             if (password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit) && password.Any(char.IsLetter) && password.Any(char.IsSymbol) && password.Length >= 6)
             {
-                return "strong";
+                strength = "strong";
             }
-            else if (password.Any(char.IsUpper) && password.Any(char.IsLower) || password.Any(char.IsDigit) && password.Length >= 4)
+            else if ((password.Any(char.IsUpper) || password.Any(char.IsLower) && !password.Any(char.IsSymbol)) && password.Any(char.IsDigit)  &&password.Length>4)
             {
-                return "middle";
+                strength = "middle";
             }
-            else
+            else if((password.Any(char.IsDigit) && password.Any(char.IsLetter) && password.Length<=4) || (password.All(char.IsDigit) || password.All(char.IsLetter)))
             {
-                return "weak";
+                strength = "weak";
             }
+            return strength;
+        }
+
+        private void btnBackClick_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 frm = new Form1();
+            frm.Show();
         }
     }
 }

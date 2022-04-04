@@ -34,12 +34,14 @@ namespace UIFEDiet
         private void btnKayit_Click(object sender, EventArgs e)
         {
             FormSignUp form = new FormSignUp();
+            this.Hide();
             form.ShowDialog();
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
             FormSignIn frmSginIn = new FormSignIn();
+            this.Hide();
             frmSginIn.ShowDialog();
         }
     }

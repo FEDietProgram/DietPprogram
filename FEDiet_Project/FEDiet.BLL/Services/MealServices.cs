@@ -78,6 +78,10 @@ namespace FEDiet.BLL.Services
             return mealRepository.GetMealsByDate(mealtime, user);
         }
 
+        public List<Meal> GetMealsByDate(DateTime mealtime, User _user, string mealName)//gelen mealname e göre
+        {
+            return mealRepository.GetMealsByDate(mealtime,_user,mealName);
+        }
         public double MealCalorie(Meal _meal)
         {
             return mealRepository.MealCalorie(_meal);
