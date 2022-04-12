@@ -141,9 +141,9 @@ namespace UIFEDiet
                         food.FoodPciture = filepath;
 
                         if (adminServices.AddFood(food))
-                        { MessageBox.Show("Yiyecek eklendi"); }
+                        { MessageBox.Show("Food is added"); }
                     }
-                    else MessageBox.Show("Gerekli bilgileri giriniz");
+                    else MessageBox.Show("Please enter required informations");
 
                 }
                 FillCbFoodId();
@@ -164,7 +164,7 @@ namespace UIFEDiet
                 {
                     int id = (int)cbFoodId.SelectedValue;
                     if (adminServices.DeleteFood(id))
-                    { MessageBox.Show("Yiyecek silindi"); }
+                    { MessageBox.Show("Food is deleted"); }
                 }
 
                 FillCbFoodId();
@@ -194,7 +194,7 @@ namespace UIFEDiet
                     food.FoodPciture = filepath;
 
                     if (adminServices.UpdateFood(food))
-                    { MessageBox.Show("Yiyecek güncellendi"); }
+                    { MessageBox.Show("Food is updated"); }
                 }
                 FillCbFoodId();
                 cbFoodId.SelectedIndex = -1;

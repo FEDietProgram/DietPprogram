@@ -46,6 +46,8 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDetailedReports = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -232,12 +234,30 @@
             this.btnDetailedReports.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDetailedReports.FlatAppearance.BorderSize = 0;
             this.btnDetailedReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDetailedReports.Location = new System.Drawing.Point(320, 590);
+            this.btnDetailedReports.Location = new System.Drawing.Point(261, 592);
             this.btnDetailedReports.Name = "btnDetailedReports";
             this.btnDetailedReports.Size = new System.Drawing.Size(86, 77);
             this.btnDetailedReports.TabIndex = 5;
             this.btnDetailedReports.UseVisualStyleBackColor = true;
             this.btnDetailedReports.Click += new System.EventHandler(this.btnDetailedReports_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(193, 622);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Reports";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(368, 622);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Back";
             // 
             // FormUserReports
             // 
@@ -245,6 +265,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnDetailedReports);
@@ -253,12 +275,13 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUserReports";
+            this.Text = "User Diet Informations";
             this.Load += new System.EventHandler(this.FormUserReports_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -281,5 +304,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label8;
     }
 }

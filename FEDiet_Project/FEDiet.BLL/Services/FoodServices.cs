@@ -72,16 +72,19 @@ namespace FEDiet.BLL.Services
             return foodRepository.UpdateFoodForUser(_food);
         }
 
-
+        public bool DefaultFood(Food food)
+        {
+           return foodRepository.DefaultFood(food); 
+        }
 
         public bool RemoveFoodFromUser(User _user, int id)
         {
            return foodRepository.RemoveFoodFromUser(_user, id);
         }
 
-        public bool UpdateFoodOfUser(User _user, int id,Food food)
+        public bool UpdateFoodByUser(User _user, Meal meal, Food oldfood, Food newfood)
         {
-            return foodRepository.UpdateFoodOfUser(_user, id,food);
+            return foodRepository.UpdateFoodByUser(_user, meal, oldfood, newfood);
         }
     }
 }

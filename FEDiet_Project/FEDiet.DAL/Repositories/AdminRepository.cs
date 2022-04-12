@@ -20,7 +20,15 @@ namespace FEDiet.DAL.Repositories
         //Edit foods
         public bool AddFood(Food food)
         {
-            db.Foods.Add(food);
+            List<string> foodNamelist = db.Foods.Select(x=>x.FoodName).ToList();
+            if (foodNamelist.Contains(food.FoodName))
+            {
+                throw new Exception("This food is already exist");
+            }
+            else
+            {
+                db.Foods.Add(food);
+            }           
             return db.SaveChanges() > 0;
         }
         public bool UpdateFood(Food food)

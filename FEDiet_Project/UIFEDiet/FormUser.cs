@@ -1,5 +1,6 @@
 ﻿using FEDiet.BLL.Services;
 using FEDiet.Model.Entities;
+using FEDiet.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,8 +40,37 @@ namespace UIFEDiet
         }
         private void FormUser_Load(object sender, EventArgs e)
         {
-            RefreshLabels();
+            groupBox1.Visible = false;
+            if (_user.UserDetail.UserSituation == SpecialSituation.Diabetes.ToString())
+            {
+                groupBox1.Visible = true;
+                groupBox1.Text = "CHO insulin dose";
+                lblSpecialSit.Text = (userServices.UserCarbRate(dtDay.Value, _user) / 10).ToString();
+            }
+            else if (_user.UserDetail.UserSituation == SpecialSituation.Pregnant.ToString())
+            {
+                groupBox1.Visible = true;
+                groupBox1.Text = " Ideal weight gain";
+                int week = userDetailServices.CalculatePregnancyWeek(_user.UserDetail);
+                MessageBox.Show(week.ToString());
+                double idealpregnancyweightgain=0;
+                switch (week)
+                {
+                    case 1: case 2: case 3: case 4: idealpregnancyweightgain = 0.5; break;
+                    case 5: case 6: case 7: case 8: idealpregnancyweightgain = 1.0; break;
+                    case 9: case 10: case 11: case 12: idealpregnancyweightgain = 1.5; break;
+                    case 13: case 14: case 15: case 16: idealpregnancyweightgain = 3; break;
+                    case 17: case 18: case 19: case 20: idealpregnancyweightgain = 4.5; break;
+                    case 21: case 22: case 23: case 24: idealpregnancyweightgain = 6.5; break;
+                    case 25: case 26: case 27: case 28: idealpregnancyweightgain = 9; break;
+                    case 29: case 30: case 31: case 32: idealpregnancyweightgain = 11; break;
+                    case 33: case 34: case 35: case 36: idealpregnancyweightgain = 13; break;
+                    case 37: case 38: case 39: case 40: idealpregnancyweightgain = 15.5; break;    
 
+                }
+                lblSpecialSit.Text = $"Week {userDetailServices.CalculatePregnancyWeek(_user.UserDetail)} \n Ideal weight gain: {idealpregnancyweightgain}";
+            }
+            RefreshLabels();
             FillListView();
 
         }
@@ -54,7 +84,7 @@ namespace UIFEDiet
             lblDuserCal.Text = userCal.ToString();
             if (userCal <= 0)
             {
-                MessageBox.Show("Günlük almanız gereken kaloriye ulaştınız.", "Hedef Kaloriye Ulaşıldı");
+                MessageBox.Show("You are reached your daily calory", "Daily Calory Is Reached");
                 lblDuserCal.ForeColor = Color.Red;
             }
             lblCarb.Text = userServices.UserCarbRate(dtDay.Value, _user).ToString();
@@ -139,6 +169,20 @@ namespace UIFEDiet
             RefreshLabels();
             FillListView();
         }
-                
+
+        private void btnInformation_Click(object sender, EventArgs e)
+        {
+            if(_user.UserDetail.UserSituation==SpecialSituation.Pregnant.ToString())
+            {
+                FormPregnancy frm=new FormPregnancy();
+                frm.Show();
+            }
+            else if(_user.UserDetail.UserSituation == SpecialSituation.Diabetes.ToString())
+            {
+                FormDiabetes frm =new FormDiabetes();   
+                frm.Show();
+            }
+
+        }
     }
 }

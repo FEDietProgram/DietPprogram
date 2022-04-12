@@ -283,6 +283,16 @@ namespace UIFEDiet.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap information_48px {
+            get {
+                object obj = ResourceManager.GetObject("information_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap linkedin_100px {
             get {
                 object obj = ResourceManager.GetObject("linkedin_100px", resourceCulture);
@@ -346,6 +356,26 @@ namespace UIFEDiet.Properties {
         internal static System.Drawing.Bitmap pngwing1 {
             get {
                 object obj = ResourceManager.GetObject("pngwing1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pregnancytablo {
+            get {
+                object obj = ResourceManager.GetObject("pregnancytablo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pregnant_100px {
+            get {
+                object obj = ResourceManager.GetObject("pregnant_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,6 +466,16 @@ namespace UIFEDiet.Properties {
         internal static System.Drawing.Bitmap signup {
             get {
                 object obj = ResourceManager.GetObject("signup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sugar_free_40px {
+            get {
+                object obj = ResourceManager.GetObject("sugar_free_40px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

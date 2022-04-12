@@ -32,14 +32,14 @@ namespace UIFEDiet
               
                     if (string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrEmpty(txtSifre.Text))
                     {
-                        MessageBox.Show("Mail ve şifre boş bırakılamaz");
+                        MessageBox.Show("E-mail and password cannot be empty!");
                         return;
                     }
                     User user = userServices.CheckUser(txtMail.Text, txtSifre.Text);
 
                     if (user == null)
                     {
-                        MessageBox.Show("Sistemde böyle bir kullanıcı kayıtlı değil. Kayıt sayfasına git!!");
+                        MessageBox.Show("The user is not found. Please go to sign up page.");
                         return;
                     }
 

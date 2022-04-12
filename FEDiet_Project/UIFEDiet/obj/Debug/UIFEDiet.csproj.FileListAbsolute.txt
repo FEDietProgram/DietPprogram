@@ -64,3 +64,5 @@ C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\o
 C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.csproj.CopyComplete
 C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.exe
 C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.pdb
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormDiabetes.resources
+C:\Users\Esra\Desktop\GitOrganizationRepo\DietPprogram\FEDiet_Project\UIFEDiet\obj\Debug\UIFEDiet.FormPregnancy.resources

@@ -36,8 +36,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblBMI = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblFatrate = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -119,6 +119,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Body Mass Index";
             // 
+            // lblBMI
+            // 
+            this.lblBMI.AutoSize = true;
+            this.lblBMI.Location = new System.Drawing.Point(53, 49);
+            this.lblBMI.Name = "lblBMI";
+            this.lblBMI.Size = new System.Drawing.Size(0, 17);
+            this.lblBMI.TabIndex = 0;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lblFatrate);
@@ -128,14 +136,6 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Body Fat Rate";
-            // 
-            // lblBMI
-            // 
-            this.lblBMI.AutoSize = true;
-            this.lblBMI.Location = new System.Drawing.Point(53, 49);
-            this.lblBMI.Name = "lblBMI";
-            this.lblBMI.Size = new System.Drawing.Size(0, 17);
-            this.lblBMI.TabIndex = 0;
             // 
             // lblFatrate
             // 
@@ -160,7 +160,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUserDietDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUserDietDetails";
+            this.Text = "User Details";
             this.Load += new System.EventHandler(this.FormUserDietDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

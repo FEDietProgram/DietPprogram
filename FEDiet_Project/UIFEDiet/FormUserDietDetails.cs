@@ -29,13 +29,24 @@ namespace UIFEDiet
 
         private void FormUserDietDetails_Load(object sender, EventArgs e)
         {
-            //lbBetter.DataSource = userServices.BetterFoodList(user);
-            //lbBetter.DisplayMember = "FoodName";
-            //lbBad.DataSource=userServices.BadFoodList(user);
-            //lbBad.DisplayMember = "FoodName";
+           
+            List<string> goodIdeaList = new List<string>()
+            {
+                "Brocoli","Spinach","Grilled Fish","Green Tea","Leek with Olive Oil","Tarhana Soup","Milk"
+            };
+            lbBetter.DataSource= goodIdeaList;  
 
-            lblBMI.Text= user.UserDetail.BodyMassIndex.ToString();
-            lblFatrate.Text=user.UserDetail.BodyFatRate.ToString(); 
+            List<string> badIdeaList = new List<string>()
+            {
+                "Fried Patatos","Chocolate","Cola","Pastry","Hamburger","Cake","Cips"
+            };
+            lbBad.DataSource = badIdeaList;
+
+            double bmi = user.UserDetail.BodyMassIndex;
+            lblBMI.Text= bmi.ToString("0.####");
+
+            double fatRate = user.UserDetail.BodyFatRate;
+            lblFatrate.Text = fatRate.ToString("0.####");
         }
     }
 }

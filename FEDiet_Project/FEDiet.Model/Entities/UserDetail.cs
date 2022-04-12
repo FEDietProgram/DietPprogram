@@ -20,6 +20,7 @@ namespace FEDiet.Model.Entities
         public double WaistWidth { get; set; }
         public double HipWidth { get; set; }
         public string UserSituation { get; set; }
+        public DateTime? PregnancyStartDate { get; set; }
         public List<string> AllergenicFoods { get; set; }
         public double DailyRequiredCaloryTaken { get; set; }
         public double DailyRequiredWaterConsumption { get; set; }

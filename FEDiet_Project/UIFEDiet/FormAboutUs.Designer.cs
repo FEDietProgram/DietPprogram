@@ -44,6 +44,7 @@
             this.rtxtAboutUs.Location = new System.Drawing.Point(18, 15);
             this.rtxtAboutUs.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtAboutUs.Name = "rtxtAboutUs";
+            this.rtxtAboutUs.ReadOnly = true;
             this.rtxtAboutUs.Size = new System.Drawing.Size(453, 504);
             this.rtxtAboutUs.TabIndex = 0;
             this.rtxtAboutUs.Text = "";
@@ -106,7 +107,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAboutUs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAboutUs";
+            this.Text = "About Us";
             this.Load += new System.EventHandler(this.FormAboutUs_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

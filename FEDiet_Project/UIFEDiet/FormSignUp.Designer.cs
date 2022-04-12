@@ -57,16 +57,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.chkTerms = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnBackClick = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnKayit = new System.Windows.Forms.Button();
+            this.cbSpecialSit = new System.Windows.Forms.ComboBox();
+            this.dtPregnancy = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPregnancy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNeck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWaist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbErkek
@@ -79,6 +85,7 @@
             this.rbErkek.TabStop = true;
             this.rbErkek.Text = "Male";
             this.rbErkek.UseVisualStyleBackColor = true;
+
             // 
             // dtDogumTarih
             // 
@@ -229,7 +236,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(99, 400);
+            this.label10.Location = new System.Drawing.Point(95, 465);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 17);
             this.label10.TabIndex = 43;
@@ -237,7 +244,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(198, 397);
+            this.txtPassword.Location = new System.Drawing.Point(194, 462);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(191, 24);
@@ -247,7 +254,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 449);
+            this.label11.Location = new System.Drawing.Point(31, 514);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(157, 17);
             this.label11.TabIndex = 45;
@@ -255,7 +262,7 @@
             // 
             // txtPassword2
             // 
-            this.txtPassword2.Location = new System.Drawing.Point(198, 446);
+            this.txtPassword2.Location = new System.Drawing.Point(194, 511);
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(191, 24);
@@ -265,7 +272,7 @@
             // 
             this.lblPasswStrength.AutoSize = true;
             this.lblPasswStrength.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswStrength.Location = new System.Drawing.Point(406, 400);
+            this.lblPasswStrength.Location = new System.Drawing.Point(402, 465);
             this.lblPasswStrength.Name = "lblPasswStrength";
             this.lblPasswStrength.Size = new System.Drawing.Size(52, 17);
             this.lblPasswStrength.TabIndex = 47;
@@ -384,15 +391,23 @@
             this.label16.TabIndex = 56;
             this.label16.Text = "In cm:";
             // 
-            // chkTerms
+            // label6
             // 
-            this.chkTerms.AutoSize = true;
-            this.chkTerms.Location = new System.Drawing.Point(44, 496);
-            this.chkTerms.Name = "chkTerms";
-            this.chkTerms.Size = new System.Drawing.Size(250, 21);
-            this.chkTerms.TabIndex = 57;
-            this.chkTerms.Text = "I agree to the terms of use";
-            this.chkTerms.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(115, 576);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Done!";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(338, 608);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.TabIndex = 60;
+            this.label9.Text = "Back";
             // 
             // btnBackClick
             // 
@@ -424,7 +439,7 @@
             this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnKayit.FlatAppearance.BorderSize = 0;
             this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKayit.Location = new System.Drawing.Point(142, 523);
+            this.btnKayit.Location = new System.Drawing.Point(141, 541);
             this.btnKayit.Name = "btnKayit";
             this.btnKayit.Size = new System.Drawing.Size(152, 83);
             this.btnKayit.TabIndex = 25;
@@ -432,14 +447,54 @@
             this.btnKayit.UseVisualStyleBackColor = false;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
+            // cbSpecialSit
+            // 
+            this.cbSpecialSit.FormattingEnabled = true;
+            this.cbSpecialSit.Location = new System.Drawing.Point(172, 23);
+            this.cbSpecialSit.Name = "cbSpecialSit";
+            this.cbSpecialSit.Size = new System.Drawing.Size(192, 24);
+            this.cbSpecialSit.TabIndex = 61;
+            this.cbSpecialSit.SelectedIndexChanged += new System.EventHandler(this.cbSpecialSit_SelectedIndexChanged);
+            // 
+            // dtPregnancy
+            // 
+            this.dtPregnancy.Location = new System.Drawing.Point(172, 53);
+            this.dtPregnancy.Name = "dtPregnancy";
+            this.dtPregnancy.Size = new System.Drawing.Size(192, 24);
+            this.dtPregnancy.TabIndex = 63;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPregnancy);
+            this.groupBox1.Controls.Add(this.dtPregnancy);
+            this.groupBox1.Controls.Add(this.cbSpecialSit);
+            this.groupBox1.Location = new System.Drawing.Point(34, 362);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(389, 100);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Special Situation";
+            // 
+            // lblPregnancy
+            // 
+            this.lblPregnancy.AutoSize = true;
+            this.lblPregnancy.Font = new System.Drawing.Font("Verdana Pro Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPregnancy.Location = new System.Drawing.Point(6, 60);
+            this.lblPregnancy.Name = "lblPregnancy";
+            this.lblPregnancy.Size = new System.Drawing.Size(160, 14);
+            this.lblPregnancy.TabIndex = 64;
+            this.lblPregnancy.Text = "Pregnancy Start Date:";
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnBackClick);
-            this.Controls.Add(this.chkTerms);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -475,7 +530,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormSignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormSignUp";
+            this.Text = "Sign Up";
             this.Load += new System.EventHandler(this.FormSignUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numBoy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numKilo)).EndInit();
@@ -483,6 +538,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudWaist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudHip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,7 +577,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox chkTerms;
         private System.Windows.Forms.Button btnBackClick;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbSpecialSit;
+        private System.Windows.Forms.DateTimePicker dtPregnancy;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblPregnancy;
     }
 }

@@ -19,7 +19,7 @@ namespace UIFEDiet
 
         private void FormAboutUs_Load(object sender, EventArgs e)
         {
-            rtxtAboutUs.Text = "Her yaş grubu ve cinsiyet için gerekli sağlık bakanlığı tarafından onaylanmış veriler ile beslenme düzeni hakkında kullanıcıya geri bildirimler yaparak öğünlerinde dikkat etmesi gereken noktaları kullanıcılara bildiriyor. Bunların dışında kullanıcı istediği öğün, gün, hafta veya ay için önceki bilgilerini FEDiet için özel olarak ünlü yazılımcılar Fatma Eraslan ve Esra Yazıcı tarafından oluşturulmuş güvenilir veri tabanı sistemi ve ileri teknoloji programlama araçları sayesinde görüntüleyip gerekli düzenlemeleri yapabiliyor. Kullanıcının beslenme düzeni ile hedefine yaklaşım yüzdesinin düzenli olarak güncellenebilmesi kullanıcının uygulamayı rahatça kullanabilmesini sağlamaktadır.";
+            rtxtAboutUs.Text = "FEDiet is a special program for users older than 12 years old who want to conserve his/her daily calory consumption. In addition, by using FEDiet it is also possible to fallow the micronutrients of consumed foods. This feature support users to have diet in reasonable way. Fatma Eraslan and Esra Yazıcı who are talented software developers create FEDiet program by considering people healthy diet. The algorithm behind this programe is able to calculate daily calory of user confidentially.";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

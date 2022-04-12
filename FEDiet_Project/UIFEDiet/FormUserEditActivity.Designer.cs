@@ -42,6 +42,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudTime)).BeginInit();
             this.grbActivities.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +96,8 @@
             // 
             // grbActivities
             // 
+            this.grbActivities.Controls.Add(this.label4);
+            this.grbActivities.Controls.Add(this.label3);
             this.grbActivities.Controls.Add(this.label5);
             this.grbActivities.Controls.Add(this.dtpDate);
             this.grbActivities.Controls.Add(this.lvActivity);
@@ -158,7 +162,7 @@
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDelete.FlatAppearance.BorderSize = 0;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(360, 273);
+            this.btnDelete.Location = new System.Drawing.Point(381, 273);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(48, 51);
             this.btnDelete.TabIndex = 11;
@@ -170,12 +174,30 @@
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(293, 268);
+            this.btnUpdate.Location = new System.Drawing.Point(256, 273);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(63, 53);
             this.btnUpdate.TabIndex = 13;
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(193, 290);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 17);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Update";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(325, 290);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Delete";
             // 
             // FormUserEditActivity
             // 
@@ -219,5 +241,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

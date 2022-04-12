@@ -21,6 +21,7 @@ namespace FEDiet.DAL.EntityConfiguration
             Property(x => x.Job).HasMaxLength(30);
             Property(x => x.Gender).IsRequired().HasMaxLength(6);
             Property(x => x.Birthdate).IsRequired();
+ 
            
 
             // Navigations

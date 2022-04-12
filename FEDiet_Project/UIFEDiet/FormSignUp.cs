@@ -39,8 +39,16 @@ namespace UIFEDiet
      
         private void FormSignUp_Load(object sender, EventArgs e)
         {
+            cbSpecialSit.Items.Add(SpecialSituation.No).ToString();
+            cbSpecialSit.Items.Add(SpecialSituation.Pregnant).ToString();
+            cbSpecialSit.Items.Add(SpecialSituation.Diabetes).ToString();
+            cbSpecialSit.SelectedIndex = 0;
 
-           
+            lblPregnancy.Visible = false;
+            dtPregnancy.Visible = false;
+
+          
+
             if (state == true)
             {
                 txtAd.Text = user.Name;
@@ -55,8 +63,7 @@ namespace UIFEDiet
                 nudNeck.Value = (int)user.UserDetail.NeckWidth;
                 nudWaist.Value = (int)user.UserDetail.WaistWidth;
                 nudHip.Value = (int)user.UserDetail.HipWidth;
-                chkTerms.Visible = false;
-
+                cbSpecialSit.Text = user.UserDetail.UserSituation;
                 label11.Visible = txtPassword2.Visible=lblPasswStrength.Visible = false;
             }          
 
@@ -68,20 +75,19 @@ namespace UIFEDiet
             {
                 if (string.IsNullOrEmpty(txtAd.Text) || string.IsNullOrEmpty(txtSoyad.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtPassword2.Text))
                 {
-                    MessageBox.Show("Lütfen gerekli bilgileri giriniz.");
+                    MessageBox.Show("Please enter required informations!");
                     return;
                 }
                 int age = DateTime.Now.Year - dtDogumTarih.Value.Year;
-                if (age >= 13)
+                if (age >= 12)
                 {
-                    //if (chkTerms.Checked)
-                    //{
+                 
                     if (state == false)
                     {
 
-                        if (!rbErkek.Checked || !rbKadin.Checked)
+                        if (!rbErkek.Checked && !rbKadin.Checked)
                         {
-                            MessageBox.Show("Lütfen cinsiyetinizi giriniz.");
+                            MessageBox.Show("Please enter gender information");
                         }
 
                         User user = new User();
@@ -94,7 +100,7 @@ namespace UIFEDiet
                         }
                         else
                         {
-                            MessageBox.Show("Mail adresiniz fediet.com ile bitmeli");
+                            MessageBox.Show("Your e-mail adress must ends with '@fediet.com'");
                         }
                         user.UserType = UserType.StandardUser;
 
@@ -102,50 +108,57 @@ namespace UIFEDiet
 
                         if (txtPassword.Text == txtPassword2.Text && lblPasswStrength.Text != "weak")
                         {
-                            if (userServices.AddUserAccount(user))
+                            if (rbErkek.Checked && cbSpecialSit.SelectedIndex == 1)
                             {
-                                MessageBox.Show("Kullanıcı Eklendi");
+                                MessageBox.Show("There is a conflict between gender and special situaltion");
                             }
                             else
                             {
-                                MessageBox.Show("Kullanıcı eklenemdi");
+                                if (userServices.AddUserAccount(user))
+                                {
+                                    UserDetail userDetail = new UserDetail();
+                                    userDetail.UserDetailID = user.UserID;
+
+                                    if (rbKadin.Checked)
+                                    {
+                                        userDetail.Gender = "Female";
+                                    }
+                                    else if (rbErkek.Checked)
+                                    {
+                                        userDetail.Gender = "Male";
+
+                                    }
+                                    userDetail.Job = txtMeslek.Text;
+                                    userDetail.Birthdate = dtDogumTarih.Value;
+                                    userDetail.Height = (double)numBoy.Value;
+                                    userDetail.Weight = (double)numKilo.Value;
+                                    userDetail.NeckWidth = (double)nudNeck.Value;
+                                    userDetail.WaistWidth = (double)nudWaist.Value;
+                                    userDetail.HipWidth = (double)nudHip.Value;
+                                    string gender = "";
+                                    if (rbErkek.Checked) gender = "Male";
+                                    else if (rbKadin.Checked) gender = "Female";
+                                    userDetail.BodyFatRate = CalculateUserFatRate(numKilo.Value, numBoy.Value, gender, dtDogumTarih.Value);
+                                    userDetail.BodyMassIndex = CalculateUserBMI(numKilo.Value, numBoy.Value);
+                                    userDetail.UserSituation = cbSpecialSit.Text;
+                                    userDetail.PregnancyStartDate = dtPregnancy.Value;
+                                    if (userDetailServices.AddUserDetail(userDetail))
+                                    {
+                                        MessageBox.Show("User is added");
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    MessageBox.Show("User could not have been added");
+                                }
                             }
-
                         }
-                        else MessageBox.Show("Girilen şifreler eşleşmiyor ya da zayıf");
+                        else MessageBox.Show("The passwords are not matched or the strength is weak!");
 
-                        UserDetail userDetail = new UserDetail();
-                        userDetail.UserDetailID = user.UserID;
-
-                        if (rbKadin.Checked)
-                        {
-                            userDetail.Gender = "Female";
-                        }
-                        else if (rbErkek.Checked)
-                        {
-                            userDetail.Gender = "Male";
-                        }
-                        userDetail.Job = txtMeslek.Text;
-                        userDetail.Birthdate = dtDogumTarih.Value;
-                        userDetail.Height = (double)numBoy.Value;
-                        userDetail.Weight = (double)numKilo.Value;
-                        userDetail.NeckWidth = (double)nudNeck.Value;
-                        userDetail.WaistWidth = (double)nudWaist.Value;
-                        userDetail.HipWidth = (double)nudHip.Value;
-                        string gender="";
-                        if (rbErkek.Checked) gender = "Male";
-                        else if (rbKadin.Checked) gender = "Female";
-                        userDetail.BodyFatRate =CalculateUserFatRate(numKilo.Value, numBoy.Value,gender,dtDogumTarih.Value);
-                        userDetail.BodyMassIndex = CalculateUserBMI(numKilo.Value,numBoy.Value);
-
-                        if (userDetailServices.AddUserDetail(userDetail))
-                        {
-                            MessageBox.Show("Kullanıcı bilgileri eklendi");
-                        }
+                       
                     }
-
-                    //  }
-                    // else MessageBox.Show("Lütfen kullanıcı sözleşmesini okuduktan sonra onaylayınız");
+                                        
                     else if (state == true)
                     {
                         user.Name = txtAd.Text;
@@ -159,15 +172,16 @@ namespace UIFEDiet
                         user.UserDetail.WaistWidth = (double)nudWaist.Value;
                         user.UserDetail.HipWidth = (double)nudHip.Value;
                         user.UserDetail.UserDetailID = user.UserID;
+                        user.UserDetail.UserSituation = cbSpecialSit.Text;
 
-                        if (userServices.UpdateUser(user)) MessageBox.Show("Kullanıcı güncellendi");
+                        if (userServices.UpdateUser(user)) MessageBox.Show("User is updated");
                         if (userDetailServices.UpdateUserDetail(user.UserDetail))
                         {
-                            MessageBox.Show("Kullanıcı bilgileri güncellendi");
+                            MessageBox.Show("User informations are updated");
                         }
                     }
                 }
-                else MessageBox.Show("13 yaşından küçükler sisteme kayıt olamaz");
+                else MessageBox.Show("People under the age 12 cannot register");
 
 
 
@@ -241,5 +255,16 @@ namespace UIFEDiet
             Form1 frm = new Form1();
             frm.Show();
         }
+
+        private void cbSpecialSit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSpecialSit.SelectedIndex == 1)
+            {
+                lblPregnancy.Visible = true;
+                dtPregnancy.Visible = true;
+            }
+        }
+
+
     }
 }

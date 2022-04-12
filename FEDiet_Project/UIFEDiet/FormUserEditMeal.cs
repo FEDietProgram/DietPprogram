@@ -101,7 +101,7 @@ namespace UIFEDiet
         public void Clear()
         {
             cbMeal.SelectedIndex = cbFood.SelectedIndex = cbPorsion.SelectedIndex = -1;
-            nudQty.Value = 0;
+            nudQty.Value = 1;
             pbFood.Image = null;
             lbFoods.Items.Clear();
 
@@ -115,26 +115,32 @@ namespace UIFEDiet
             {
                 if (meal != null)
                 {
-                    if (cbFood.SelectedIndex != -1)
+                    if (nudQty.Value > 0 && cbPorsion.SelectedIndex > 0)
                     {
-                        Food food = (Food)cbFood.SelectedItem;
-                        food.Portion = cbPorsion.Text;
-                        food.Quantity = (double)nudQty.Value;
-                        foodServices.UpdateFoodForUser(food);
-                        foodList = AddFoodsToList(food);//***
-                    }
-                    else
-                    {
-                        MessageBox.Show("Please choose a food");
-                    }
+                        if (cbFood.SelectedIndex != -1)
+                        {
+                            Food food = (Food)cbFood.SelectedItem;
+                            food.Portion = cbPorsion.Text;
+                            food.Quantity = (double)nudQty.Value;
+                            foodServices.UpdateFoodForUser(food);
+                            foodList = AddFoodsToList(food);
+                            foodServices.DefaultFood(food);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please choose a food");
+                        }
 
-                    lbFoods.Items.Clear();
-                    foreach (var item in foodList)
-                    {
-                        lbFoods.Items.Add(item.FoodName);
+                        lbFoods.Items.Clear();
+                        foreach (var item in foodList)
+                        {
+                            lbFoods.Items.Add(item.FoodName);
+                        }
                     }
+                    else MessageBox.Show("Please enter portion and quantity");
+                  
                 }
-                else MessageBox.Show("Öğün oluşturduktan sonra yemek ekleyiniz");
+                else MessageBox.Show("First create meal than add food in it");
                 
                                 
             }
@@ -159,11 +165,11 @@ namespace UIFEDiet
                 meal.MealTime = DateTime.Now;
 
                 if (mealServices.AddUserMeal(user, meal))
-                { MessageBox.Show("öğün oluştu"); }
+                { MessageBox.Show("Meal is created"); }
             }
             else
             {
-                MessageBox.Show("Öğün seçiniz.");
+                MessageBox.Show("Plaese choose a meal");
             }
 
         }
@@ -174,76 +180,37 @@ namespace UIFEDiet
             if (foodList.Count>0)
             {
                 if (mealServices.CreateMeal(meal, foodList))
-                { MessageBox.Show("yemek eklendi"); }
+                { MessageBox.Show("Food is added"); }
 
                 FillListView();
    
             }
             else
             {
-                MessageBox.Show("Lütfen bir yiyecek seçiniz");
+                MessageBox.Show("Please choose a food");
             }
             Clear();
 
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
+
             try
             {
-                //foodServices = new FoodServices();
-                //int foodid = (int)lvMeals.SelectedItems[0].Tag; // food
-                //int updatedfoodid = (int)cbFood.SelectedValue;
-
-                //Food food = foodServices.GetFoodbyId(foodid);
-                //food.Portion = cbPorsion.Text;
-                //food.Quantity = (double)nudQty.Value;
-                //int mealid =mealServices.MealIdByName(cbMeal.Text, user);
-                //Meal meal = mealServices.GetMealByID(mealid);
+            
                 int id = (int)lvMeals.SelectedItems[0].Tag;
                 Food food = foodServices.GetFoodbyId(id);
                 int mealid = mealServices.MealIdByName(cbMeal.Text, user);
                 Meal meal = mealServices.GetMealByID(mealid);
+                Food newfood = (Food)cbFood.SelectedItem;
+                newfood.Portion = cbPorsion.Text;
+                newfood.Quantity = (double)nudQty.Value;
 
-                if (foodServices.RemoveFoodFromUser(user, id))
+                if (foodServices.UpdateFoodByUser(user, meal, food, newfood))
                 {
-
-                    bool deleted = false;
-                    if (foodServices.FoodsOfMeal(meal, meal.MealTime, user).Count == 0)
-                    {
-                        deleted = true;
-
-                    }
-                    if (deleted == true)
-                    {
-                        Food _food = (Food)cbFood.SelectedItem;
-                        _food.Portion = cbPorsion.Text;
-                        _food.Quantity = (double)nudQty.Value;
-                        if (foodServices.UpdateFoodForUser(_food))
-                        {
-                            foodList = AddFoodsToList(_food);
-                            if (mealServices.CreateMeal(meal, foodList))
-                            {
-                                MessageBox.Show("yemek güncellendi");
-                                FillListView();
-                            }
-                        }                       
-                    }
+                    MessageBox.Show("Food is updated");
                 }
-
-                //if (foodServices.UpdateFoodOfUser(user,id,food))
-                //{
-                //    MessageBox.Show("yemek güncelelndi");
-                //}
-                //else MessageBox.Show("yemek güncellenemedi");
-                //FillListView();
-
-                //if(cbMeal.Text!=meal.MealName)
-                //{                   
-                //    if(mealServices.UpdateMealOfUser(user, meal))
-                //    {
-                //        MessageBox.Show("yemek güncellendi");
-                //    }
-                //}
                 Clear();
             }
             catch (Exception ex)
@@ -263,7 +230,7 @@ namespace UIFEDiet
 
                   if (foodServices.RemoveFoodFromUser(user, id))
                   {                   
-                        MessageBox.Show("yemek silindi");
+                        MessageBox.Show("Food is deleted");
                           FillListView();
 
                          if (foodServices.FoodsOfMeal(meal, meal.MealTime, user).Count == 0)
@@ -279,7 +246,7 @@ namespace UIFEDiet
                   
                         
                   }
-                  else MessageBox.Show("yemek silinemedi");
+                  else MessageBox.Show("Food could not been deleted");
                 Clear();
             }
             catch (Exception ex)
@@ -292,10 +259,9 @@ namespace UIFEDiet
         {
             try
             {
-                //if (cbMealName.SelectedIndex > 0 && user.Meals.Contains(cbMealName.SelectedItem))
-                //{
+                
                 lvMeals.Items.Clear();
-                List<Meal> mealList; //= new List<Meal>();
+                List<Meal> mealList; 
                 mealList = mealServices.GetMealsByDate(dtpDate.Value, user, cbMealName.Text);
 
                 foreach (Meal meal in mealList)
@@ -311,9 +277,8 @@ namespace UIFEDiet
                         list.SubItems.Add((food.CaloryPerOnePortion * food.Quantity).ToString());
                         lvMeals.Items.Add(list);
                     }
-
                 }
-                //  }
+       
             }
             catch (Exception ex)
             {

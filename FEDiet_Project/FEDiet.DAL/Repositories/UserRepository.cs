@@ -97,8 +97,7 @@ namespace FEDiet.DAL.Repositories
             return db.SaveChanges()>0;
         }
 
-      
-      
+   
         public double UserProteinRate(DateTime day, User _user)
         {
             double proteinrate = 0;

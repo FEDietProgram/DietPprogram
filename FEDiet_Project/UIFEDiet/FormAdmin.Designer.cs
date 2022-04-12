@@ -63,6 +63,8 @@
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAdminExit = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbFoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoodPic)).BeginInit();
@@ -416,7 +418,7 @@
             this.btnReports.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnReports.FlatAppearance.BorderSize = 0;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Location = new System.Drawing.Point(24, 612);
+            this.btnReports.Location = new System.Drawing.Point(68, 612);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(82, 46);
             this.btnReports.TabIndex = 15;
@@ -440,12 +442,32 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 627);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Reports";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(369, 627);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 17);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Exit";
+            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(500, 661);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReports);
             this.Controls.Add(this.gbFoods);
             this.Controls.Add(this.groupBox2);
@@ -458,7 +480,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAdmin";
+            this.Text = "Admin Main";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -472,6 +494,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -512,5 +535,7 @@
         private System.Windows.Forms.PictureBox pbFoodPic;
         private System.Windows.Forms.Button btnFoodPic;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

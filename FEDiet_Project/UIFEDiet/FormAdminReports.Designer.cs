@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,12 +75,22 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(370, 633);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Back";
+            // 
             // FormAdminReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvReport);
             this.Controls.Add(this.label1);
@@ -88,7 +99,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "FormAdminReports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = "Admin Reports";
             this.Load += new System.EventHandler(this.FormAdminReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.ResumeLayout(false);
@@ -102,5 +113,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvReport;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label2;
     }
 }

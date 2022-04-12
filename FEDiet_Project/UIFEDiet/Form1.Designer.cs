@@ -31,9 +31,11 @@
             this.lblBaslik = new System.Windows.Forms.Label();
             this.btnKayit = new System.Windows.Forms.Button();
             this.btnGiris = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPregnancy = new System.Windows.Forms.Button();
+            this.btnDiabetes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblBaslik
@@ -80,17 +82,6 @@
             this.btnGiris.UseVisualStyleBackColor = false;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UIFEDiet.Properties.Resources.M0NA;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 235);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -101,6 +92,54 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "EAT WELL LIVE WELL";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana Pro Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(3, 326);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(206, 14);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "For people who has diabetes";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana Pro Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(12, 216);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 14);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "About pregnancy diet";
+            // 
+            // btnPregnancy
+            // 
+            this.btnPregnancy.BackColor = System.Drawing.Color.Transparent;
+            this.btnPregnancy.BackgroundImage = global::UIFEDiet.Properties.Resources.pregnant_100px;
+            this.btnPregnancy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPregnancy.FlatAppearance.BorderSize = 0;
+            this.btnPregnancy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregnancy.Location = new System.Drawing.Point(97, 236);
+            this.btnPregnancy.Name = "btnPregnancy";
+            this.btnPregnancy.Size = new System.Drawing.Size(73, 60);
+            this.btnPregnancy.TabIndex = 11;
+            this.btnPregnancy.UseVisualStyleBackColor = false;
+            this.btnPregnancy.Click += new System.EventHandler(this.btnPregnancy_Click);
+            // 
+            // btnDiabetes
+            // 
+            this.btnDiabetes.BackColor = System.Drawing.Color.Transparent;
+            this.btnDiabetes.BackgroundImage = global::UIFEDiet.Properties.Resources.sugar_free_40px;
+            this.btnDiabetes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDiabetes.FlatAppearance.BorderSize = 0;
+            this.btnDiabetes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiabetes.Location = new System.Drawing.Point(12, 343);
+            this.btnDiabetes.Name = "btnDiabetes";
+            this.btnDiabetes.Size = new System.Drawing.Size(45, 47);
+            this.btnDiabetes.TabIndex = 12;
+            this.btnDiabetes.UseVisualStyleBackColor = false;
+            this.btnDiabetes.Click += new System.EventHandler(this.btnDiabetes_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
@@ -108,8 +147,11 @@
             this.BackgroundImage = global::UIFEDiet.Properties.Resources.projeArkaPLan1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnDiabetes);
+            this.Controls.Add(this.btnPregnancy);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblBaslik);
             this.Controls.Add(this.btnKayit);
             this.Controls.Add(this.btnGiris);
@@ -117,9 +159,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,8 +171,11 @@
         private System.Windows.Forms.Label lblBaslik;
         private System.Windows.Forms.Button btnKayit;
         private System.Windows.Forms.Button btnGiris;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPregnancy;
+        private System.Windows.Forms.Button btnDiabetes;
     }
 }
 

@@ -44,5 +44,22 @@ namespace UIFEDiet
             this.Hide();
             frmSginIn.ShowDialog();
         }
+
+
+        private void btnDiabetes_Click(object sender, EventArgs e)
+        {
+            FormDiabetes frmDiabetes = new FormDiabetes();
+            this.Hide();
+            frmDiabetes.Show();
+        }
+
+        private void btnPregnancy_Click(object sender, EventArgs e)
+        {
+            FormPregnancy frm = new FormPregnancy();
+            this.Hide();
+            frm.Show();
+        }
+
+
     }
 }

@@ -58,6 +58,13 @@ namespace FEDiet.DAL.Repositories
             age = DateTime.Now.Year - birth.Year;
             return age;
         }
+        public int CalculatePregnancyWeek(UserDetail userDetail)
+        {
+            int weeks = Convert.ToInt32((DateTime.Now - (DateTime)userDetail.PregnancyStartDate).TotalDays / 7);
+            return weeks ;
+           
+        }
+
 
         //public UserDetail FillUserDetailByUser(User user)
         //{

@@ -55,6 +55,7 @@
     <Compile Include="Enums\DietType.cs" />
     <Compile Include="Enums\MealName.cs" />
     <Compile Include="Enums\Portion.cs" />
+    <Compile Include="Enums\SpecialSituation.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

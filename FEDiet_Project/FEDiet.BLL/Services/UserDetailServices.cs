@@ -56,6 +56,10 @@ namespace FEDiet.BLL.Services
             }
         }
 
+        public int CalculatePregnancyWeek(UserDetail userDetail)
+        {
+            return userDetailRepository.CalculatePregnancyWeek(userDetail);
+        }
 
         public UserDetail GetUserDetailByID(int id)
         {

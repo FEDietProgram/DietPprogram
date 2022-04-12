@@ -23,11 +23,9 @@ namespace UIFEDiet
 
         private void FormAdminReports_Load(object sender, EventArgs e)
         {
-            cbReports.Items.Add("Kalorilerine Göre Kullanıcılar");
-            cbReports.Items.Add("Tüketilme Sıklığına Göre Yiyecekler");
-            cbReports.Items.Add("Öğünlere Göre Toplam Kalori");
-            cbReports.Items.Add("Kilolarına Göre Kullanıcılar");       
-            cbReports.Items.Add("Mesleklere Göre En Çok Tüketilen Yiyecekler");
+           
+            cbReports.Items.Add("Total Calory According To Meals");
+            cbReports.Items.Add("Users According To User Weight");       
 
         }
 
@@ -35,11 +33,10 @@ namespace UIFEDiet
         {
             switch (cbReports.SelectedIndex)
             {
-                case 0: dgvReport.DataSource = adminServices.UserListbyCalorie(); break;
-                case 1: dgvReport.DataSource = adminServices.UserMostConsumedFoods(); break;
-                case 2: dgvReport.DataSource = adminServices.MealListbyCal(); break;
-                case 3: dgvReport.DataSource = adminServices.UserListbyWeight(); break;
-                case 4: dgvReport.DataSource = adminServices.MostConsumedFoodsAccordingToJobs(); break;
+           
+                case 0: dgvReport.DataSource = adminServices.MealListbyCal(); break;
+                case 1: dgvReport.DataSource = adminServices.UserListbyWeight(); break;
+                
 
             }
         }

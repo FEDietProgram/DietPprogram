@@ -52,6 +52,12 @@
             this.lblDailyCalory = new System.Windows.Forms.Label();
             this.lblWeight = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSpecialSit = new System.Windows.Forms.Label();
+            this.btnInformation = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
@@ -59,6 +65,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -204,14 +211,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Meal";
+            this.columnHeader1.Width = 70;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Calorie";
+            this.columnHeader2.Width = 82;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Meal Time";
+            this.columnHeader3.Width = 101;
             // 
             // columnHeader4
             // 
@@ -221,6 +231,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Portion";
+            this.columnHeader5.Width = 75;
             // 
             // columnHeader6
             // 
@@ -270,6 +281,66 @@
             this.label3.Size = new System.Drawing.Size(133, 17);
             this.label3.TabIndex = 34;
             this.label3.Text = "Meals of today:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(329, 387);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Refresh";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(325, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Settings";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(347, 620);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Exit";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblSpecialSit);
+            this.groupBox1.Location = new System.Drawing.Point(272, 276);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(201, 90);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // lblSpecialSit
+            // 
+            this.lblSpecialSit.AutoSize = true;
+            this.lblSpecialSit.Font = new System.Drawing.Font("Verdana Pro Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSpecialSit.Location = new System.Drawing.Point(5, 37);
+            this.lblSpecialSit.Name = "lblSpecialSit";
+            this.lblSpecialSit.Size = new System.Drawing.Size(49, 14);
+            this.lblSpecialSit.TabIndex = 0;
+            this.lblSpecialSit.Text = "label6";
+            // 
+            // btnInformation
+            // 
+            this.btnInformation.BackgroundImage = global::UIFEDiet.Properties.Resources.information_48px;
+            this.btnInformation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInformation.FlatAppearance.BorderSize = 0;
+            this.btnInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInformation.Location = new System.Drawing.Point(394, 67);
+            this.btnInformation.Name = "btnInformation";
+            this.btnInformation.Size = new System.Drawing.Size(79, 35);
+            this.btnInformation.TabIndex = 40;
+            this.btnInformation.UseVisualStyleBackColor = true;
+            this.btnInformation.Click += new System.EventHandler(this.btnInformation_Click);
             // 
             // btnRefresh
             // 
@@ -356,6 +427,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(484, 661);
+            this.Controls.Add(this.btnInformation);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblWeight);
@@ -385,8 +461,10 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormUser";
+            this.Text = "User Main";
             this.Load += new System.EventHandler(this.FormUser_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -429,5 +507,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblSpecialSit;
+        private System.Windows.Forms.Button btnInformation;
     }
 }
